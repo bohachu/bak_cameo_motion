@@ -15,7 +15,8 @@
 <script>
 
 async function read_json(){
-    response=await fetch('http://35.194.185.192:8866/data.json');
+    response=await fetch('http://35.185.170.85:8866/data.json');
+//     response=await fetch('http://35.185.170.85:8080/files/iek/bar/data.json?_xsrf=2%7C27ffed53%7C736fd10bd34890487b5cd55177978d15%7C1595130764');
     json=await response.json();
     return json;
 }

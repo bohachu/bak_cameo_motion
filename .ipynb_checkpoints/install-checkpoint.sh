@@ -32,4 +32,7 @@
 ### jupyterlab julia 
 #julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
+#jupyter labextension install spreadsheet-editor
+#pip3 install ipywidgets
+#jupyter labextension install @jupyter-widgets/jupyterlab-manager
 

@@ -148,3 +148,101 @@ TermSocket.open: Opened 1
 [I 16:07:29.731 LabApp] New terminal with automatic name: 1
 TermSocket.open: 1
 TermSocket.open: Opened 1
+[I 16:08:25.723 LabApp] Saving file at /README.md
+[I 16:08:45.354 LabApp] Saving file at /README.md
+[I 16:08:58.808 LabApp] Saving file at /README.md
+[I 16:09:18.417 LabApp] Saving file at /README.md
+[I 16:09:40.726 LabApp] Saving file at /README.md
+[I 16:09:46.604 LabApp] Saving file at /README.md
+[I 16:10:05.214 LabApp] Kernel started: 10b158f3-5c65-4d0d-9773-a31308a4d03f, name: python3
+[I 16:10:17.782 LabApp] Creating new notebook in 
+[I 16:10:18.004 LabApp] Kernel started: 88bf4825-8f4e-4e58-a478-168c63cb56f9, name: python3
+[I 16:10:20.808 LabApp] Starting buffering for 88bf4825-8f4e-4e58-a478-168c63cb56f9:cff6405b-6174-452f-9a8f-fa0f06d36426
+[I 16:11:47.601 LabApp] Kernel shutdown: a1414d5b-f13e-4d9b-9f59-5298fda9f42b
+[I 16:11:48.008 LabApp] Kernel shutdown: 88bf4825-8f4e-4e58-a478-168c63cb56f9
+[I 16:12:30.981 LabApp] Starting buffering for 10b158f3-5c65-4d0d-9773-a31308a4d03f:2f0c5952-8458-449b-a60e-aa9e36a7553a
+[I 16:12:30.983 LabApp] Kernel shutdown: 10b158f3-5c65-4d0d-9773-a31308a4d03f
+[I 16:13:13.208 LabApp] New terminal with automatic name: 2
+TermSocket.open: 2
+TermSocket.open: Opened 2
+[I 16:14:18.912 LabApp] Saving file at /iek/bar/view.html
+[I 16:16:08.798 LabApp] Creating new notebook in /iek/bar
+[I 16:16:09.059 LabApp] Kernel started: 23fb11cd-f5bf-4801-9c7b-59246c28733d, name: python3
+[I 16:18:09.015 LabApp] Saving file at /iek/bar/Untitled1.ipynb
+[I 16:22:27.312 LabApp] Starting buffering for 23fb11cd-f5bf-4801-9c7b-59246c28733d:1b03fe47-d1d7-4d45-9d01-3c79b8ece643
+[I 16:22:34.197 LabApp] Creating new notebook in /iek/bar
+[I 16:22:34.438 LabApp] Kernel started: 0fd7cc8b-5a3e-4b44-a83c-af941058884c, name: python3
+[I 16:23:50.348 LabApp] Kernel started: 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445, name: python3
+[I 16:23:57.285 LabApp] Saving file at /iek/bar/Untitled2.ipynb
+[I 16:23:58.593 LabApp] Starting buffering for 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445:ded34607-1b2b-46fe-a912-f8d1333d6b55
+[I 16:23:58.595 LabApp] Kernel shutdown: 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445
+[I 16:23:59.035 LabApp] Kernel started: 4eb669ae-a5cf-4824-bd0d-6e6f595b2311, name: python3
+[I 16:24:02.975 LabApp] Starting buffering for 4eb669ae-a5cf-4824-bd0d-6e6f595b2311:0e86dbdf-9b0b-4712-bc46-9ac5e3cb5e26
+[I 16:24:02.979 LabApp] Kernel shutdown: 4eb669ae-a5cf-4824-bd0d-6e6f595b2311
+[I 16:24:07.408 LabApp] Kernel started: 705a9380-6cee-4fc7-9af7-fd063d0dd197, name: python3
+[I 16:24:28.818 LabApp] Saving file at /iek/bar/Untitled2.ipynb
+[I 16:25:07.865 LabApp] Starting buffering for 0fd7cc8b-5a3e-4b44-a83c-af941058884c:07eab8f3-1ba9-4add-a6d1-c8f8e1e807a5
+[I 16:25:59.018 LabApp] Creating new notebook in /iek/bar
+[I 16:25:59.322 LabApp] Kernel started: 43937f72-d434-4093-9933-eb11247c1691, name: python3
+[I 16:26:55.668 LabApp] Saving file at /iek/bar/gen.ipynb
+[I 16:27:22.519 LabApp] Creating new notebook in /iek/bar
+[I 16:27:22.815 LabApp] Kernel started: f060ed82-e75e-4a1c-9695-ad549254c42b, name: julia-1.5
+[I 16:27:32.197 LabApp] Adapting from protocol version 5.0 (kernel f060ed82-e75e-4a1c-9695-ad549254c42b) to 5.3 (client).
+[I 16:27:54.227 LabApp] Build is up to date
+[I 16:27:55.527 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
+[I 16:27:57.171 LabApp] Build is up to date
+-\|/-\|/-\|/-\|/-\|/[I 16:28:04.206 LabApp] Build is up to date
+[I 16:28:05.998 LabApp] Build is up to date
+[I 16:28:09.691 LabApp] Starting buffering for f060ed82-e75e-4a1c-9695-ad549254c42b:7b4e3bfb-9fe9-4fbc-a3bb-b77d52fc62ce
+[I 16:28:11.150 LabApp] Starting buffering for 43937f72-d434-4093-9933-eb11247c1691:a606a2b7-56b7-44a6-a2d7-61ba097d06c5
+[I 16:28:13.785 LabApp] Creating new notebook in /iek/bar
+[I 16:28:14.010 LabApp] Kernel started: 0ba741e7-72ee-4290-9b1a-c86a0705fe42, name: python3
+[I 16:28:38.662 LabApp] Starting buffering for 705a9380-6cee-4fc7-9af7-fd063d0dd197:f684bfa0-0350-4fa0-9be5-269eb35cec30
+[I 16:28:38.664 LabApp] Kernel shutdown: 705a9380-6cee-4fc7-9af7-fd063d0dd197
+-\|/-\|/-\|/-\|/-\|/-\[W 16:29:41.017 LabApp] Build recommended
+[W 16:29:41.017 LabApp] spreadsheet-editor needs to be included in build
+[I 16:29:46.298 LabApp] Building jupyterlab assets (build:dev)
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 16:30:14.218 LabApp] Saving file at /iek/bar/Untitled4.ipynb
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|Websocket closed
+[I 16:31:05.624 LabApp] Starting buffering for 0ba741e7-72ee-4290-9b1a-c86a0705fe42:6c7456cf-d3bf-4964-ad95-9942d2d40d28
+Websocket closed
+[I 16:31:11.635 LabApp] Build is up to date
+[I 16:31:14.978 LabApp] Starting buffering for 0ba741e7-72ee-4290-9b1a-c86a0705fe42:61549be2-2f48-48cd-866b-d9a0e2db8e93
+[I 16:31:16.149 LabApp] Creating new notebook in /iek/bar
+[I 16:31:16.397 LabApp] Kernel started: 5b0a5d1e-0409-4438-972a-806853f47afc, name: python3
+[I 16:31:39.999 LabApp] Creating new notebook in /iek/bar
+[I 16:31:40.251 LabApp] Kernel started: 15fe2a71-b28a-4bc3-9bfc-4023605599ff, name: python3
+[I 16:33:34.090 LabApp] Build is up to date
+[I 16:33:41.232 LabApp] Saving file at /iek/bar/Untitled6.ipynb
+[W 16:33:55.973 LabApp] Blocking request with no referer
+[W 16:33:55.973 LabApp] 403 GET /files/iek/bar/data.csv (111.240.174.108): Blocking request from unknown origin
+[W 16:33:55.995 LabApp] 403 GET /files/iek/bar/data.csv (111.240.174.108) 22.91ms referer=None
+[I 16:34:55.265 LabApp] Saving file at /iek/bar/view.html
+[I 16:35:03.822 LabApp] 302 GET /files/iek/bar/data.json?_xsrf=2%7C27ffed53%7C736fd10bd34890487b5cd55177978d15%7C1595130764 (111.240.174.108) 1.06ms
+[I 16:35:14.275 LabApp] Saving file at /iek/bar/view.html
+[I 16:36:21.313 LabApp] Saving file at /install.sh
+[I 16:36:56.537 LabApp] New terminal with automatic name: 3
+TermSocket.open: 3
+TermSocket.open: Opened 3
+[I 16:39:00.173 LabApp] New terminal with automatic name: 4
+[I 16:39:00.334 LabApp] Kernel shutdown: 23fb11cd-f5bf-4801-9c7b-59246c28733d
+[I 16:39:01.306 LabApp] Kernel shutdown: 0fd7cc8b-5a3e-4b44-a83c-af941058884c
+[I 16:39:01.612 LabApp] Kernel shutdown: 43937f72-d434-4093-9933-eb11247c1691
+[I 16:39:01.919 LabApp] Kernel shutdown: f060ed82-e75e-4a1c-9695-ad549254c42b
+[I 16:39:06.949 LabApp] Kernel shutdown: 15fe2a71-b28a-4bc3-9bfc-4023605599ff
+TermSocket.open: 4
+TermSocket.open: Opened 4
+[I 16:39:07.360 LabApp] Kernel shutdown: 0ba741e7-72ee-4290-9b1a-c86a0705fe42
+[I 16:39:07.763 LabApp] Kernel shutdown: 5b0a5d1e-0409-4438-972a-806853f47afc
+[I 16:42:05.710 LabApp] Creating new notebook in 
+[I 16:42:06.037 LabApp] Kernel started: 46f36c2d-9d84-4c8a-b0f3-ba0cef20b3fc, name: python3
+[I 16:42:23.652 LabApp] Saving file at /Untitled1.ipynb
+[I 16:43:27.649 LabApp] Creating new file in 
+[I 16:43:53.112 LabApp] Saving file at /cameo_motion.py
+[I 16:44:10.033 LabApp] Saving file at /Untitled1.ipynb
+[I 16:44:33.590 LabApp] Saving file at /Untitled1.ipynb
+[I 16:44:50.656 LabApp] Saving file at /ui.ipynb
+[I 16:46:07.100 LabApp] Saving file at /install.sh
+[I 16:46:08.371 LabApp] Saving file at /install.sh
+[I 16:46:14.660 LabApp] Saving file at /install.sh
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.

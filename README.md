@@ -1,5 +1,39 @@
+== 2020-10-25 00:08 Bowen Chiu ==
+如果可以實驗的話，希望能夠把 voila 加入「數據動圖」製程當中
+
 == 2020-10-25 22:44 Bowen Chiu ==
 希望可以透過 js url 直接讀取 tornado csv 檔案而不需要透過其他的方法 genie server 之類的
+2020-10-26 00:07:55 應該沒有成功，反而還造成 voila preview 失效了，需要 pip3 uninstall jupyterlab 重新安裝
+沒有成功的程式碼在下面
+
+### jupyterlab server extension example
+#cd ~
+#pip3 install --user cookiecutter
+### 要看這邊的文章做相關設定 https://github.com/jupyterlab/extension-examples/tree/master/advanced/server-extension
+# cookiecutter https://github.com/jupyterlab/extension-cookiecutter-ts
+# jlpm add @jupyterlab/services
+# jlpm add @jupyterlab/coreutils
+# sudo chmod 777 /usr/local/lib/python3.7/dist-packages/
+# cd ~/cameo_motion_extension/
+# pip3 install -e .
+# jupyter serverextension enable --py cameo_motion_extension
+
+# # Install server extension in editable mode
+# cd ~/cameo_motion_extension/
+# pip3 install -e .
+# # Register server extension
+# jupyter serverextension enable --py cameo_motion_extension
+# # Install dependencies
+# jlpm
+# # Build Typescript source
+# jlpm build
+# # Install your development version of the extension with JupyterLab
+# jupyter labextension install .
+# # Rebuild Typescript source after making changes
+# jlpm build
+# # Rebuild JupyterLab after making any changes
+# jupyter lab build
+
 
 == 2020-10-25 22:32 Bowen Chiu ==
 voila jupyterlab 已經整合成功
