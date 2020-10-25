@@ -4,8 +4,11 @@
 #sudo apt-get -y install python3-pip
 #pip3 install jupyterlab
 
-### install julia
+### please use google cloud platform SSH to install
+### jupyterlab's terminal can not install (sudo permission problem)
 #sudo apt-get -y install wget
+
+### install julia
 #cd ~
 #wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.2-linux-x86_64.tar.gz
 #tar xvfz julia-1.5.2-linux-x86_64.tar.gz
@@ -16,4 +19,4 @@
 #julia -e 'import Pkg; Pkg.add("Genie"); using Genie;'
 
 ### install pandas
-pip3 install pandas
+#pip3 install pandas
