@@ -1,0 +1,150 @@
+[I 15:48:52.576 LabApp] Registered HelloWorld extension at URL path /cameo_motion_extension
+[W 15:48:53.141 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 15:48:54.105 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 15:48:54.106 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 15:48:54.110 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 15:48:54.110 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 15:48:54.110 LabApp] http://cameo-motion-bowen:8080/
+[I 15:48:54.110 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 15:48:54.130 LabApp] No web browser found: could not locate runnable browser.
+[I 15:49:13.174 LabApp] 302 GET / (111.240.174.108) 1.42ms
+-\|/-\|/-\|/[W 15:49:17.623 LabApp] 404 GET /api/contents/cameo_motion/install.sh?content=0&1603640956219 (111.240.174.108): No such file or directory: cameo_motion/install.sh
+[W 15:49:17.623 LabApp] No such file or directory: cameo_motion/install.sh
+[W 15:49:17.624 LabApp] 404 GET /api/contents/cameo_motion/install.sh?content=0&1603640956219 (111.240.174.108) 3.52ms referer=http://35.185.170.85:8080/lab?
+[W 15:49:17.624 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension/handlers.py?content=0&1603640956220 (111.240.174.108): No such file or directory: cameo_motion_extension/cameo_motion_extension/handlers.py
+[W 15:49:17.625 LabApp] No such file or directory: cameo_motion_extension/cameo_motion_extension/handlers.py
+[W 15:49:17.625 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension/handlers.py?content=0&1603640956220 (111.240.174.108) 3.87ms referer=http://35.185.170.85:8080/lab?
+-\[W 15:49:17.810 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension?1603640957795 (111.240.174.108): No such file or directory: cameo_motion_extension/cameo_motion_extension
+[W 15:49:17.810 LabApp] No such file or directory: cameo_motion_extension/cameo_motion_extension
+[W 15:49:17.811 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension?1603640957795 (111.240.174.108) 1.36ms referer=http://35.185.170.85:8080/lab?
+|/-[W 15:49:18.114 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 221.35ms referer=None
+[W 15:49:18.174 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 1.46ms referer=None
+\|[W 15:49:18.374 LabApp] Failed to fetch package metadata for 'cameo-motion-extension': <HTTPError 404: 'Not Found'>
+/-\|/-\|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-[W 15:49:39.425 LabApp] Build recommended
+[W 15:49:39.426 LabApp] cameo-motion-extension needs to be included in build
+[W 15:49:39.426 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
+[I 15:50:04.786 LabApp] Creating new notebook in 
+[I 15:50:05.294 LabApp] Kernel started: f3069512-da3d-4143-8f7f-d0a8e94934f7, name: python3
+[I 15:50:29.510 LabApp] Uninstalling core extension cameo-motion-extension
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[W 15:50:49.103 LabApp] Build recommended
+[W 15:50:49.103 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
+[I 15:50:59.715 LabApp] Building jupyterlab assets (build:dev)
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 15:51:36.030 LabApp] Saving file at /install.sh
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 15:51:56.973 LabApp] Creating new notebook in 
+|/-\|[I 15:51:57.413 LabApp] Kernel started: b02adc72-df45-47a1-bfdc-b845b010f44d, name: julia-1.5
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/[I 15:52:05.116 LabApp] Saving file at /Untitled.ipynb
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/--\|/-\|/-[I 15:52:26.268 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
+[I 15:52:26.324 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
+\[I 15:52:26.383 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
+|/-\|/-\|/-\|/-\|/-\|/--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[W 15:52:34.919 LabApp] Build failed, running a clean and rebuild
+[I 15:52:34.922 LabApp] Cleaning /home/bohachu/.local/share/jupyter/lab...
+[W 15:52:34.923 LabApp] 500 POST /lab/api/build?1603641058197 (111.240.174.108): 'AppOptions' object has no attribute 'all'
+[W 15:52:34.923 LabApp] 'AppOptions' object has no attribute 'all'
+[E 15:52:34.923 LabApp] {
+      "Host": "35.185.170.85:8080",
+      "Connection": "keep-alive",
+      "Content-Length": "0",
+      "X-Xsrftoken": "2|27ffed53|736fd10bd34890487b5cd55177978d15|1595130764",
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+      "Content-Type": "application/json",
+      "Accept": "*/*",
+      "Origin": "http://35.185.170.85:8080",
+      "Referer": "http://35.185.170.85:8080/lab?",
+      "Accept-Encoding": "gzip, deflate",
+      "Accept-Language": "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7",
+      "Cookie": "_xsrf=2|27ffed53|736fd10bd34890487b5cd55177978d15|1595130764; oc_sessionPassphrase=Ex7xnSnbceDuw5pDOii7Cw1O3LRpDtudAN4WsVRrz0kQjk52lGOEnvYzUTtFYRmAFsIS2TsMktVFrHca2fV2oohdCEF9b2mRkaAcZAlLVCIQdAiw4KgpvAanVhIyopP8; nc_sameSiteCookielax=true; nc_sameSiteCookiestrict=true; oc9s0w2e67p0=2bbc9413450ba17597ee8f9f65acfde4; username-35-185-170-85-8080=\"2|1:0|10:1603635189|27:username-35-185-170-85-8080|44:YzE5ODk5MTJhNzM4NGNiMThmYmI5OWE1M2Y5YzAxOWQ=|352122848b41f7bb5dd20e27837b0daaff881605b7dcb2233b28a2f255fe11ba\""
+    }
+[E 15:52:34.923 LabApp] 500 POST /lab/api/build?1603641058197 (111.240.174.108) 96710.65ms referer=http://35.185.170.85:8080/lab?
+[I 15:52:48.366 LabApp] Uninstalling cameo-motion-extension from /home/bohachu/.local/share/jupyter/lab/extensions
+[W 15:52:50.014 LabApp] Build recommended
+[W 15:52:50.014 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
+[I 15:52:54.322 LabApp] Uninstalling core extension @jupyter-voila/jupyterlab-preview
+[I 15:52:56.172 LabApp] Build is up to date
+-\|/-\|/-\|/-\|-\|/-\|/-\|/-\|/[I 15:53:19.464 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
+[I 15:53:21.114 LabApp] Build is up to date
+-\|/-\|/-\|/-\|[I 15:53:57.308 LabApp] Saving file at /Untitled1.ipynb
+[I 15:53:57.617 LabApp] Build is up to date
+[I 15:54:06.428 LabApp] Creating new notebook in 
+[I 15:54:06.668 LabApp] Kernel started: 2ba44056-9c33-445e-a457-3f3f7a579cb1, name: python3
+[I 15:54:10.735 LabApp] New terminal with automatic name: 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 15:56:06.629 LabApp] Saving file at /Untitled2.ipynb
+[I 15:56:12.671 LabApp] Saving file at /install.sh
+[I 15:56:28.015 LabApp] Starting buffering for 2ba44056-9c33-445e-a457-3f3f7a579cb1:2dbb1143-980e-429f-b76e-f2f646b0426f
+[I 15:56:34.166 LabApp] Creating new notebook in 
+[I 15:56:34.490 LabApp] Kernel started: abd744fd-efbf-4162-ad5a-298e73317caa, name: python3
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/[I 15:56:53.147 LabApp] Starting buffering for abd744fd-efbf-4162-ad5a-298e73317caa:07f168ca-7e62-4a0c-ab9c-f8f9522fa14e
+[I 15:56:54.225 LabApp] Creating new notebook in 
+[I 15:56:54.426 LabApp] Kernel started: 2d3295d7-7feb-444f-b874-92a4be8cecd9, name: python3
+[I 15:56:57.589 LabApp] Starting buffering for 2d3295d7-7feb-444f-b874-92a4be8cecd9:e7d0a0d6-59a1-4b7b-9442-4e12232bd595
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+[I 15:57:16.109 LabApp] Registered HelloWorld extension at URL path /cameo_motion_extension
+[W 15:57:16.206 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 15:57:17.231 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 15:57:17.232 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 15:57:17.236 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 15:57:17.236 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 15:57:17.236 LabApp] http://cameo-motion-bowen:8080/
+[I 15:57:17.237 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 15:57:17.264 LabApp] No web browser found: could not locate runnable browser.
+[W 15:57:17.714 LabApp] 404 GET /api/kernels/b02adc72-df45-47a1-bfdc-b845b010f44d/channels?session_id=2d58499f-8286-48cb-a5d3-1661bbbc2887 (111.240.174.108): Kernel does not exist: b02adc72-df45-47a1-bfdc-b845b010f44d
+[W 15:57:17.798 LabApp] 404 GET /api/kernels/b02adc72-df45-47a1-bfdc-b845b010f44d/channels?session_id=2d58499f-8286-48cb-a5d3-1661bbbc2887 (111.240.174.108) 86.63ms referer=None
+[W 15:57:19.678 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 1.74ms referer=None
+[I 15:57:27.946 LabApp] Build is up to date
+-\|/-\|/-\|[I 15:57:29.190 LabApp] Creating new notebook in 
+/-\[I 15:57:29.542 LabApp] Kernel started: 01741f9d-2384-4be8-9bc5-949ac0d2af96, name: python3
+|/[I 15:57:47.007 LabApp] Build is up to date
+[I 15:57:47.961 LabApp] Build is up to date
+[I 15:57:53.594 LabApp] Build is up to date
+[I 15:57:55.755 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
+[I 15:57:57.520 LabApp] Build is up to date
+-\|/-\|/-\|/-\|[I 15:58:17.243 LabApp] Build is up to date
+[I 15:58:23.734 LabApp] Kernel started: a1414d5b-f13e-4d9b-9f59-5298fda9f42b, name: python3
+[I 15:58:25.798 LabApp] Starting buffering for a1414d5b-f13e-4d9b-9f59-5298fda9f42b:cf9e1033-1816-4569-aed6-88a289805ec9
+[I 15:58:26.791 LabApp] Creating new notebook in 
+[I 15:58:27.001 LabApp] Kernel started: 18926a07-1951-4014-9aaf-ebd68341e550, name: python3
+[I 15:58:33.126 LabApp] Starting buffering for 18926a07-1951-4014-9aaf-ebd68341e550:d892434d-4d2f-4425-a0b7-77b2eddbfa5d
+[I 15:58:34.206 LabApp] Creating new notebook in 
+[I 15:58:34.422 LabApp] Kernel started: 86dd694c-aaed-4aba-b6a5-12ef160d0890, name: python3
+[I 15:59:10.614 LabApp] Kernel interrupted: 86dd694c-aaed-4aba-b6a5-12ef160d0890
+[I 15:59:13.682 LabApp] Starting buffering for 86dd694c-aaed-4aba-b6a5-12ef160d0890:686085ed-381b-4751-bba9-4a1323643b73
+[I 15:59:18.262 LabApp] Creating new notebook in 
+[I 15:59:18.504 LabApp] Kernel started: 8983347c-fd20-4676-9a59-f52dd2497b29, name: julia-1.5
+[I 15:59:28.414 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
+[I 15:59:28.506 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
+[I 15:59:28.562 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
+[I 15:59:50.441 LabApp] Saving file at /install.sh
+[I 16:01:19.117 LabApp] Saving file at /Untitled8.ipynb
+[I 16:04:39.190 LabApp] 302 GET / (1.229.221.76) 0.84ms
+[I 16:05:19.605 LabApp] Creating new notebook in 
+[I 16:05:19.875 LabApp] Kernel started: 6abae347-8feb-4d6a-81b6-26869b0e92f8, name: python3
+[I 16:05:27.257 LabApp] Starting buffering for 6abae347-8feb-4d6a-81b6-26869b0e92f8:e7728640-8890-428c-b057-cd7e47f199d8
+[I 16:05:34.226 LabApp] Build is up to date
+[I 16:05:46.472 LabApp] Creating new notebook in 
+[I 16:05:46.709 LabApp] Kernel started: d3077630-6e5d-4863-8570-a60f41e37212, name: python3
+[I 16:05:53.926 LabApp] Saving file at /Untitled10.ipynb
+[I 16:06:43.311 LabApp] Starting buffering for d3077630-6e5d-4863-8570-a60f41e37212:2a0be53a-0dde-4779-b32a-3f19b86f8802
+[W 16:07:09.778 LabApp] delete /Untitled.ipynb
+[W 16:07:09.864 LabApp] delete /Untitled1.ipynb
+[I 16:07:09.866 LabApp] Kernel shutdown: d3077630-6e5d-4863-8570-a60f41e37212
+[W 16:07:10.169 LabApp] delete /Untitled2.ipynb
+[W 16:07:10.170 LabApp] delete /Untitled3.ipynb
+[W 16:07:10.190 LabApp] delete /Untitled4.ipynb
+[I 16:07:10.193 LabApp] Kernel shutdown: 01741f9d-2384-4be8-9bc5-949ac0d2af96
+[I 16:07:10.497 LabApp] Kernel shutdown: 18926a07-1951-4014-9aaf-ebd68341e550
+[I 16:07:10.806 LabApp] Kernel shutdown: 86dd694c-aaed-4aba-b6a5-12ef160d0890
+[I 16:07:11.110 LabApp] Kernel shutdown: 6abae347-8feb-4d6a-81b6-26869b0e92f8
+[I 16:07:11.414 LabApp] Kernel shutdown: 8983347c-fd20-4676-9a59-f52dd2497b29
+[W 16:07:16.445 LabApp] delete /Untitled6.ipynb
+[W 16:07:16.448 LabApp] delete /Untitled10.ipynb
+[W 16:07:16.449 LabApp] delete /Untitled5.ipynb
+[W 16:07:16.683 LabApp] delete /Untitled7.ipynb
+[W 16:07:16.685 LabApp] delete /Untitled9.ipynb
+[W 16:07:16.687 LabApp] delete /Untitled8.ipynb
+[I 16:07:29.731 LabApp] New terminal with automatic name: 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
