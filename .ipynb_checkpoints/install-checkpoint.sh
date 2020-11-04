@@ -17,7 +17,7 @@
 #ln -s ~/julia-1.5.2/bin/julia julia
 
 ### install julia genie
-#julia -e 'import Pkg; Pkg.add("Genie"); using Genie;'
+#julia -e 'import Pkg; Pkg.add("PackageCompiler");using PackageCompiler;Pkg.add("Genie");@time using Genie;@time PackageCompiler.create_sysimage(:Genie; replace_default=true)'
 
 ### install pandas
 #pip3 install pandas

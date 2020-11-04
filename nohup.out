@@ -246,3 +246,4 @@ TermSocket.open: Opened 4
 [I 16:46:08.371 LabApp] Saving file at /install.sh
 [I 16:46:14.660 LabApp] Saving file at /install.sh
 [IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+Starting kernel event loops.
