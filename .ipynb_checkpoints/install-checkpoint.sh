@@ -36,6 +36,10 @@ julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; note
 ## install julia genie
 julia -e 'import Pkg; Pkg.add("PackageCompiler");using PackageCompiler;Pkg.add("Genie");@time using Genie;@time PackageCompiler.create_sysimage(:Genie; replace_default=true)'
 
+## interact.jl
+julia -e 'using Pkg;Pkg.add("Interact");Pkg.add("IJulia");Pkg.add("WebIO")'
+julia -e 'using WebIO; using Interact; WebIO.install_jupyter_labextension();'
+
 ## github
 git config --global user.email "cbh@cameo.tw"
 git config --global user.name "bohachu"
@@ -44,6 +48,6 @@ git config --global credential.helper store
 cd ~
 git clone https://github.com/bohachu/cameo_motion.git
 
-## crontab -e 
+## add to: crontab -e 
 # @reboot 
 # /home/bohachu/cameo_motion/jupyterlab.sh

