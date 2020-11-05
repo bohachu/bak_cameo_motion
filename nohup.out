@@ -1,249 +1,1169 @@
-[I 15:48:52.576 LabApp] Registered HelloWorld extension at URL path /cameo_motion_extension
-[W 15:48:53.141 LabApp] JupyterLab server extension not enabled, manually loading...
-[I 15:48:54.105 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
-[I 15:48:54.106 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
-[I 15:48:54.110 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
-[I 15:48:54.110 LabApp] Jupyter Notebook 6.1.4 is running at:
-[I 15:48:54.110 LabApp] http://cameo-motion-bowen:8080/
-[I 15:48:54.110 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[W 15:48:54.130 LabApp] No web browser found: could not locate runnable browser.
-[I 15:49:13.174 LabApp] 302 GET / (111.240.174.108) 1.42ms
--\|/-\|/-\|/[W 15:49:17.623 LabApp] 404 GET /api/contents/cameo_motion/install.sh?content=0&1603640956219 (111.240.174.108): No such file or directory: cameo_motion/install.sh
-[W 15:49:17.623 LabApp] No such file or directory: cameo_motion/install.sh
-[W 15:49:17.624 LabApp] 404 GET /api/contents/cameo_motion/install.sh?content=0&1603640956219 (111.240.174.108) 3.52ms referer=http://35.185.170.85:8080/lab?
-[W 15:49:17.624 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension/handlers.py?content=0&1603640956220 (111.240.174.108): No such file or directory: cameo_motion_extension/cameo_motion_extension/handlers.py
-[W 15:49:17.625 LabApp] No such file or directory: cameo_motion_extension/cameo_motion_extension/handlers.py
-[W 15:49:17.625 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension/handlers.py?content=0&1603640956220 (111.240.174.108) 3.87ms referer=http://35.185.170.85:8080/lab?
--\[W 15:49:17.810 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension?1603640957795 (111.240.174.108): No such file or directory: cameo_motion_extension/cameo_motion_extension
-[W 15:49:17.810 LabApp] No such file or directory: cameo_motion_extension/cameo_motion_extension
-[W 15:49:17.811 LabApp] 404 GET /api/contents/cameo_motion_extension/cameo_motion_extension?1603640957795 (111.240.174.108) 1.36ms referer=http://35.185.170.85:8080/lab?
-|/-[W 15:49:18.114 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 221.35ms referer=None
-[W 15:49:18.174 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 1.46ms referer=None
-\|[W 15:49:18.374 LabApp] Failed to fetch package metadata for 'cameo-motion-extension': <HTTPError 404: 'Not Found'>
-/-\|/-\|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\/|-/\-|\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-[W 15:49:39.425 LabApp] Build recommended
-[W 15:49:39.426 LabApp] cameo-motion-extension needs to be included in build
-[W 15:49:39.426 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
-[I 15:50:04.786 LabApp] Creating new notebook in 
-[I 15:50:05.294 LabApp] Kernel started: f3069512-da3d-4143-8f7f-d0a8e94934f7, name: python3
-[I 15:50:29.510 LabApp] Uninstalling core extension cameo-motion-extension
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[W 15:50:49.103 LabApp] Build recommended
-[W 15:50:49.103 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
-[I 15:50:59.715 LabApp] Building jupyterlab assets (build:dev)
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 15:51:36.030 LabApp] Saving file at /install.sh
-|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 15:51:56.973 LabApp] Creating new notebook in 
-|/-\|[I 15:51:57.413 LabApp] Kernel started: b02adc72-df45-47a1-bfdc-b845b010f44d, name: julia-1.5
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/[I 15:52:05.116 LabApp] Saving file at /Untitled.ipynb
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/--\|/-\|/-[I 15:52:26.268 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
-[I 15:52:26.324 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
-\[I 15:52:26.383 LabApp] Adapting from protocol version 5.0 (kernel b02adc72-df45-47a1-bfdc-b845b010f44d) to 5.3 (client).
-|/-\|/-\|/-\|/-\|/-\|/--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[W 15:52:34.919 LabApp] Build failed, running a clean and rebuild
-[I 15:52:34.922 LabApp] Cleaning /home/bohachu/.local/share/jupyter/lab...
-[W 15:52:34.923 LabApp] 500 POST /lab/api/build?1603641058197 (111.240.174.108): 'AppOptions' object has no attribute 'all'
-[W 15:52:34.923 LabApp] 'AppOptions' object has no attribute 'all'
-[E 15:52:34.923 LabApp] {
-      "Host": "35.185.170.85:8080",
-      "Connection": "keep-alive",
-      "Content-Length": "0",
-      "X-Xsrftoken": "2|27ffed53|736fd10bd34890487b5cd55177978d15|1595130764",
-      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
-      "Content-Type": "application/json",
-      "Accept": "*/*",
-      "Origin": "http://35.185.170.85:8080",
-      "Referer": "http://35.185.170.85:8080/lab?",
-      "Accept-Encoding": "gzip, deflate",
-      "Accept-Language": "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7",
-      "Cookie": "_xsrf=2|27ffed53|736fd10bd34890487b5cd55177978d15|1595130764; oc_sessionPassphrase=Ex7xnSnbceDuw5pDOii7Cw1O3LRpDtudAN4WsVRrz0kQjk52lGOEnvYzUTtFYRmAFsIS2TsMktVFrHca2fV2oohdCEF9b2mRkaAcZAlLVCIQdAiw4KgpvAanVhIyopP8; nc_sameSiteCookielax=true; nc_sameSiteCookiestrict=true; oc9s0w2e67p0=2bbc9413450ba17597ee8f9f65acfde4; username-35-185-170-85-8080=\"2|1:0|10:1603635189|27:username-35-185-170-85-8080|44:YzE5ODk5MTJhNzM4NGNiMThmYmI5OWE1M2Y5YzAxOWQ=|352122848b41f7bb5dd20e27837b0daaff881605b7dcb2233b28a2f255fe11ba\""
-    }
-[E 15:52:34.923 LabApp] 500 POST /lab/api/build?1603641058197 (111.240.174.108) 96710.65ms referer=http://35.185.170.85:8080/lab?
-[I 15:52:48.366 LabApp] Uninstalling cameo-motion-extension from /home/bohachu/.local/share/jupyter/lab/extensions
-[W 15:52:50.014 LabApp] Build recommended
-[W 15:52:50.014 LabApp] @jupyter-voila/jupyterlab-preview needs to be included in build
-[I 15:52:54.322 LabApp] Uninstalling core extension @jupyter-voila/jupyterlab-preview
-[I 15:52:56.172 LabApp] Build is up to date
--\|/-\|/-\|/-\|-\|/-\|/-\|/-\|/[I 15:53:19.464 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
-[I 15:53:21.114 LabApp] Build is up to date
--\|/-\|/-\|/-\|[I 15:53:57.308 LabApp] Saving file at /Untitled1.ipynb
-[I 15:53:57.617 LabApp] Build is up to date
-[I 15:54:06.428 LabApp] Creating new notebook in 
-[I 15:54:06.668 LabApp] Kernel started: 2ba44056-9c33-445e-a457-3f3f7a579cb1, name: python3
-[I 15:54:10.735 LabApp] New terminal with automatic name: 1
+Traceback (most recent call last):
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/traitlets.py", line 535, in get
+    value = obj._trait_values[self.name]
+KeyError: 'allow_remote_access'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 1092, in _default_allow_remote
+    addr = ipaddress.ip_address(self.ip)
+  File "/usr/lib/python3.7/ipaddress.py", line 54, in ip_address
+    address)
+ValueError: '0.' does not appear to be an IPv4 or IPv6 address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/usr/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/jupyterlab/__main__.py", line 4, in <module>
+    sys.exit(main())
+  File "/home/bohachu/.local/lib/python3.7/site-packages/jupyter_core/application.py", line 270, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/config/application.py", line 844, in launch_instance
+    app.initialize(argv)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/config/application.py", line 87, in inner
+    return method(app, *args, **kwargs)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 2037, in initialize
+    self.init_webapp()
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 1680, in init_webapp
+    self.jinja_environment_options,
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 187, in __init__
+    default_url, settings_overrides, jinja_env_options)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 283, in init_settings
+    allow_remote_access=jupyter_app.allow_remote_access,
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/traitlets.py", line 575, in __get__
+    return self.get(obj, cls)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/traitlets.py", line 538, in get
+    default = obj.trait_defaults(self.name)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/traitlets.py", line 1578, in trait_defaults
+    return self._get_trait_default_generator(names[0])(self)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/traitlets/traitlets.py", line 975, in __call__
+    return self.func(*args, **kwargs)
+  File "/home/bohachu/.local/lib/python3.7/site-packages/notebook/notebookapp.py", line 1095, in _default_allow_remote
+    for info in socket.getaddrinfo(self.ip, self.port, 0, socket.SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+[W 23:40:16.342 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 23:40:17.436 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 23:40:17.436 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 23:40:17.440 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 23:40:17.440 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 23:40:17.440 LabApp] http://cameo-motion-2:8080/
+[I 23:40:17.440 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 23:40:17.476 LabApp] No web browser found: could not locate runnable browser.
+[I 23:40:49.135 LabApp] 302 POST /login?next=%2Flab%3F (111.240.171.238) 173.28ms
+[I 23:40:54.691 LabApp] Build is up to date
+[W 23:40:55.117 LabApp] 404 GET /terminals/websocket/2 (111.240.171.238) 41.48ms referer=None
+[W 23:40:55.284 LabApp] 404 GET /terminals/websocket/2 (111.240.171.238) 6.04ms referer=None
+[I 23:40:55.567 LabApp] Kernel started: a03e68f2-ed7f-4e2f-8470-c7372eb7fa30, name: python3
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 23:41:17.189 LabApp] Creating new notebook in /apex-column-line/data
+[I 23:41:17.443 LabApp] Kernel started: a5efd02f-aa9a-4239-891a-0158b0fadd91, name: julia-1.5
+[I 23:41:33.015 LabApp] Adapting from protocol version 5.0 (kernel a5efd02f-aa9a-4239-891a-0158b0fadd91) to 5.3 (client).
+[I 23:41:33.292 LabApp] Adapting from protocol version 5.0 (kernel a5efd02f-aa9a-4239-891a-0158b0fadd91) to 5.3 (client).
+[I 23:41:33.348 LabApp] Adapting from protocol version 5.0 (kernel a5efd02f-aa9a-4239-891a-0158b0fadd91) to 5.3 (client).
+[I 23:41:40.209 LabApp] Creating new notebook in /apex-column-line/data
+[I 23:41:40.436 LabApp] Kernel started: e4d444b7-e5b2-462e-a9e9-a1999bfa4e18, name: julia-1.5
+[I 23:41:49.274 LabApp] Adapting from protocol version 5.0 (kernel e4d444b7-e5b2-462e-a9e9-a1999bfa4e18) to 5.3 (client).
+[I 23:41:59.301 LabApp] Starting buffering for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:cbce1a37-c8b8-4674-9409-03fef68e3e4b
+[I 23:42:07.345 LabApp] Adapting from protocol version 5.0 (kernel e4d444b7-e5b2-462e-a9e9-a1999bfa4e18) to 5.3 (client).
+[I 23:42:22.858 LabApp] Saving file at /apex-column-line/data/Untitled6.ipynb
+[I 23:42:23.317 LabApp] Kernel started: 7cfc979e-9d69-40ea-af7c-1c432491c890, name: julia-1.5
+[I 23:42:36.074 LabApp] Saving file at /apex-column-line/data/Untitled6.ipynb
+[I 23:42:36.113 LabApp] Adapting from protocol version 5.0 (kernel 7cfc979e-9d69-40ea-af7c-1c432491c890) to 5.3 (client).
+[I 23:42:36.133 LabApp] Starting buffering for 7cfc979e-9d69-40ea-af7c-1c432491c890:55ec5ab1-af25-478d-b362-d2d8af754b5c
+[I 23:42:36.135 LabApp] Kernel shutdown: 7cfc979e-9d69-40ea-af7c-1c432491c890
+[I 23:42:41.396 LabApp] Kernel started: 686cca6d-4ced-41df-b57e-ade912ca035c, name: julia-1.5
+[I 23:42:55.386 LabApp] Saving file at /apex-column-line/data/call_hello_jl.ipynb
+[I 23:42:55.765 LabApp] Adapting from protocol version 5.0 (kernel 686cca6d-4ced-41df-b57e-ade912ca035c) to 5.3 (client).
+[I 23:43:01.944 LabApp] Saving file at /apex-column-line/data/Untitled6.ipynb
+[I 23:43:02.008 LabApp] Starting buffering for 686cca6d-4ced-41df-b57e-ade912ca035c:9b10f0ef-aaea-4fe8-b9be-a1af76b04bf1
+[I 23:43:02.010 LabApp] Kernel shutdown: 686cca6d-4ced-41df-b57e-ade912ca035c
+[I 23:43:07.269 LabApp] Kernel started: d0106323-6715-406f-882a-15785f9038d4, name: julia-1.5
+[I 23:43:20.294 LabApp] Adapting from protocol version 5.0 (kernel d0106323-6715-406f-882a-15785f9038d4) to 5.3 (client).
+[I 23:43:24.947 LabApp] Starting buffering for d0106323-6715-406f-882a-15785f9038d4:95311a5e-3416-4c15-9498-efa1cdf2ade0
+[I 23:43:24.947 LabApp] Starting buffering for a5efd02f-aa9a-4239-891a-0158b0fadd91:720c73ee-751a-46f8-b6e4-ed2f9b4b5508
+[I 23:43:24.948 LabApp] Starting buffering for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:c42af3cb-27cc-4615-b5ed-30f54b8af70b
+[I 23:43:24.950 LabApp] Starting buffering for a03e68f2-ed7f-4e2f-8470-c7372eb7fa30:b0da2ef2-aafc-4a97-8b77-700bbc465c5c
+[I 23:43:25.027 LabApp] Adapting from protocol version 5.0 (kernel a5efd02f-aa9a-4239-891a-0158b0fadd91) to 5.3 (client).
+[I 23:43:25.028 LabApp] Restoring connection for a5efd02f-aa9a-4239-891a-0158b0fadd91:720c73ee-751a-46f8-b6e4-ed2f9b4b5508
+[I 23:43:25.083 LabApp] Adapting from protocol version 5.0 (kernel e4d444b7-e5b2-462e-a9e9-a1999bfa4e18) to 5.3 (client).
+[I 23:43:25.083 LabApp] Restoring connection for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:c42af3cb-27cc-4615-b5ed-30f54b8af70b
+[I 23:43:25.141 LabApp] Restoring connection for a03e68f2-ed7f-4e2f-8470-c7372eb7fa30:b0da2ef2-aafc-4a97-8b77-700bbc465c5c
+[I 23:43:25.997 LabApp] Adapting from protocol version 5.0 (kernel d0106323-6715-406f-882a-15785f9038d4) to 5.3 (client).
+[I 23:43:25.997 LabApp] Restoring connection for d0106323-6715-406f-882a-15785f9038d4:95311a5e-3416-4c15-9498-efa1cdf2ade0
+[W 23:45:40.649 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.649 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:40.650 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.722 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.723 LabApp] 403 GET /api/kernels/7fbfa44a-171f-4204-9a9d-4802c6c8a755/channels?session_id=ca3bc998-2b4e-44a3-830f-7efed3e79e97 (111.240.171.238) 76.40ms referer=None
+[W 23:45:40.804 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.804 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:40.805 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.805 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:40.806 LabApp] 403 GET /api/kernels/6e9d1613-c51b-42ec-9f7e-86f35c51e481/channels?session_id=53adbcf9-7de8-4544-b7cc-dee88ab4b701 (111.240.171.238) 3.77ms referer=None
+[W 23:45:53.126 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.126 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.126 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.127 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.127 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.128 LabApp] 403 GET /terminals/websocket/2 (111.240.171.238) 2.90ms referer=None
+[W 23:45:53.186 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.186 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:53.187 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.187 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.188 LabApp] 403 GET /api/kernels/6e9d1613-c51b-42ec-9f7e-86f35c51e481/channels?session_id=53adbcf9-7de8-4544-b7cc-dee88ab4b701 (111.240.171.238) 3.78ms referer=None
+[W 23:45:53.247 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.247 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:53.248 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.248 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.249 LabApp] 403 GET /api/kernels/7fbfa44a-171f-4204-9a9d-4802c6c8a755/channels?session_id=ca3bc998-2b4e-44a3-830f-7efed3e79e97 (111.240.171.238) 3.70ms referer=None
+[W 23:45:53.319 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.319 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:53.320 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.323 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:53.324 LabApp] 403 GET /api/kernels/3d20831d-6fb5-4090-8c6b-41927db59145/channels?session_id=89da3fbc-bd0a-479b-ab50-77423331e1c9 (111.240.171.238) 7.04ms referer=None
+[W 23:45:54.062 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.063 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.063 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.063 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.063 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.064 LabApp] 403 GET /terminals/websocket/2 (111.240.171.238) 2.45ms referer=None
+[W 23:45:54.124 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.124 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:54.124 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.125 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:54.125 LabApp] 403 GET /api/kernels/3d20831d-6fb5-4090-8c6b-41927db59145/channels?session_id=89da3fbc-bd0a-479b-ab50-77423331e1c9 (111.240.171.238) 2.87ms referer=None
+[W 23:45:56.040 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:56.041 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:56.041 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:56.041 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:56.042 LabApp] 403 GET /api/kernels/6e9d1613-c51b-42ec-9f7e-86f35c51e481/channels?session_id=53adbcf9-7de8-4544-b7cc-dee88ab4b701 (111.240.171.238) 2.96ms referer=None
+[W 23:45:57.056 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.056 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:57.057 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.057 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.058 LabApp] 403 GET /api/kernels/7fbfa44a-171f-4204-9a9d-4802c6c8a755/channels?session_id=ca3bc998-2b4e-44a3-830f-7efed3e79e97 (111.240.171.238) 3.01ms referer=None
+[W 23:45:57.119 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.119 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.119 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.119 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.120 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.120 LabApp] 403 GET /terminals/websocket/2 (111.240.171.238) 2.10ms referer=None
+[W 23:45:57.179 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.180 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:57.180 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.180 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.181 LabApp] 403 GET /api/kernels/6e9d1613-c51b-42ec-9f7e-86f35c51e481/channels?session_id=53adbcf9-7de8-4544-b7cc-dee88ab4b701 (111.240.171.238) 2.78ms referer=None
+[W 23:45:57.943 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.943 LabApp] Couldn't authenticate WebSocket connection
+[W 23:45:57.943 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.944 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 23:45:57.944 LabApp] 403 GET /api/kernels/3d20831d-6fb5-4090-8c6b-41927db59145/channels?session_id=89da3fbc-bd0a-479b-ab50-77423331e1c9 (111.240.171.238) 2.81ms referer=None
+[W 23:46:55.030 LabApp] WebSocket ping timeout after 119943 ms.
+[W 23:46:55.084 LabApp] WebSocket ping timeout after 119690 ms.
+[W 23:46:55.141 LabApp] WebSocket ping timeout after 119745 ms.
+[W 23:46:55.199 LabApp] WebSocket ping timeout after 119802 ms.
+[W 23:46:55.998 LabApp] WebSocket ping timeout after 119681 ms.
+[I 23:47:00.033 LabApp] Starting buffering for a5efd02f-aa9a-4239-891a-0158b0fadd91:720c73ee-751a-46f8-b6e4-ed2f9b4b5508
+[I 23:47:00.087 LabApp] Starting buffering for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:c42af3cb-27cc-4615-b5ed-30f54b8af70b
+[I 23:47:00.201 LabApp] Starting buffering for a03e68f2-ed7f-4e2f-8470-c7372eb7fa30:d0e0b2ba-d5e4-4b87-9a72-55a919678e1a
+[I 23:47:01.001 LabApp] Starting buffering for d0106323-6715-406f-882a-15785f9038d4:95311a5e-3416-4c15-9498-efa1cdf2ade0
+[I 00:34:29.163 LabApp] Saving file at /apex-column-line/data/Untitled6.ipynb
+[I 00:34:29.642 LabApp] Kernel shutdown: d0106323-6715-406f-882a-15785f9038d4
+[I 00:34:35.288 LabApp] Kernel started: aa5e20a5-7781-44f9-81e3-88255a8111a4, name: julia-1.5
+[I 00:34:54.292 LabApp] Adapting from protocol version 5.0 (kernel aa5e20a5-7781-44f9-81e3-88255a8111a4) to 5.3 (client).
+[I 00:34:55.511 LabApp] Adapting from protocol version 5.0 (kernel a5efd02f-aa9a-4239-891a-0158b0fadd91) to 5.3 (client).
+[I 00:34:55.512 LabApp] Restoring connection for a5efd02f-aa9a-4239-891a-0158b0fadd91:720c73ee-751a-46f8-b6e4-ed2f9b4b5508
+[I 00:34:55.569 LabApp] Adapting from protocol version 5.0 (kernel e4d444b7-e5b2-462e-a9e9-a1999bfa4e18) to 5.3 (client).
+[I 00:34:55.570 LabApp] Restoring connection for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:c42af3cb-27cc-4615-b5ed-30f54b8af70b
+[W 00:35:52.643 LabApp] 404 GET /admin-scripts.asp (45.42.7.178) 2.23ms referer=None
+[W 00:35:53.083 LabApp] 404 GET /admin-scripts.asp (45.42.7.178) 2.04ms referer=None
+[W 00:36:24.295 LabApp] WebSocket ping timeout after 90001 ms.
+[W 00:36:25.513 LabApp] WebSocket ping timeout after 90000 ms.
+[W 00:36:25.570 LabApp] WebSocket ping timeout after 90000 ms.
+[W 00:36:25.628 LabApp] WebSocket ping timeout after 90000 ms.
+[W 00:36:25.685 LabApp] WebSocket ping timeout after 90000 ms.
+[I 00:36:29.297 LabApp] Starting buffering for aa5e20a5-7781-44f9-81e3-88255a8111a4:be61dc5c-be17-4d54-99a6-fbcf8cefc404
+[I 00:36:30.516 LabApp] Starting buffering for a5efd02f-aa9a-4239-891a-0158b0fadd91:720c73ee-751a-46f8-b6e4-ed2f9b4b5508
+[I 00:36:30.572 LabApp] Starting buffering for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:c42af3cb-27cc-4615-b5ed-30f54b8af70b
+[I 00:36:30.686 LabApp] Starting buffering for a03e68f2-ed7f-4e2f-8470-c7372eb7fa30:d0e0b2ba-d5e4-4b87-9a72-55a919678e1a
+[I 01:37:48.338 LabApp] 302 GET / (113.182.171.130) 1.12ms
+[W 01:43:55.796 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 01:43:55.821 LabApp] Couldn't authenticate WebSocket connection
+[W 01:43:55.822 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 01:43:55.823 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 01:43:55.824 LabApp] 403 GET /api/kernels/7fbfa44a-171f-4204-9a9d-4802c6c8a755/channels?session_id=ca3bc998-2b4e-44a3-830f-7efed3e79e97 (111.71.99.80) 29.53ms referer=None
+[W 01:43:56.274 LabApp] Clearing invalid/expired login cookie username-35-229-174-180-8080
+[W 01:43:56.275 LabApp] Forbidden
+[W 01:43:56.275 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540634388 (111.71.99.80) 1.55ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:01.195 LabApp] Forbidden
+[W 01:44:01.196 LabApp] 403 GET /api/sessions?1604540639036 (111.71.99.80) 1.58ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:09.056 LabApp] 403 GET /terminals/websocket/2 (111.71.99.80) 2.16ms referer=None
+[W 01:44:10.605 LabApp] Forbidden
+[W 01:44:10.605 LabApp] 403 GET /api/kernels?1604540650135 (111.71.99.80) 1.06ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:11.990 LabApp] Forbidden
+[W 01:44:11.991 LabApp] 403 GET /api/terminals?1604540651504 (111.71.99.80) 1.38ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:16.347 LabApp] Forbidden
+[W 01:44:16.348 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540655895 (111.71.99.80) 1.48ms referer=http://35.229.174.180:8080/lab?
+[I 01:44:20.786 LabApp] 302 GET /metrics?1604540660326 (111.71.99.80) 1.28ms
+[W 01:44:25.663 LabApp] Forbidden
+[W 01:44:25.664 LabApp] 403 GET /api/terminals?1604540663883 (111.71.99.80) 1.31ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:30.400 LabApp] Forbidden
+[W 01:44:30.400 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540665967 (111.71.99.80) 1.30ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:31.435 LabApp] Couldn't authenticate WebSocket connection
+[W 01:44:31.436 LabApp] 403 GET /api/kernels/6e9d1613-c51b-42ec-9f7e-86f35c51e481/channels?session_id=53adbcf9-7de8-4544-b7cc-dee88ab4b701 (111.71.99.80) 2.64ms referer=None
+[W 01:44:37.477 LabApp] Forbidden
+[W 01:44:37.477 LabApp] 403 GET /api/sessions?1604540677037 (111.71.99.80) 0.96ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:40.475 LabApp] Forbidden
+[W 01:44:40.476 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540680030 (111.71.99.80) 1.16ms referer=http://35.229.174.180:8080/lab?
+[W 01:44:48.083 LabApp] Couldn't authenticate WebSocket connection
+[W 01:44:48.085 LabApp] 403 GET /api/kernels/3d20831d-6fb5-4090-8c6b-41927db59145/channels?session_id=89da3fbc-bd0a-479b-ab50-77423331e1c9 (111.71.99.80) 2.82ms referer=None
+[W 01:44:50.525 LabApp] Forbidden
+[W 01:44:50.525 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540690100 (111.71.99.80) 1.10ms referer=http://35.229.174.180:8080/lab?
+[I 01:44:53.745 LabApp] 302 GET /metrics?1604540690571 (111.71.99.80) 0.73ms
+[W 01:44:55.837 LabApp] Couldn't authenticate WebSocket connection
+[W 01:44:55.838 LabApp] 403 GET /api/kernels/7fbfa44a-171f-4204-9a9d-4802c6c8a755/channels?session_id=ca3bc998-2b4e-44a3-830f-7efed3e79e97 (111.71.99.80) 2.50ms referer=None
+[W 01:44:59.060 LabApp] Forbidden
+[W 01:44:59.060 LabApp] 403 GET /api/kernels?1604540698639 (111.71.99.80) 1.04ms referer=http://35.229.174.180:8080/lab?
+[W 01:45:00.580 LabApp] Forbidden
+[W 01:45:00.580 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540700158 (111.71.99.80) 1.06ms referer=http://35.229.174.180:8080/lab?
+[W 01:45:01.597 LabApp] Forbidden
+[W 01:45:01.598 LabApp] 403 GET /api/terminals?1604540701143 (111.71.99.80) 1.54ms referer=http://35.229.174.180:8080/lab?
+[W 01:45:10.673 LabApp] Forbidden
+[W 01:45:10.674 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604540710207 (111.71.99.80) 1.39ms referer=http://35.229.174.180:8080/lab?
+[W 01:45:13.777 LabApp] Forbidden
+[W 01:45:13.777 LabApp] 403 GET /api/sessions?1604540713344 (111.71.99.80) 1.22ms referer=http://35.229.174.180:8080/lab?
+[W 01:45:19.968 LabApp] Forbidden
+[W 01:45:19.968 LabApp] 403 GET /api/kernelspecs?1604540719538 (111.71.99.80) 1.71ms referer=http://35.229.174.180:8080/lab?
+[W 01:53:17.728 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 2.57ms referer=None
+[W 01:53:18.969 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 1.77ms referer=None
+[W 01:53:20.918 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 1.42ms referer=None
+[W 01:53:24.059 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 2.00ms referer=None
+[W 01:53:28.809 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 1.94ms referer=None
+[W 01:53:45.997 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 1.75ms referer=None
+[W 01:54:29.679 LabApp] 403 GET /terminals/websocket/1 (111.71.99.80) 1.63ms referer=None
+[W 01:54:50.918 LabApp] Forbidden
+[W 01:54:50.918 LabApp] 403 GET /api/terminals?1604541290456 (111.71.99.80) 0.98ms referer=http://35.229.174.180:8080/lab?
+[W 01:54:50.919 LabApp] Forbidden
+[W 01:54:50.919 LabApp] 403 GET /api/contents/apex-column-line/data?content=1&1604541290454 (111.71.99.80) 0.84ms referer=http://35.229.174.180:8080/lab?
+[W 01:54:50.920 LabApp] Forbidden
+[W 01:54:50.920 LabApp] 403 GET /api/kernels?1604541290455 (111.71.99.80) 0.65ms referer=http://35.229.174.180:8080/lab?
+[W 01:54:52.621 LabApp] Forbidden
+[W 01:54:52.622 LabApp] 403 GET /api/sessions?1604541292182 (111.71.99.80) 1.02ms referer=http://35.229.174.180:8080/lab?
+[I 01:54:53.611 LabApp] 302 GET /metrics?1604541293177 (111.71.99.80) 0.71ms
+[I 01:54:53.828 LabApp] 302 GET /kernelspecs/python3/logo-64x64.png (111.71.99.80) 0.91ms
+[I 01:54:53.829 LabApp] 302 GET /kernelspecs/julia-1.5/logo-64x64.png (111.71.99.80) 0.52ms
+[W 01:54:54.370 LabApp] Forbidden
+[W 01:54:54.370 LabApp] 403 PUT /lab/api/workspaces/lab?1604541293931 (111.71.99.80) 1.38ms referer=http://35.229.174.180:8080/lab?
+[I 01:54:55.642 LabApp] 302 GET /lab? (111.71.99.80) 0.94ms
+[I 01:54:59.186 LabApp] 302 POST /login?next=%2Flab%3F (111.71.99.80) 404.76ms
+[I 01:55:01.671 LabApp] Adapting from protocol version 5.0 (kernel e4d444b7-e5b2-462e-a9e9-a1999bfa4e18) to 5.3 (client).
+[I 01:55:04.398 LabApp] Starting buffering for e4d444b7-e5b2-462e-a9e9-a1999bfa4e18:1c4c6d20-8502-404f-8c40-39a54467299d
+[I 01:55:04.998 LabApp] Kernel started: 3bc3aa74-018b-4b05-932f-0f8b9b7b171c, name: julia-1.5
+[E 01:56:07.716 LabApp] Uncaught exception GET /voila/render/apex-column-line/data/Untitled6.ipynb (111.71.99.80)
+    HTTPServerRequest(protocol='http', host='35.229.174.180:8080', method='GET', uri='/voila/render/apex-column-line/data/Untitled6.ipynb', version='HTTP/1.1', remote_ip='111.71.99.80')
+    Traceback (most recent call last):
+      File "/home/bohachu/.local/lib/python3.7/site-packages/tornado/web.py", line 1704, in _execute
+        result = await result
+      File "/home/bohachu/.local/lib/python3.7/site-packages/voila/handler.py", line 154, in get
+        async for html_snippet, resources in self.exporter.generate_from_notebook_node(notebook, resources=resources, extra_context=extra_context):
+      File "/home/bohachu/.local/lib/python3.7/site-packages/voila/exporter.py", line 100, in generate_from_notebook_node
+        async for output in self.template.generate_async(nb=nb_copy, resources=resources, **extra_context, static_url=self.static_url):
+      File "/home/bohachu/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 35, in generate_async
+        yield self.environment.handle_exception()
+      File "/home/bohachu/.local/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
+        reraise(*rewrite_traceback_stack(source=source))
+      File "/home/bohachu/.local/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
+        raise value.with_traceback(tb)
+      File "/home/bohachu/.local/share/jupyter/voila/templates/lab/index.html.j2", line 4, in top-level template code
+        {% from 'voila_setup.macro.html.j2' import voila_setup with context %}
+      File "/home/bohachu/.local/share/jupyter/nbconvert/templates/lab/index.html.j2", line 3, in top-level template code
+        {% from 'jupyter_widgets.html.j2' import jupyter_widgets %}
+      File "/home/bohachu/.local/share/jupyter/nbconvert/templates/lab/base.html.j2", line 224, in top-level template code
+        {% set div_id = uuid4() %}
+      File "/home/bohachu/.local/share/jupyter/nbconvert/templates/base/display_priority.j2", line 1, in top-level template code
+        {%- extends 'base/null.j2' -%}
+      File "/home/bohachu/.local/share/jupyter/nbconvert/templates/base/null.j2", line 26, in top-level template code
+        {%- block body -%}
+      File "/home/bohachu/.local/share/jupyter/nbconvert/templates/base/null.j2", line 29, in block "body"
+        {%- block body_loop -%}
+      File "/home/bohachu/.local/share/jupyter/voila/templates/lab/index.html.j2", line 47, in block "body_loop"
+        {%- block body_loop -%}
+      File "/home/bohachu/.local/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 174, in auto_await
+        return await value
+      File "/home/bohachu/.local/lib/python3.7/site-packages/voila/handler.py", line 179, in _jinja_kernel_start
+        await ensure_async(self.executor.kc.wait_for_ready(timeout=self.executor.startup_timeout))
+      File "/home/bohachu/.local/lib/python3.7/site-packages/jupyter_client/blocking/client.py", line 108, in wait_for_ready
+        raise RuntimeError("Kernel didn't respond in %d seconds" % timeout)
+    RuntimeError: Kernel didn't respond in 60 seconds
+[E 01:56:14.124 LabApp] Cannot send error response after headers written
+[I 01:56:16.402 LabApp] Build is up to date
+[W 03:03:09.116 LabApp] JupyterLab server extension not enabled, manually loading...
+[I 03:03:10.100 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
+[I 03:03:10.100 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
+[I 03:03:10.105 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
+[I 03:03:10.105 LabApp] Jupyter Notebook 6.1.4 is running at:
+[I 03:03:10.105 LabApp] http://cameo-motion-2:8080/
+[I 03:03:10.105 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[W 03:03:10.109 LabApp] No web browser found: could not locate runnable browser.
+[W 03:03:13.644 LabApp] 404 GET /api/contents/cameo_motion/test_interact?content=1&1604545393550 (111.71.99.80): No such file or directory: cameo_motion/test_interact
+[W 03:03:13.644 LabApp] No such file or directory: cameo_motion/test_interact
+[W 03:03:13.644 LabApp] 404 GET /api/contents/cameo_motion/test_interact?content=1&1604545393550 (111.71.99.80) 1.39ms referer=http://35.194.185.192:8080/lab?
+[I 03:03:25.003 LabApp] Build is up to date
+[W 03:03:25.005 LabApp] 404 GET /api/contents/cameo_motion/test_interact/test_interact.ipynb?content=0&1604545403390 (111.71.99.80): No such file or directory: cameo_motion/test_interact/test_interact.ipynb
+[W 03:03:25.005 LabApp] No such file or directory: cameo_motion/test_interact/test_interact.ipynb
+[W 03:03:25.006 LabApp] 404 GET /api/contents/cameo_motion/test_interact/test_interact.ipynb?content=0&1604545403390 (111.71.99.80) 3.47ms referer=http://35.194.185.192:8080/lab?
+-\|/-\|/-\|/-\|/[I 03:03:33.778 LabApp] Kernel started: cbf6b4c6-bf8a-41bb-943a-c7392878b227, name: julia-1.5
+[I 03:03:41.834 LabApp] Kernel started: 9cca00ee-a3a4-4eb3-ae80-3bae9a012406, name: julia-1.5
+[I 03:03:42.109 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 03:03:42.182 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 03:03:42.268 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 03:03:50.462 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 03:03:50.801 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 03:03:50.894 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 03:05:43.713 LabApp] Saving file at /test_interact/test_interact.ipynb
+[I 03:06:22.475 LabApp] Starting buffering for cbf6b4c6-bf8a-41bb-943a-c7392878b227:12b88620-13ec-4acd-a0f4-82d54dd24144
+[I 03:06:22.475 LabApp] Starting buffering for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:2c1db2de-36a3-43fe-9e56-c8ad229f9b68
+[I 03:06:22.624 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 03:06:22.625 LabApp] Restoring connection for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:2c1db2de-36a3-43fe-9e56-c8ad229f9b68
+[I 03:06:22.726 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 03:06:22.831 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 03:06:22.832 LabApp] Restoring connection for cbf6b4c6-bf8a-41bb-943a-c7392878b227:12b88620-13ec-4acd-a0f4-82d54dd24144
+[I 03:06:22.929 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 03:06:23.047 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[W 03:07:52.627 LabApp] WebSocket ping timeout after 90001 ms.
+[W 03:07:52.728 LabApp] WebSocket ping timeout after 90000 ms.
+[W 03:07:52.834 LabApp] WebSocket ping timeout after 90001 ms.
+[W 03:07:52.931 LabApp] WebSocket ping timeout after 90000 ms.
+[W 03:07:53.049 LabApp] WebSocket ping timeout after 90000 ms.
+[I 03:07:57.933 LabApp] Starting buffering for cbf6b4c6-bf8a-41bb-943a-c7392878b227:8991747a-6726-497b-9acd-c922af62ad82
+[I 03:07:58.050 LabApp] Starting buffering for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:f70185cf-231c-47c0-8092-e21b263d8bf2
+[I 03:30:58.715 LabApp] 302 GET / (209.17.96.250) 2.17ms
+[W 03:31:27.070 LabApp] 404 GET /hudson (192.241.236.138) 29.26ms referer=None
+[W 04:15:40.053 LabApp] 404 GET /dnscfg.cgi?dnsPrimary=149.56.152.185&dnsSecondary8.8.4.4&dnsDynamic=0&dnsRefresh=1 (188.166.104.122) 2.94ms referer=None
+[I 04:15:40.079 LabApp] 302 GET / (188.166.104.122) 0.57ms
+[I 04:20:10.717 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:20:10.859 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 04:20:10.944 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:20:11.029 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 04:20:11.109 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:35:09.407 LabApp] Starting buffering for cbf6b4c6-bf8a-41bb-943a-c7392878b227:8991747a-6726-497b-9acd-c922af62ad82
+[I 04:35:09.409 LabApp] Starting buffering for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:f70185cf-231c-47c0-8092-e21b263d8bf2
+[I 04:35:09.472 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:35:09.546 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 04:35:09.547 LabApp] Restoring connection for cbf6b4c6-bf8a-41bb-943a-c7392878b227:8991747a-6726-497b-9acd-c922af62ad82
+[I 04:35:09.631 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:35:09.706 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 04:35:09.808 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:35:40.296 LabApp] Starting buffering for cbf6b4c6-bf8a-41bb-943a-c7392878b227:12b88620-13ec-4acd-a0f4-82d54dd24144
+[I 04:35:40.305 LabApp] Starting buffering for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:1421a325-d708-4055-a891-c9d4422f9413
+[I 04:39:56.514 LabApp] Adapting from protocol version 5.0 (kernel cbf6b4c6-bf8a-41bb-943a-c7392878b227) to 5.3 (client).
+[I 04:39:56.599 LabApp] Adapting from protocol version 5.0 (kernel 9cca00ee-a3a4-4eb3-ae80-3bae9a012406) to 5.3 (client).
+[I 04:39:56.700 LabApp] Build is up to date
+[I 04:39:59.932 LabApp] Kernel started: 21c1a3e7-07ba-4076-87b7-ce7454fd78e3, name: python3
+-\|/-\|/-\|/-\|/[W 04:40:12.431 LabApp] Notebook genie/genie.ipynb is not trusted
+[I 04:40:12.649 LabApp] Kernel started: 80829bf8-be33-450f-850c-1f93d81c966d, name: julia-1.5
+[I 04:40:21.135 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:40:22.138 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:40:22.263 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:40:30.976 LabApp] Starting buffering for 9cca00ee-a3a4-4eb3-ae80-3bae9a012406:f28286f0-6951-430f-9bd1-2b08eb578742
+[I 04:40:35.675 LabApp] Starting buffering for cbf6b4c6-bf8a-41bb-943a-c7392878b227:68463ed7-cd0a-438e-9a95-aedbfe3d57b4
+[I 04:40:37.084 LabApp] Saving file at /genie/genie.ipynb
+[W 04:40:37.084 LabApp] Notebook genie/genie.ipynb is not trusted
+[I 04:42:15.875 LabApp] Saving file at /genie/genie.ipynb
+[I 04:43:25.394 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:43:25.477 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:43:31.082 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:43:31.263 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 04:43:33.324 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:43:33.457 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:43:33.647 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:43:33.704 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:43:33.749 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:43:33.849 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:44:15.021 LabApp] Saving file at /genie/genie.ipynb
+[I 04:44:34.577 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:34.687 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:35.562 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:35.678 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 04:44:36.454 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:36.542 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:36.654 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:44:36.681 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:36.723 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 04:44:36.759 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:44:36.833 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:36.838 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:44:36.992 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+fatal: error thrown and no exception handler available.
+#<null>
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+Dict at ./dict.jl:103
+jfptr_Dict_21594 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+#artifact_meta#20 at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:553
+artifact_meta##kw at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:546
+jfptr_artifact_metaYY.YY.kw_34319 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+do_artifact_str at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1020
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+do_apply at /buildworker/worker/package_linux64/build/src/builtins.c:655
+jl_f__apply_latest at /buildworker/worker/package_linux64/build/src/builtins.c:705
+#invokelatest#1 at ./essentials.jl:710 [inlined]
+invokelatest at ./essentials.jl:709 [inlined]
+macro expansion at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1068 [inlined]
+find_artifact_dir at /home/bohachu/.julia/packages/JLLWrappers/KuIwt/src/wrapper_generators.jl:15 [inlined]
+__init__ at /home/bohachu/.julia/packages/MbedTLS_jll/qMb7d/src/wrappers/x86_64-linux-gnu.jl:9
+jfptr___init___23139 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 04:44:38.147 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:38.307 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:39.340 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:39.467 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:39.662 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:44:39.713 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 04:44:39.750 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:44:39.757 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:44:39.838 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:46:15.201 LabApp] Saving file at /genie/genie.ipynb
+[I 04:47:08.514 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:08.622 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:09.692 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:09.837 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 04:47:10.494 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:10.607 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:10.747 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:10.927 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.072 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.207 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.327 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.462 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.607 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.762 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:11.912 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:12.052 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:12.187 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:12.342 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:12.467 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:47:12.674 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:47:12.743 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:47:12.794 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:47:12.795 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:47:12.874 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:48:18.362 LabApp] Saving file at /genie/genie.ipynb
+[I 04:49:38.086 LabApp] Saving file at /genie/genie.ipynb
+[I 04:50:20.434 LabApp] Saving file at /genie/genie.ipynb
+[I 04:52:20.650 LabApp] Saving file at /genie/genie.ipynb
+[I 04:53:51.663 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:53:51.764 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:53:53.443 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:53:53.569 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 04:53:54.682 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:53:54.732 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:53:54.758 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:53:54.759 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:53:54.850 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:54:00.799 LabApp] Saving file at /genie/genie.ipynb
+[I 04:54:49.147 LabApp] Saving file at /genie/genie.ipynb
+[I 04:54:52.611 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:52.744 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:52.870 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:53.001 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:53.144 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 04:54:53.271 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:54.684 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:54.689 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:54:54.800 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 04:54:54.835 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:54.858 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:54:54.926 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 04:54:54.932 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+fatal: error thrown and no exception handler available.
+#<null>
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+[I 04:54:55.056 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+unpack_platform at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:431
+#21 at ./none:0
+iterate at ./generator.jl:47 [inlined]
+Dict at ./dict.jl:103
+jfptr_Dict_21594 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+#artifact_meta#20 at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:553
+artifact_meta##kw at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:546
+jfptr_artifact_metaYY.YY.kw_34319 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+do_artifact_str at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1020
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+do_apply at /buildworker/worker/package_linux64/build/src/builtins.c:655
+jl_f__apply_latest at /buildworker/worker/package_linux64/build/src/builtins.c:705
+#invokelatest#1 at ./essentials.jl:710 [inlined]
+invokelatest at ./essentials.jl:709 [inlined]
+macro expansion at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1068 [inlined]
+find_artifact_dir at /home/bohachu/.julia/packages/JLLWrappers/KuIwt/src/wrapper_generators.jl:15 [inlined]
+__init__ at /home/bohachu/.julia/packages/MbedTLS_jll/qMb7d/src/wrappers/x86_64-linux-gnu.jl:9
+jfptr___init___23139 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+fatal: error thrown and no exception handler available.
+InterruptException()
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143 [inlined]
+jl_get_binding_ at /buildworker/worker/package_linux64/build/src/module.c:294
+jl_get_global at /buildworker/worker/package_linux64/build/src/module.c:561
+jl_atexit_hook at /buildworker/worker/package_linux64/build/src/init.c:225
+jl_exit at /buildworker/worker/package_linux64/build/src/jl_uv.c:624
+jl_no_exc_handler at /buildworker/worker/package_linux64/build/src/task.c:461
+throw_internal at /buildworker/worker/package_linux64/build/src/task.c:497
+jl_rethrow_other at /buildworker/worker/package_linux64/build/src/task.c:543
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:82
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 04:54:57.697 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 04:54:58.029 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:54:58.076 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:54:58.077 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 04:54:58.181 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 04:54:58.340 LabApp] Saving file at /genie/genie.ipynb
+[I 04:55:02.512 LabApp] Saving file at /genie/genie.ipynb
+[I 04:56:10.028 LabApp] 302 GET / (93.103.47.251) 0.55ms
+[I 04:57:02.705 LabApp] Saving file at /genie/genie.ipynb
+[I 05:00:03.641 LabApp] New terminal with automatic name: 1
 TermSocket.open: 1
 TermSocket.open: Opened 1
-[I 15:56:06.629 LabApp] Saving file at /Untitled2.ipynb
-[I 15:56:12.671 LabApp] Saving file at /install.sh
-[I 15:56:28.015 LabApp] Starting buffering for 2ba44056-9c33-445e-a457-3f3f7a579cb1:2dbb1143-980e-429f-b76e-f2f646b0426f
-[I 15:56:34.166 LabApp] Creating new notebook in 
-[I 15:56:34.490 LabApp] Kernel started: abd744fd-efbf-4162-ad5a-298e73317caa, name: python3
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/[I 15:56:53.147 LabApp] Starting buffering for abd744fd-efbf-4162-ad5a-298e73317caa:07f168ca-7e62-4a0c-ab9c-f8f9522fa14e
-[I 15:56:54.225 LabApp] Creating new notebook in 
-[I 15:56:54.426 LabApp] Kernel started: 2d3295d7-7feb-444f-b874-92a4be8cecd9, name: python3
-[I 15:56:57.589 LabApp] Starting buffering for 2d3295d7-7feb-444f-b874-92a4be8cecd9:e7d0a0d6-59a1-4b7b-9442-4e12232bd595
-[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
-[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
-[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
-[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
-[I 15:57:16.109 LabApp] Registered HelloWorld extension at URL path /cameo_motion_extension
-[W 15:57:16.206 LabApp] JupyterLab server extension not enabled, manually loading...
-[I 15:57:17.231 LabApp] JupyterLab extension loaded from /home/bohachu/.local/lib/python3.7/site-packages/jupyterlab
-[I 15:57:17.232 LabApp] JupyterLab application directory is /home/bohachu/.local/share/jupyter/lab
-[I 15:57:17.236 LabApp] Serving notebooks from local directory: /home/bohachu/cameo_motion
-[I 15:57:17.236 LabApp] Jupyter Notebook 6.1.4 is running at:
-[I 15:57:17.236 LabApp] http://cameo-motion-bowen:8080/
-[I 15:57:17.237 LabApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[W 15:57:17.264 LabApp] No web browser found: could not locate runnable browser.
-[W 15:57:17.714 LabApp] 404 GET /api/kernels/b02adc72-df45-47a1-bfdc-b845b010f44d/channels?session_id=2d58499f-8286-48cb-a5d3-1661bbbc2887 (111.240.174.108): Kernel does not exist: b02adc72-df45-47a1-bfdc-b845b010f44d
-[W 15:57:17.798 LabApp] 404 GET /api/kernels/b02adc72-df45-47a1-bfdc-b845b010f44d/channels?session_id=2d58499f-8286-48cb-a5d3-1661bbbc2887 (111.240.174.108) 86.63ms referer=None
-[W 15:57:19.678 LabApp] 404 GET /terminals/websocket/1 (111.240.174.108) 1.74ms referer=None
-[I 15:57:27.946 LabApp] Build is up to date
--\|/-\|/-\|[I 15:57:29.190 LabApp] Creating new notebook in 
-/-\[I 15:57:29.542 LabApp] Kernel started: 01741f9d-2384-4be8-9bc5-949ac0d2af96, name: python3
-|/[I 15:57:47.007 LabApp] Build is up to date
-[I 15:57:47.961 LabApp] Build is up to date
-[I 15:57:53.594 LabApp] Build is up to date
-[I 15:57:55.755 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
-[I 15:57:57.520 LabApp] Build is up to date
--\|/-\|/-\|/-\|[I 15:58:17.243 LabApp] Build is up to date
-[I 15:58:23.734 LabApp] Kernel started: a1414d5b-f13e-4d9b-9f59-5298fda9f42b, name: python3
-[I 15:58:25.798 LabApp] Starting buffering for a1414d5b-f13e-4d9b-9f59-5298fda9f42b:cf9e1033-1816-4569-aed6-88a289805ec9
-[I 15:58:26.791 LabApp] Creating new notebook in 
-[I 15:58:27.001 LabApp] Kernel started: 18926a07-1951-4014-9aaf-ebd68341e550, name: python3
-[I 15:58:33.126 LabApp] Starting buffering for 18926a07-1951-4014-9aaf-ebd68341e550:d892434d-4d2f-4425-a0b7-77b2eddbfa5d
-[I 15:58:34.206 LabApp] Creating new notebook in 
-[I 15:58:34.422 LabApp] Kernel started: 86dd694c-aaed-4aba-b6a5-12ef160d0890, name: python3
-[I 15:59:10.614 LabApp] Kernel interrupted: 86dd694c-aaed-4aba-b6a5-12ef160d0890
-[I 15:59:13.682 LabApp] Starting buffering for 86dd694c-aaed-4aba-b6a5-12ef160d0890:686085ed-381b-4751-bba9-4a1323643b73
-[I 15:59:18.262 LabApp] Creating new notebook in 
-[I 15:59:18.504 LabApp] Kernel started: 8983347c-fd20-4676-9a59-f52dd2497b29, name: julia-1.5
-[I 15:59:28.414 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
-[I 15:59:28.506 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
-[I 15:59:28.562 LabApp] Adapting from protocol version 5.0 (kernel 8983347c-fd20-4676-9a59-f52dd2497b29) to 5.3 (client).
-[I 15:59:50.441 LabApp] Saving file at /install.sh
-[I 16:01:19.117 LabApp] Saving file at /Untitled8.ipynb
-[I 16:04:39.190 LabApp] 302 GET / (1.229.221.76) 0.84ms
-[I 16:05:19.605 LabApp] Creating new notebook in 
-[I 16:05:19.875 LabApp] Kernel started: 6abae347-8feb-4d6a-81b6-26869b0e92f8, name: python3
-[I 16:05:27.257 LabApp] Starting buffering for 6abae347-8feb-4d6a-81b6-26869b0e92f8:e7728640-8890-428c-b057-cd7e47f199d8
-[I 16:05:34.226 LabApp] Build is up to date
-[I 16:05:46.472 LabApp] Creating new notebook in 
-[I 16:05:46.709 LabApp] Kernel started: d3077630-6e5d-4863-8570-a60f41e37212, name: python3
-[I 16:05:53.926 LabApp] Saving file at /Untitled10.ipynb
-[I 16:06:43.311 LabApp] Starting buffering for d3077630-6e5d-4863-8570-a60f41e37212:2a0be53a-0dde-4779-b32a-3f19b86f8802
-[W 16:07:09.778 LabApp] delete /Untitled.ipynb
-[W 16:07:09.864 LabApp] delete /Untitled1.ipynb
-[I 16:07:09.866 LabApp] Kernel shutdown: d3077630-6e5d-4863-8570-a60f41e37212
-[W 16:07:10.169 LabApp] delete /Untitled2.ipynb
-[W 16:07:10.170 LabApp] delete /Untitled3.ipynb
-[W 16:07:10.190 LabApp] delete /Untitled4.ipynb
-[I 16:07:10.193 LabApp] Kernel shutdown: 01741f9d-2384-4be8-9bc5-949ac0d2af96
-[I 16:07:10.497 LabApp] Kernel shutdown: 18926a07-1951-4014-9aaf-ebd68341e550
-[I 16:07:10.806 LabApp] Kernel shutdown: 86dd694c-aaed-4aba-b6a5-12ef160d0890
-[I 16:07:11.110 LabApp] Kernel shutdown: 6abae347-8feb-4d6a-81b6-26869b0e92f8
-[I 16:07:11.414 LabApp] Kernel shutdown: 8983347c-fd20-4676-9a59-f52dd2497b29
-[W 16:07:16.445 LabApp] delete /Untitled6.ipynb
-[W 16:07:16.448 LabApp] delete /Untitled10.ipynb
-[W 16:07:16.449 LabApp] delete /Untitled5.ipynb
-[W 16:07:16.683 LabApp] delete /Untitled7.ipynb
-[W 16:07:16.685 LabApp] delete /Untitled9.ipynb
-[W 16:07:16.687 LabApp] delete /Untitled8.ipynb
-[I 16:07:29.731 LabApp] New terminal with automatic name: 1
+[I 05:04:16.911 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+Websocket closed
+[I 05:04:16.927 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
 TermSocket.open: 1
 TermSocket.open: Opened 1
-[I 16:08:25.723 LabApp] Saving file at /README.md
-[I 16:08:45.354 LabApp] Saving file at /README.md
-[I 16:08:58.808 LabApp] Saving file at /README.md
-[I 16:09:18.417 LabApp] Saving file at /README.md
-[I 16:09:40.726 LabApp] Saving file at /README.md
-[I 16:09:46.604 LabApp] Saving file at /README.md
-[I 16:10:05.214 LabApp] Kernel started: 10b158f3-5c65-4d0d-9773-a31308a4d03f, name: python3
-[I 16:10:17.782 LabApp] Creating new notebook in 
-[I 16:10:18.004 LabApp] Kernel started: 88bf4825-8f4e-4e58-a478-168c63cb56f9, name: python3
-[I 16:10:20.808 LabApp] Starting buffering for 88bf4825-8f4e-4e58-a478-168c63cb56f9:cff6405b-6174-452f-9a8f-fa0f06d36426
-[I 16:11:47.601 LabApp] Kernel shutdown: a1414d5b-f13e-4d9b-9f59-5298fda9f42b
-[I 16:11:48.008 LabApp] Kernel shutdown: 88bf4825-8f4e-4e58-a478-168c63cb56f9
-[I 16:12:30.981 LabApp] Starting buffering for 10b158f3-5c65-4d0d-9773-a31308a4d03f:2f0c5952-8458-449b-a60e-aa9e36a7553a
-[I 16:12:30.983 LabApp] Kernel shutdown: 10b158f3-5c65-4d0d-9773-a31308a4d03f
-[I 16:13:13.208 LabApp] New terminal with automatic name: 2
+[I 05:04:17.703 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 05:04:17.704 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 05:04:17.808 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 05:04:17.884 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 05:04:48.842 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 05:04:49.644 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+Websocket closed
+[W 05:21:09.685 LabApp] 404 GET /manager/html (209.141.56.78) 3.59ms referer=None
+[I 05:21:40.752 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 05:22:55.946 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 05:22:55.947 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 05:22:56.046 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 05:49:46.489 LabApp] 302 GET / (31.43.248.45) 0.86ms
+[I 06:05:56.155 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 06:05:56.156 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+Websocket closed
+[I 06:05:56.481 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:05:56.571 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 06:05:56.775 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 06:06:27.882 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+Websocket closed
+[I 06:06:30.847 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 06:22:13.779 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:22:13.893 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 06:22:14.065 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 06:54:58.973 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.102 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.196 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.326 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.454 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.589 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 06:54:59.719 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.836 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:54:59.986 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:55:00.126 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:55:00.706 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 06:55:00.974 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 06:55:01.017 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:55:01.098 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:55:55.389 LabApp] Saving file at /genie/genie.ipynb
+[I 06:56:27.522 LabApp] Saving file at /genie/genie.ipynb
+[I 06:56:32.842 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:56:32.960 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:56:33.190 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 06:56:33.322 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 06:56:33.729 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 06:56:33.931 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 06:56:33.957 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:56:34.043 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 06:58:27.650 LabApp] Saving file at /genie/genie.ipynb
+[I 07:06:57.232 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:06:57.365 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:06:57.500 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:06:57.650 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:06:57.775 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:07:00.738 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:07:00.933 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:07:00.977 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:07:00.978 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:07:01.072 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:07:37.447 LabApp] Saving file at /genie/genie.ipynb
+[I 07:07:54.222 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:08:05.084 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:08:11.232 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:08:11.247 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:08:12.746 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:08:13.407 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:08:13.472 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:08:13.473 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:08:13.577 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:08:18.927 LabApp] Saving file at /genie/genie.ipynb
+[I 07:09:02.181 LabApp] Saving file at /genie/genie.ipynb
+[I 07:09:05.530 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:09:05.668 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:09:13.775 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:09:14.020 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:09:14.382 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:09:15.756 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:09:16.093 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:09:16.137 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:09:16.138 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:09:16.227 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:10:08.512 LabApp] Saving file at /genie/genie.ipynb
+[I 07:10:09.988 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:10.300 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:10.550 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:10:10.940 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:11.272 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:11.662 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:12.224 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:12.592 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:10:12.763 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:10:12.836 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:10:12.867 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:10:12.868 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:10:12.958 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+fatal: error thrown and no exception handler available.
+#<null>
+[I 07:10:12.973 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+__init__ at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Logging/src/Logging.jl:59
+jfptr___init___67219 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 07:10:15.771 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:10:15.998 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:10:16.055 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:10:16.144 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:11:15.125 LabApp] Saving file at /genie/genie.ipynb
+[I 07:11:34.870 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:35.103 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:35.394 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:35.595 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:11:35.839 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:36.090 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:36.340 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:36.575 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:36.780 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:11:36.801 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:11:36.858 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:11:36.889 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:11:36.984 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:11:37.032 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+fatal: error thrown and no exception handler available.
+#<null>
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+unpack_platform at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:431
+#21 at ./none:0
+iterate at ./generator.jl:47 [inlined]
+Dict at ./dict.jl:103
+jfptr_Dict_21594 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+#artifact_meta#20 at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:553
+artifact_meta##kw at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:546
+jfptr_artifact_metaYY.YY.kw_34319 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+do_artifact_str at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1020
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+do_apply at /buildworker/worker/package_linux64/build/src/builtins.c:655
+jl_f__apply_latest at /buildworker/worker/package_linux64/build/src/builtins.c:705
+#invokelatest#1 at ./essentials.jl:710 [inlined]
+invokelatest at ./essentials.jl:709 [inlined]
+macro expansion at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1068 [inlined]
+find_artifact_dir at /home/bohachu/.julia/packages/JLLWrappers/KuIwt/src/wrapper_generators.jl:15 [inlined]
+__init__ at /home/bohachu/.julia/packages/MbedTLS_jll/qMb7d/src/wrappers/x86_64-linux-gnu.jl:9
+jfptr___init___23139 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 07:11:39.788 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:11:40.131 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:11:40.170 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:11:40.171 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:11:40.254 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:12:16.793 LabApp] Saving file at /genie/genie.ipynb
+[I 07:12:19.135 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:19.365 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:19.632 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:19.871 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:12:20.100 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:20.350 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:20.585 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:20.845 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:21.065 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:21.352 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:21.585 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:21.796 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:12:21.805 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:12:21.875 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:12:21.894 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:12:21.895 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:c8620cdd-2790-4d16-9857-d13afd74c614
+[I 07:12:21.987 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:12:22.046 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+fatal: error thrown and no exception handler available.
+#<null>
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+unpack_platform at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:431
+#21 at ./none:0
+iterate at ./generator.jl:47 [inlined]
+Dict at ./dict.jl:103
+jfptr_Dict_21594 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+#artifact_meta#20 at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:553
+artifact_meta##kw at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:546
+jfptr_artifact_metaYY.YY.kw_34319 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+do_artifact_str at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1020
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+do_apply at /buildworker/worker/package_linux64/build/src/builtins.c:655
+jl_f__apply_latest at /buildworker/worker/package_linux64/build/src/builtins.c:705
+#invokelatest#1 at ./essentials.jl:710 [inlined]
+invokelatest at ./essentials.jl:709 [inlined]
+macro expansion at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Pkg/src/Artifacts.jl:1068 [inlined]
+find_artifact_dir at /home/bohachu/.julia/packages/JLLWrappers/KuIwt/src/wrapper_generators.jl:15 [inlined]
+__init__ at /home/bohachu/.julia/packages/MbedTLS_jll/qMb7d/src/wrappers/x86_64-linux-gnu.jl:9
+jfptr___init___23139 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 07:12:24.803 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:12:25.308 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:12:25.347 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:12:25.444 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:14:17.803 LabApp] Saving file at /genie/genie.ipynb
+[I 07:18:10.545 LabApp] 302 GET / (128.14.209.178) 1.28ms
+[I 07:18:10.717 LabApp] 302 GET /lab? (128.14.209.178) 1.41ms
+[I 07:20:47.419 LabApp] Saving file at /genie/genie.ipynb
+[I 07:20:48.276 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:20:48.414 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:20:50.066 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 07:20:50.204 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 07:20:51.811 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 07:20:52.192 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:20:52.262 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:20:52.263 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 07:20:52.360 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:22:22.146 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+Websocket closed
+[I 07:22:22.146 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 07:22:22.191 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 07:22:22.330 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 07:22:22.516 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[W 07:23:52.194 LabApp] WebSocket ping timeout after 90001 ms.
+[W 07:23:52.331 LabApp] WebSocket ping timeout after 90000 ms.
+[W 07:23:52.436 LabApp] WebSocket ping timeout after 90001 ms.
+[W 07:23:52.518 LabApp] WebSocket ping timeout after 90000 ms.
+[I 07:23:57.332 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+Websocket closed
+[I 07:23:57.519 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:01:42.667 LabApp] Saving file at /genie/genie.ipynb
+[I 08:03:01.691 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 08:03:01.856 LabApp] Restoring connection for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+[I 08:03:01.956 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:15:29.101 LabApp] 302 GET / (185.142.239.16) 1.02ms
+[I 08:15:29.646 LabApp] 302 GET /lab (185.142.239.16) 1.30ms
+[I 08:15:35.065 LabApp] 302 GET / (35.187.190.226) 0.68ms
+[I 08:17:25.047 LabApp] 302 GET / (1.163.99.3) 0.68ms
+[W 08:17:25.064 LabApp] Clearing invalid/expired login cookie username-35-194-185-192-8080
+[W 08:17:25.064 LabApp] Clearing invalid/expired login cookie username-35-194-185-192-8080
+[I 08:17:25.064 LabApp] 302 GET /lab? (1.163.99.3) 1.53ms
+[I 08:17:32.209 LabApp] 302 POST /login?next=%2Flab%3F (1.163.99.3) 367.85ms
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 08:17:36.974 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:17:37.329 LabApp] Build is up to date
+[W 08:20:43.194 LabApp] Blocking request with no referer
+[W 08:20:43.194 LabApp] 403 GET /files/world-timeline/deps/amcharts4/core.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.195 LabApp] 403 GET /files/world-timeline/deps/amcharts4/core.js (1.163.99.3) 2.01ms referer=None
+[W 08:20:43.196 LabApp] Blocking request with no referer
+[W 08:20:43.196 LabApp] 403 GET /files/world-timeline/deps/amcharts4/charts.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.197 LabApp] 403 GET /files/world-timeline/deps/amcharts4/charts.js (1.163.99.3) 1.27ms referer=None
+[W 08:20:43.198 LabApp] Blocking request with no referer
+[W 08:20:43.198 LabApp] 403 GET /files/world-timeline/deps/amcharts4/maps.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.198 LabApp] 403 GET /files/world-timeline/deps/amcharts4/maps.js (1.163.99.3) 1.19ms referer=None
+[W 08:20:43.207 LabApp] Blocking request with no referer
+[W 08:20:43.207 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/dark.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.208 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/dark.js (1.163.99.3) 1.28ms referer=None
+[W 08:20:43.209 LabApp] Blocking request with no referer
+[W 08:20:43.209 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/animated.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.209 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/animated.js (1.163.99.3) 1.37ms referer=None
+[W 08:20:43.209 LabApp] Blocking request with no referer
+[W 08:20:43.210 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/worldHigh.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.210 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/worldHigh.js (1.163.99.3) 1.90ms referer=None
+[W 08:20:43.217 LabApp] Blocking request with no referer
+[W 08:20:43.217 LabApp] 403 GET /files/world-timeline/deps/datatables/css/jquery.dataTables.min.css (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.217 LabApp] 403 GET /files/world-timeline/deps/datatables/css/jquery.dataTables.min.css (1.163.99.3) 1.23ms referer=None
+[W 08:20:43.249 LabApp] Blocking request with no referer
+[W 08:20:43.249 LabApp] 403 GET /files/world-timeline/deps/datatables/css/select.dataTables.min.css (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.250 LabApp] 403 GET /files/world-timeline/deps/datatables/css/select.dataTables.min.css (1.163.99.3) 2.01ms referer=None
+[W 08:20:43.251 LabApp] Blocking request with no referer
+[W 08:20:43.251 LabApp] 403 GET /files/world-timeline/examples/dashboard/dark.css (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.252 LabApp] 403 GET /files/world-timeline/examples/dashboard/dark.css (1.163.99.3) 1.47ms referer=None
+[W 08:20:43.253 LabApp] Blocking request with no referer
+[W 08:20:43.253 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/data/countries2.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.254 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/data/countries2.js (1.163.99.3) 1.24ms referer=None
+[W 08:20:43.254 LabApp] Blocking request with no referer
+[W 08:20:43.254 LabApp] 403 GET /files/world-timeline/deps/jquery/jquery-3.3.1.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.255 LabApp] 403 GET /files/world-timeline/deps/jquery/jquery-3.3.1.min.js (1.163.99.3) 1.46ms referer=None
+[W 08:20:43.255 LabApp] Blocking request with no referer
+[W 08:20:43.255 LabApp] 403 GET /files/world-timeline/deps/datatables/js/jquery.dataTables.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.256 LabApp] 403 GET /files/world-timeline/deps/datatables/js/jquery.dataTables.min.js (1.163.99.3) 2.00ms referer=None
+[W 08:20:43.261 LabApp] Blocking request with no referer
+[W 08:20:43.261 LabApp] 403 GET /files/world-timeline/deps/datatables/js/dataTables.select.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.261 LabApp] 403 GET /files/world-timeline/deps/datatables/js/dataTables.select.min.js (1.163.99.3) 1.17ms referer=None
+[W 08:20:43.297 LabApp] Blocking request with no referer
+[W 08:20:43.297 LabApp] 403 GET /files/world-timeline/data/js/world_timeline.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.300 LabApp] 403 GET /files/world-timeline/data/js/world_timeline.js (1.163.99.3) 4.14ms referer=None
+[W 08:20:43.302 LabApp] Blocking request with no referer
+[W 08:20:43.302 LabApp] 403 GET /files/world-timeline/data/js/total_timeline.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.303 LabApp] 403 GET /files/world-timeline/data/js/total_timeline.js (1.163.99.3) 1.73ms referer=None
+[W 08:20:43.303 LabApp] Blocking request with no referer
+[W 08:20:43.303 LabApp] 403 GET /files/world-timeline/examples/dashboard/app.js (1.163.99.3): Blocking request from unknown origin
+[W 08:20:43.303 LabApp] 403 GET /files/world-timeline/examples/dashboard/app.js (1.163.99.3) 2.15ms referer=None
+[I 08:23:54.753 LabApp] Saving file at /genie/genie.ipynb
+[I 08:25:00.295 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:00.403 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:00.548 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:00.700 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:00.873 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:01.028 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+Starting kernel event loops.
+[I 08:25:02.173 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:02.318 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:02.453 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:02.598 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:02.743 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:02.890 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:03.020 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:03.163 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:03.300 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:03.825 LabApp] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 08:25:03.986 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:04.031 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:25:04.085 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:25:04.086 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:25:04.093 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+fatal: error thrown and no exception handler available.
+#<null>
+jl_mutex_unlock at /buildworker/worker/package_linux64/build/src/locks.h:143
+jl_generate_fptr at /buildworker/worker/package_linux64/build/src/jitlayers.cpp:309
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1964
+jl_compile_method_internal at /buildworker/worker/package_linux64/build/src/gf.c:1919 [inlined]
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2224 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+__init__ at /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.5/Logging/src/Logging.jl:59
+jfptr___init___67219 at /home/bohachu/julia-1.5.2/lib/julia/sys.so (unknown line)
+_jl_invoke at /buildworker/worker/package_linux64/build/src/gf.c:2214 [inlined]
+jl_apply_generic at /buildworker/worker/package_linux64/build/src/gf.c:2398
+jl_apply at /buildworker/worker/package_linux64/build/src/julia.h:1690 [inlined]
+jl_module_run_initializer at /buildworker/worker/package_linux64/build/src/toplevel.c:74
+_julia_init at /buildworker/worker/package_linux64/build/src/init.c:779
+main at /buildworker/worker/package_linux64/build/ui/repl.c:221
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+_start at /home/bohachu/julia-1.5.2/bin/julia (unknown line)
+[I 08:25:04.188 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:25:04.222 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:25:06.833 LabApp] KernelRestarter: restarting kernel (2/5), keep random ports
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+kernel 80829bf8-be33-450f-850c-1f93d81c966d restarted
+[I 08:25:07.138 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:25:07.185 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:25:07.186 LabApp] Restoring connection for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:25:07.270 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 08:25:46.441 LabApp] 302 GET / (1.163.99.3) 0.53ms
+[I 08:25:54.968 LabApp] Saving file at /genie/genie.ipynb
+[I 08:26:13.368 LabApp] Saving file at /genie/genie.ipynb
+[I 08:26:14.887 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:15.008 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:37.485 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:37.603 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:37.733 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:37.913 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:38.083 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:38.208 LabApp] Kernel interrupted: 80829bf8-be33-450f-850c-1f93d81c966d
+[I 08:26:47.058 LabApp] Saving file at /genie/genie.ipynb
+[I 08:27:50.551 LabApp] Saving file at /genie/genie.ipynb
+[I 08:28:23.118 LabApp] New terminal with automatic name: 2
 TermSocket.open: 2
 TermSocket.open: Opened 2
-[I 16:14:18.912 LabApp] Saving file at /iek/bar/view.html
-[I 16:16:08.798 LabApp] Creating new notebook in /iek/bar
-[I 16:16:09.059 LabApp] Kernel started: 23fb11cd-f5bf-4801-9c7b-59246c28733d, name: python3
-[I 16:18:09.015 LabApp] Saving file at /iek/bar/Untitled1.ipynb
-[I 16:22:27.312 LabApp] Starting buffering for 23fb11cd-f5bf-4801-9c7b-59246c28733d:1b03fe47-d1d7-4d45-9d01-3c79b8ece643
-[I 16:22:34.197 LabApp] Creating new notebook in /iek/bar
-[I 16:22:34.438 LabApp] Kernel started: 0fd7cc8b-5a3e-4b44-a83c-af941058884c, name: python3
-[I 16:23:50.348 LabApp] Kernel started: 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445, name: python3
-[I 16:23:57.285 LabApp] Saving file at /iek/bar/Untitled2.ipynb
-[I 16:23:58.593 LabApp] Starting buffering for 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445:ded34607-1b2b-46fe-a912-f8d1333d6b55
-[I 16:23:58.595 LabApp] Kernel shutdown: 6d7a5d69-83d6-4c0b-b4e6-6f4e2606c445
-[I 16:23:59.035 LabApp] Kernel started: 4eb669ae-a5cf-4824-bd0d-6e6f595b2311, name: python3
-[I 16:24:02.975 LabApp] Starting buffering for 4eb669ae-a5cf-4824-bd0d-6e6f595b2311:0e86dbdf-9b0b-4712-bc46-9ac5e3cb5e26
-[I 16:24:02.979 LabApp] Kernel shutdown: 4eb669ae-a5cf-4824-bd0d-6e6f595b2311
-[I 16:24:07.408 LabApp] Kernel started: 705a9380-6cee-4fc7-9af7-fd063d0dd197, name: python3
-[I 16:24:28.818 LabApp] Saving file at /iek/bar/Untitled2.ipynb
-[I 16:25:07.865 LabApp] Starting buffering for 0fd7cc8b-5a3e-4b44-a83c-af941058884c:07eab8f3-1ba9-4add-a6d1-c8f8e1e807a5
-[I 16:25:59.018 LabApp] Creating new notebook in /iek/bar
-[I 16:25:59.322 LabApp] Kernel started: 43937f72-d434-4093-9933-eb11247c1691, name: python3
-[I 16:26:55.668 LabApp] Saving file at /iek/bar/gen.ipynb
-[I 16:27:22.519 LabApp] Creating new notebook in /iek/bar
-[I 16:27:22.815 LabApp] Kernel started: f060ed82-e75e-4a1c-9695-ad549254c42b, name: julia-1.5
-[I 16:27:32.197 LabApp] Adapting from protocol version 5.0 (kernel f060ed82-e75e-4a1c-9695-ad549254c42b) to 5.3 (client).
-[I 16:27:54.227 LabApp] Build is up to date
-[I 16:27:55.527 LabApp] Uninstalling @jupyter-voila/jupyterlab-preview from /home/bohachu/.local/share/jupyter/lab/extensions
-[I 16:27:57.171 LabApp] Build is up to date
--\|/-\|/-\|/-\|/-\|/[I 16:28:04.206 LabApp] Build is up to date
-[I 16:28:05.998 LabApp] Build is up to date
-[I 16:28:09.691 LabApp] Starting buffering for f060ed82-e75e-4a1c-9695-ad549254c42b:7b4e3bfb-9fe9-4fbc-a3bb-b77d52fc62ce
-[I 16:28:11.150 LabApp] Starting buffering for 43937f72-d434-4093-9933-eb11247c1691:a606a2b7-56b7-44a6-a2d7-61ba097d06c5
-[I 16:28:13.785 LabApp] Creating new notebook in /iek/bar
-[I 16:28:14.010 LabApp] Kernel started: 0ba741e7-72ee-4290-9b1a-c86a0705fe42, name: python3
-[I 16:28:38.662 LabApp] Starting buffering for 705a9380-6cee-4fc7-9af7-fd063d0dd197:f684bfa0-0350-4fa0-9be5-269eb35cec30
-[I 16:28:38.664 LabApp] Kernel shutdown: 705a9380-6cee-4fc7-9af7-fd063d0dd197
--\|/-\|/-\|/-\|/-\|/-\[W 16:29:41.017 LabApp] Build recommended
-[W 16:29:41.017 LabApp] spreadsheet-editor needs to be included in build
-[I 16:29:46.298 LabApp] Building jupyterlab assets (build:dev)
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\[I 16:30:14.218 LabApp] Saving file at /iek/bar/Untitled4.ipynb
-|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|Websocket closed
-[I 16:31:05.624 LabApp] Starting buffering for 0ba741e7-72ee-4290-9b1a-c86a0705fe42:6c7456cf-d3bf-4964-ad95-9942d2d40d28
+[I 08:29:50.758 LabApp] Saving file at /genie/genie.ipynb
+[W 08:32:41.225 LabApp] 404 GET /manager/html (209.141.56.78) 1.72ms referer=None
+[W 08:34:27.486 LabApp] Blocking request with no referer
+[W 08:34:27.486 LabApp] 403 GET /files/world-timeline/deps/amcharts4/core.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.487 LabApp] 403 GET /files/world-timeline/deps/amcharts4/core.js (1.163.99.3) 2.21ms referer=None
+[W 08:34:27.489 LabApp] Blocking request with no referer
+[W 08:34:27.489 LabApp] 403 GET /files/world-timeline/deps/datatables/css/jquery.dataTables.min.css (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.489 LabApp] 403 GET /files/world-timeline/deps/datatables/css/jquery.dataTables.min.css (1.163.99.3) 1.34ms referer=None
+[W 08:34:27.490 LabApp] Blocking request with no referer
+[W 08:34:27.490 LabApp] 403 GET /files/world-timeline/deps/datatables/css/select.dataTables.min.css (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.491 LabApp] 403 GET /files/world-timeline/deps/datatables/css/select.dataTables.min.css (1.163.99.3) 1.17ms referer=None
+[W 08:34:27.494 LabApp] Blocking request with no referer
+[W 08:34:27.494 LabApp] 403 GET /files/world-timeline/examples/dashboard/dark.css (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.495 LabApp] 403 GET /files/world-timeline/examples/dashboard/dark.css (1.163.99.3) 1.29ms referer=None
+[W 08:34:27.498 LabApp] Blocking request with no referer
+[W 08:34:27.498 LabApp] 403 GET /files/world-timeline/deps/amcharts4/charts.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.499 LabApp] 403 GET /files/world-timeline/deps/amcharts4/charts.js (1.163.99.3) 1.49ms referer=None
+[W 08:34:27.499 LabApp] Blocking request with no referer
+[W 08:34:27.500 LabApp] 403 GET /files/world-timeline/deps/amcharts4/maps.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.500 LabApp] 403 GET /files/world-timeline/deps/amcharts4/maps.js (1.163.99.3) 1.39ms referer=None
+[W 08:34:27.509 LabApp] Blocking request with no referer
+[W 08:34:27.509 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/dark.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.510 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/dark.js (1.163.99.3) 1.88ms referer=None
+[W 08:34:27.521 LabApp] Blocking request with no referer
+[W 08:34:27.521 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/animated.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.523 LabApp] 403 GET /files/world-timeline/deps/amcharts4/themes/animated.js (1.163.99.3) 2.02ms referer=None
+[W 08:34:27.524 LabApp] Blocking request with no referer
+[W 08:34:27.524 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/worldHigh.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.525 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/worldHigh.js (1.163.99.3) 1.52ms referer=None
+[W 08:34:27.527 LabApp] Blocking request with no referer
+[W 08:34:27.528 LabApp] 403 GET /files/world-timeline/deps/jquery/jquery-3.3.1.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.528 LabApp] 403 GET /files/world-timeline/deps/jquery/jquery-3.3.1.min.js (1.163.99.3) 1.65ms referer=None
+[W 08:34:27.528 LabApp] Blocking request with no referer
+[W 08:34:27.529 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/data/countries2.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.529 LabApp] 403 GET /files/world-timeline/deps/amcharts4-geodata/data/countries2.js (1.163.99.3) 2.14ms referer=None
+[W 08:34:27.533 LabApp] Blocking request with no referer
+[W 08:34:27.533 LabApp] 403 GET /files/world-timeline/deps/datatables/js/jquery.dataTables.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.534 LabApp] 403 GET /files/world-timeline/deps/datatables/js/jquery.dataTables.min.js (1.163.99.3) 1.70ms referer=None
+[W 08:34:27.557 LabApp] Blocking request with no referer
+[W 08:34:27.557 LabApp] 403 GET /files/world-timeline/deps/datatables/js/dataTables.select.min.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.558 LabApp] 403 GET /files/world-timeline/deps/datatables/js/dataTables.select.min.js (1.163.99.3) 1.76ms referer=None
+[W 08:34:27.559 LabApp] Blocking request with no referer
+[W 08:34:27.559 LabApp] 403 GET /files/world-timeline/data/js/world_timeline.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.560 LabApp] 403 GET /files/world-timeline/data/js/world_timeline.js (1.163.99.3) 1.27ms referer=None
+[W 08:34:27.562 LabApp] Blocking request with no referer
+[W 08:34:27.562 LabApp] 403 GET /files/world-timeline/data/js/total_timeline.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.562 LabApp] 403 GET /files/world-timeline/data/js/total_timeline.js (1.163.99.3) 1.30ms referer=None
+[W 08:34:27.563 LabApp] Blocking request with no referer
+[W 08:34:27.563 LabApp] 403 GET /files/world-timeline/examples/dashboard/app.js (1.163.99.3): Blocking request from unknown origin
+[W 08:34:27.564 LabApp] 403 GET /files/world-timeline/examples/dashboard/app.js (1.163.99.3) 1.10ms referer=None
+[I 08:35:17.413 LabApp] Saving file at /world-timeline/examples/dashboard/index.html
+[I 08:35:40.383 LabApp] Saving file at /world-timeline/examples/dashboard/index.html
+[I 08:36:00.757 LabApp] Saving file at /world-timeline/examples/dashboard/index.html
+[I 08:39:03.749 LabApp] 302 GET / (103.41.146.171) 0.70ms
 Websocket closed
-[I 16:31:11.635 LabApp] Build is up to date
-[I 16:31:14.978 LabApp] Starting buffering for 0ba741e7-72ee-4290-9b1a-c86a0705fe42:61549be2-2f48-48cd-866b-d9a0e2db8e93
-[I 16:31:16.149 LabApp] Creating new notebook in /iek/bar
-[I 16:31:16.397 LabApp] Kernel started: 5b0a5d1e-0409-4438-972a-806853f47afc, name: python3
-[I 16:31:39.999 LabApp] Creating new notebook in /iek/bar
-[I 16:31:40.251 LabApp] Kernel started: 15fe2a71-b28a-4bc3-9bfc-4023605599ff, name: python3
-[I 16:33:34.090 LabApp] Build is up to date
-[I 16:33:41.232 LabApp] Saving file at /iek/bar/Untitled6.ipynb
-[W 16:33:55.973 LabApp] Blocking request with no referer
-[W 16:33:55.973 LabApp] 403 GET /files/iek/bar/data.csv (111.240.174.108): Blocking request from unknown origin
-[W 16:33:55.995 LabApp] 403 GET /files/iek/bar/data.csv (111.240.174.108) 22.91ms referer=None
-[I 16:34:55.265 LabApp] Saving file at /iek/bar/view.html
-[I 16:35:03.822 LabApp] 302 GET /files/iek/bar/data.json?_xsrf=2%7C27ffed53%7C736fd10bd34890487b5cd55177978d15%7C1595130764 (111.240.174.108) 1.06ms
-[I 16:35:14.275 LabApp] Saving file at /iek/bar/view.html
-[I 16:36:21.313 LabApp] Saving file at /install.sh
-[I 16:36:56.537 LabApp] New terminal with automatic name: 3
-TermSocket.open: 3
-TermSocket.open: Opened 3
-[I 16:39:00.173 LabApp] New terminal with automatic name: 4
-[I 16:39:00.334 LabApp] Kernel shutdown: 23fb11cd-f5bf-4801-9c7b-59246c28733d
-[I 16:39:01.306 LabApp] Kernel shutdown: 0fd7cc8b-5a3e-4b44-a83c-af941058884c
-[I 16:39:01.612 LabApp] Kernel shutdown: 43937f72-d434-4093-9933-eb11247c1691
-[I 16:39:01.919 LabApp] Kernel shutdown: f060ed82-e75e-4a1c-9695-ad549254c42b
-[I 16:39:06.949 LabApp] Kernel shutdown: 15fe2a71-b28a-4bc3-9bfc-4023605599ff
-TermSocket.open: 4
-TermSocket.open: Opened 4
-[I 16:39:07.360 LabApp] Kernel shutdown: 0ba741e7-72ee-4290-9b1a-c86a0705fe42
-[I 16:39:07.763 LabApp] Kernel shutdown: 5b0a5d1e-0409-4438-972a-806853f47afc
-[I 16:42:05.710 LabApp] Creating new notebook in 
-[I 16:42:06.037 LabApp] Kernel started: 46f36c2d-9d84-4c8a-b0f3-ba0cef20b3fc, name: python3
-[I 16:42:23.652 LabApp] Saving file at /Untitled1.ipynb
-[I 16:43:27.649 LabApp] Creating new file in 
-[I 16:43:53.112 LabApp] Saving file at /cameo_motion.py
-[I 16:44:10.033 LabApp] Saving file at /Untitled1.ipynb
-[I 16:44:33.590 LabApp] Saving file at /Untitled1.ipynb
-[I 16:44:50.656 LabApp] Saving file at /ui.ipynb
-[I 16:46:07.100 LabApp] Saving file at /install.sh
-[I 16:46:08.371 LabApp] Saving file at /install.sh
-[I 16:46:14.660 LabApp] Saving file at /install.sh
-[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
-Starting kernel event loops.
+Websocket closed
+[I 08:39:09.105 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:985b282d-a385-460a-88fc-338aa1ff2eb0
+[I 08:39:09.105 LabApp] Starting buffering for 21c1a3e7-07ba-4076-87b7-ce7454fd78e3:76a1cb38-76a6-4baa-9299-e36994f1ca5c
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 08:39:25.633 LabApp] Build is up to date
+Websocket closed
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 08:43:17.547 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 08:43:18.085 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+Websocket closed
+[I 08:44:51.247 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 08:44:51.890 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+Websocket closed
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[W 08:48:55.007 LabApp] WebSocket ping timeout after 119916 ms.
+Websocket closed
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 08:49:03.422 LabApp] 302 GET / (90.180.150.231) 0.55ms
+[W 08:50:31.338 LabApp] WebSocket ping timeout after 90001 ms.
+Websocket closed
+[I 09:23:06.039 LabApp] 302 GET / (106.1.67.10) 1.84ms
+TermSocket.open: 1
+TermSocket.open: Opened 1
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[I 09:34:00.331 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 09:34:12.210 LabApp] Adapting from protocol version 5.0 (kernel 80829bf8-be33-450f-850c-1f93d81c966d) to 5.3 (client).
+[I 09:35:27.111 LabApp] Creating new notebook in /genie
+[I 09:35:27.545 LabApp] Kernel started: 2aa72eac-2b1d-45ac-9ddb-9870d312d138, name: python3
+[I 09:35:36.574 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 09:37:14.160 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 09:37:14.212 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 09:37:27.936 LabApp] Saving file at /genie/Untitled.ipynb
+[I 09:37:54.329 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 09:37:54.575 LabApp] Saving file at /world-timeline/examples/dashboard/app.js
+[I 09:38:34.401 LabApp] Saving file at /genie/Untitled.ipynb
+[I 09:38:35.016 LabApp] Kernel started: 46650386-b148-4890-a9d5-c49fbc23f9b5, name: python3
+[I 09:38:39.491 LabApp] Kernel started: 858b887a-0b4f-4894-a33d-70df31e17b8b, name: python3
+[I 09:38:40.276 LabApp] Kernel started: f54e1e04-5deb-4f00-8e2e-ad56883294aa, name: python3
+[I 09:38:41.357 LabApp] Kernel started: 5da4baee-8212-479a-b901-953018249bc5, name: python3
+Websocket closed
+TermSocket.open: 1
+TermSocket.open: Opened 1
+[W 09:38:52.131 LabApp] 404 GET /voila/templates/lab/static/voila.js.map (114.136.187.142) 1.57ms referer=None
+[I 09:39:02.866 LabApp] Starting buffering for 5da4baee-8212-479a-b901-953018249bc5:6950f220-2faf-452f-ab1a-098e03d31e3a
+[I 09:39:03.068 LabApp] Kernel started: c9ca0031-c252-4b16-8b84-76cd2877fc7b, name: python3
+[I 09:39:03.754 LabApp] Kernel shutdown: 5da4baee-8212-479a-b901-953018249bc5
+[W 09:39:04.633 LabApp] 404 GET /voila/templates/lab/static/voila.js.map (114.136.187.142) 1.35ms referer=None
+[I 09:39:14.050 LabApp] Saving file at /genie/Untitled.ipynb
+[I 09:39:25.170 LabApp] Saving file at /genie/Untitled.ipynb
+[I 09:39:27.711 LabApp] Kernel shutdown: c9ca0031-c252-4b16-8b84-76cd2877fc7b
+[W 09:39:27.916 LabApp] Got events for closed stream None
+[I 09:39:28.053 LabApp] Kernel started: 452f44e6-410f-4e21-af4d-baf2ed53fd49, name: python3
+[I 09:39:29.095 LabApp] Kernel started: 335ac528-f2e5-48b4-b8d6-bf86376a0f0c, name: python3
+[W 09:39:30.748 LabApp] 404 GET /voila/templates/lab/static/voila.js.map (114.136.187.142) 1.34ms referer=None
+Websocket closed
+[I 09:41:25.916 LabApp] Saving file at /genie/Untitled.ipynb
+[I 09:51:58.641 LabApp] 302 GET / (45.227.255.224) 0.72ms
+[I 10:36:30.641 LabApp] 302 GET / (74.120.14.52) 0.55ms
+[I 10:36:31.015 LabApp] 302 GET / (74.120.14.52) 0.52ms
+[I 10:36:31.351 LabApp] 302 GET /lab (74.120.14.52) 0.90ms
+[I 10:48:57.555 LabApp] Starting buffering for 335ac528-f2e5-48b4-b8d6-bf86376a0f0c:d83e1bfe-abe1-4791-978b-bdec14360ecb
+[I 10:48:57.598 LabApp] Kernel shutdown: 335ac528-f2e5-48b4-b8d6-bf86376a0f0c
+[I 10:48:57.902 LabApp] Starting buffering for 2aa72eac-2b1d-45ac-9ddb-9870d312d138:6b8d1539-b9a6-427e-9a7b-82dcda08317f
+Websocket closed
+[I 10:48:57.904 LabApp] Starting buffering for 80829bf8-be33-450f-850c-1f93d81c966d:63f1fdcd-b628-41f8-9ca7-b01a4fad1b79
+[I 10:56:40.499 LabApp] 302 GET /terminals/1 (88.218.17.151) 0.78ms
+[I 10:56:40.513 LabApp] 302 GET /terminals/1 (88.218.17.151) 0.51ms
+[I 11:16:14.991 LabApp] 302 GET / (59.126.186.29) 0.67ms
+[I 11:17:59.765 LabApp] 302 GET / (103.72.103.226) 0.63ms
+[W 11:44:33.002 LabApp] 404 GET /manager/html (209.141.56.78) 1.56ms referer=None
+[I 11:45:07.953 LabApp] 302 GET / (201.94.218.98) 0.57ms
+[I 11:50:55.743 LabApp] 302 GET / (80.82.68.60) 0.61ms
+[I 11:50:56.001 LabApp] 302 GET /lab (80.82.68.60) 0.72ms
