@@ -1,3 +1,6 @@
+== 2020-11-06 21:48 Bowen Chiu ==
+genie 已經可以 http get 驅動 julia 做事情
+
 == 2020-10-25 00:08 Bowen Chiu ==
 如果可以實驗的話，希望能夠把 voila 加入「數據動圖」製程當中
 
