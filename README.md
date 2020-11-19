@@ -1,3 +1,6 @@
+== 2020-11-20 00:21 Bowen Chiu ==
+import 的地方已經整理完畢
+
 == 2020-11-19 23:59 Bowen Chiu ==
 已經讓 src 底下可以跑 genie 以及 cameo-line-column 也可以測試，但程式碼在 import 的地方需要再整理
 

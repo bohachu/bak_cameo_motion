@@ -20,11 +20,9 @@ class CameoLineColumn extends HTMLElement {
       <div class="apex-line-column" id="${this.str_random_id}"></div>
     `;
     this.chart_render();
-    // this.original_render();
   }
   async load_meta_csv() {
-    let df = await DataFrame.fromCSV(
-//       `${window.location.href}${this.getAttribute("src")}`
+    let df = await dfjs.DataFrame.fromCSV(
       `${this.getAttribute("src")}`
     );
     let ary = df.transpose().toArray();
@@ -34,8 +32,7 @@ class CameoLineColumn extends HTMLElement {
     ary_keys.forEach((str_key, i) => (this.dic_meta[str_key] = ary_values[i]));
   }
   async load_data_csv() {
-    let df = await DataFrame.fromCSV(
-//       `${window.location.href}${this.dic_meta["資料檔案"]}`
+    let df = await dfjs.DataFrame.fromCSV(
       `${this.dic_meta["資料檔案"]}`
     );
     df = df.transpose();
@@ -98,8 +95,6 @@ class CameoLineColumn extends HTMLElement {
   }
 }
 
-var DataFrame;
 function main() {
-  DataFrame = dfjs.DataFrame;
   customElements.define("cameo-line-column", CameoLineColumn);
 }

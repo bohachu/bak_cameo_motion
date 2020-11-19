@@ -1,12 +1,10 @@
-// import dfjs from "https://jspm.dev/dataframe-js";
 import { load_js, load_css } from "./cameo_load.js";
 load_css("https://bossanova.uk/jsuites/v3/jsuites.css");
 load_css("https://bossanova.uk/jexcel/v4/jexcel.css");
 load_js("https://bossanova.uk/jsuites/v3/jsuites.js");
-load_js("https://bossanova.uk/jexcel/v4/jexcel.js", load_dataframe);
-function load_dataframe(){
-  load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",main);
-}
+load_js("https://bossanova.uk/jexcel/v4/jexcel.js", function(){
+load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",main);});
+
 class CameoSheet extends HTMLElement {
   connectedCallback() {
     this.str_random_id = "id_" + Math.random().toString(36).substr(2, 9);
@@ -15,19 +13,8 @@ class CameoSheet extends HTMLElement {
     `;
     this.render();
   }
-  async load_meta_csv() {
-    // let df = await DataFrame.fromCSV(
-    //   `${window.location.href}/data/cameo_line_column_meta.csv`
-    // );
-    // let ary = df.transpose().toArray();
-    // let ary_keys = ary[0];
-    // let ary_values = ary[1];
-    // this.dic_meta = {};
-    // ary_keys.forEach((str_key, i) => (this.dic_meta[str_key] = ary_values[i]));
-  }
   async render() {
-    let df = await DataFrame.fromCSV(
-//       `${window.location.href}${this.getAttribute("src")}`
+    let df = await dfjs.DataFrame.fromCSV(
       `${this.getAttribute("src")}`
     );
     let ary = df.toArray();
@@ -44,8 +31,6 @@ class CameoSheet extends HTMLElement {
   }
 }
 
-var DataFrame;
 function main() {
-  DataFrame = dfjs.DataFrame;
   customElements.define("cameo-sheet", CameoSheet);
 }
