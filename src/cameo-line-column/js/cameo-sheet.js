@@ -5,7 +5,7 @@ load_css("https://bossanova.uk/jexcel/v4/jexcel.css");
 load_js("https://bossanova.uk/jsuites/v3/jsuites.js");
 load_js("https://bossanova.uk/jexcel/v4/jexcel.js", load_dataframe);
 function load_dataframe(){
-  load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",define);
+  load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",main);
 }
 class CameoSheet extends HTMLElement {
   connectedCallback() {
@@ -45,7 +45,7 @@ class CameoSheet extends HTMLElement {
 }
 
 var DataFrame;
-function define() {
+function main() {
   DataFrame = dfjs.DataFrame;
   customElements.define("cameo-sheet", CameoSheet);
 }

@@ -1,6 +1,6 @@
 import ApexCharts from "https://jspm.dev/apexcharts";
 import { load_js, load_css } from "./cameo_load.js";
-load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",define);
+load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",main);
 
 class CameoLineColumn extends HTMLElement {
   connectedCallback() {
@@ -99,7 +99,7 @@ class CameoLineColumn extends HTMLElement {
 }
 
 var DataFrame;
-function define() {
+function main() {
   DataFrame = dfjs.DataFrame;
   customElements.define("cameo-line-column", CameoLineColumn);
 }
