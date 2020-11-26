@@ -1,0 +1,48 @@
+# See CKAN docs on installation from Docker Compose on usage
+FROM asia.gcr.io/epa-cloud/docker_ckan:2.8.3-cameo-update-20200629
+MAINTAINER Open Knowledge
+
+RUN ckan-pip install uwsgi && \
+    ckan-pip install uwsgitop && \
+    ckan-pip install gunicorn && \
+    ckan-pip install Flask-DebugToolbar==0.10.1
+
+COPY ckanext/ $CKAN_VENV/src/ckanext/
+COPY production.ini /etc/ckan/production.ini
+
+USER root
+RUN chown -R ckan:ckan $CKAN_VENV/src/ckanext/
+
+USER ckan
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-epa_theme
+RUN . $CKAN_VENV/bin/activate && \
+    pip install -r dev-requirements.txt && \
+    python setup.py install && \
+    python setup.py develop
+
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-announcement
+RUN . $CKAN_VENV/bin/activate && \
+    python setup.py install && \
+    python setup.py develop
+    
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-cameoDatasetExtras
+RUN . $CKAN_VENV/bin/activate && \
+    python setup.py install && \
+    python setup.py develop
+    
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-cameoIdatastore
+RUN . $CKAN_VENV/bin/activate && \
+    python setup.py install && \
+    python setup.py develop
+        
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-cameoOpenapi
+RUN . $CKAN_VENV/bin/activate && \
+    python setup.py install && \
+    python setup.py develop
+        
+WORKDIR $CKAN_VENV/src/ckanext/ckanext-cameoUserCreate
+RUN . $CKAN_VENV/bin/activate && \
+    python setup.py install && \
+    python setup.py develop
+    
+WORKDIR $CKAN_HOME

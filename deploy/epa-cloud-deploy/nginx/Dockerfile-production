@@ -1,0 +1,14 @@
+FROM nginx:1.15-alpine
+
+COPY nginx_http.production.conf /etc/nginx/conf.d/default.conf
+COPY nginx_http.production.uwsgi.conf /etc/nginx/conf.d/default.conf.uwsgi
+COPY htpasswd /etc/nginx/htpasswd
+COPY docker-entrypoint.sh .
+COPY data.epa.gov.tw.key .
+COPY data.epa.gov.tw.crt .
+COPY data.epa.gov.tw.chain.crt .
+
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]

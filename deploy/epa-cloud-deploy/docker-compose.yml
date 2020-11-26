@@ -1,0 +1,127 @@
+# docker-compose build && docker-compose up -d
+# If "docker-compose logs ckan" shows DB not ready, run "docker-compose restart ckan" a few times.
+version: "3"
+
+volumes:
+  ckan_config:
+  ckan_home:
+  ckan_storage:
+  api_config:
+  api_home:
+  api_storage:
+
+services:
+  ckan_api:
+    container_name: ckan_api
+    image: asia.gcr.io/epa-cloud/epa_ckan:2.8.3-api-20200714v1
+    links:
+      - solr
+      - redis
+    networks:
+      - epa-ckan_api
+    ports:
+      - "0.0.0.0:${CKAN_API_PORT}:5000"
+    environment:
+      # Defaults work with linked containers, change to use own Postgres, SolR, Redis or Datapusher
+      - CKAN_SQLALCHEMY_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_URL}:5432/${CKAN_DATABASE_NAME}
+      - CKAN_DATASTORE_WRITE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_URL}:5432/${DATASTORE_DATABASE_NAME}
+      - CKAN_DATASTORE_READ_URL=postgresql://${DATASTORE_READONLY_USER}:${DATASTORE_READONLY_PASSWORD}@${POSTGRES_URL}:5432/${DATASTORE_DATABASE_NAME}
+      - CKAN_SOLR_URL=http://solr:8983/solr/ckan
+      - CKAN_REDIS_URL=redis://redis:6379/1
+      - CKAN_DATAPUSHER_URL=http://datapusher:8800
+      - CKAN_SITE_URL=${CKAN_API_SITE_URL}
+      - CKAN_MAX_UPLOAD_SIZE_MB=${CKAN_MAX_UPLOAD_SIZE_MB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DS_RO_PASS=${DATASTORE_READONLY_PASSWORD}
+    volumes:
+      - api_config:/etc/ckan
+      - api_home:/usr/lib/ckan
+      - api_storage:/var/lib/ckan
+    restart: always
+      
+  ckan:
+    container_name: ckan
+    image: asia.gcr.io/epa-cloud/epa_ckan:2.8.3-[ckan_version]
+    #command: ["/usr/lib/ckan/venv/bin/uwsgi", "--stats", ":5001", "--reload-on-exception", "--ini-paste", "/etc/ckan/production.ini"]
+    command: ["/usr/lib/ckan/venv/bin/gunicorn", "-b", ":5000", "--paste", "/etc/ckan/production.ini"]
+    sysctls:
+      net.core.somaxconn: 1024 # set max connections to 1024 in kernel
+    links:
+      - solr
+      - redis
+    networks:
+      - epa-nginx
+      - epa-ckan
+    ports:
+      - "0.0.0.0:${CKAN_PORT}:5000"
+    environment:
+      # Defaults work with linked containers, change to use own Postgres, SolR, Redis or Datapusher
+      - CKAN_SQLALCHEMY_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_URL}:5432/${CKAN_DATABASE_NAME}
+      - CKAN_DATASTORE_WRITE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_URL}:5432/${DATASTORE_DATABASE_NAME}
+      - CKAN_DATASTORE_READ_URL=postgresql://${DATASTORE_READONLY_USER}:${DATASTORE_READONLY_PASSWORD}@${POSTGRES_URL}:5432/${DATASTORE_DATABASE_NAME}
+      - CKAN_SOLR_URL=http://solr:8983/solr/ckan
+      - CKAN_REDIS_URL=redis://redis:6379/1
+      - CKAN_DATAPUSHER_URL=http://datapusher:8800
+      - CKAN_SITE_URL=${CKAN_SITE_URL}
+      - CKAN_MAX_UPLOAD_SIZE_MB=${CKAN_MAX_UPLOAD_SIZE_MB}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - DS_RO_PASS=${DATASTORE_READONLY_PASSWORD}
+    volumes:
+      - ckan_config:/etc/ckan
+      - ckan_home:/usr/lib/ckan
+      - ckan_storage:/var/lib/ckan
+    restart: always
+
+  datapusher:
+    container_name: datapusher
+    image: asia.gcr.io/epa-cloud/datapusher:latest
+    networks:
+      - epa-ckan
+      - epa-ckan_api
+    ports:
+      - "8800:8800"
+    environment:
+      - CKAN_SQLALCHEMY_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_URL}:5432/ckan
+      - CKAN_SOLR_URL=http://solr:8983/solr/ckan
+      - CKAN_REDIS_URL=redis://redis:6379/1
+      - CKAN_DATAPUSHER_URL=http://datapusher:8800
+
+  solr:
+    container_name: solr
+    image: asia.gcr.io/epa-cloud/epa_solr:vague
+    networks:
+      - epa-ckan
+      - epa-ckan_api
+    ports:
+      - "127.0.0.1:8984:8983"
+
+  redis:
+    container_name: redis
+    image: asia.gcr.io/epa-cloud/redis:latest
+    networks:
+      - epa-ckan
+      - epa-ckan_api
+    ports:
+      - "127.0.0.1:6380:6379"
+
+  nginx:
+    image: asia.gcr.io/epa-cloud/epa_nginx:production
+    depends_on:
+      - ckan
+    networks:
+      - epa-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+
+  checker:
+    image: asia.gcr.io/epa-cloud/docker_checker:latest
+    command: sh -c 'while true; do wget "https://data.epa.gov.tw/dataset/" -O /dev/null -o /dev/null || echo "[`date`] error"; sleep 3m; done'
+    networks:
+      - epa-ckan
+
+networks:
+  epa-nginx:
+  epa-ckan_api:
+  epa-ckan:
