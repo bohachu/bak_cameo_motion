@@ -1,4 +1,4 @@
-FROM nginx:1.15-alpine
+FROM nginx:1.18-alpine
 
 COPY nginx_http.conf /etc/nginx/conf.d/default.conf
 COPY htpasswd /etc/nginx/htpasswd
@@ -8,3 +8,4 @@ RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["./docker-entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80
