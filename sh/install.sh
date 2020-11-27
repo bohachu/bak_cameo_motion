@@ -51,3 +51,9 @@ git clone https://github.com/bohachu/cameo_motion.git
 ## add to: crontab -e 
 # @reboot 
 # /home/bohachu/cameo_motion/jupyterlab.sh
+
+## deno
+curl -fsSL https://deno.land/x/install/install.sh | sh
+cd /usr/local/bin/
+sudo ln -s /home/bohachu/.deno/bin/deno deno
+
