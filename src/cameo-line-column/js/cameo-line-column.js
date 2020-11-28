@@ -1,6 +1,6 @@
 import ApexCharts from "https://jspm.dev/apexcharts";
-import { load_js, load_css } from "./cameo_load.js";
-load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js",main);
+import dfjs from "https://jspm.dev/dataframe-js";
+var DataFrame = dfjs.DataFrame;
 
 class CameoLineColumn extends HTMLElement {
   connectedCallback() {
@@ -20,11 +20,13 @@ class CameoLineColumn extends HTMLElement {
       <div class="apex-line-column" id="${this.str_random_id}"></div>
     `;
     this.chart_render();
+    // this.original_render();
   }
   async load_meta_csv() {
-    let df = await dfjs.DataFrame.fromCSV(
-      `${this.getAttribute("src")}`
-    );
+    let str_path = `${window.location.href}/../${this.getAttribute("src")}`;
+    console.log(str_path);
+    let df = await DataFrame.fromCSV(str_path);
+    console.log(df);
     let ary = df.transpose().toArray();
     let ary_keys = ary[0];
     let ary_values = ary[1];
@@ -32,9 +34,9 @@ class CameoLineColumn extends HTMLElement {
     ary_keys.forEach((str_key, i) => (this.dic_meta[str_key] = ary_values[i]));
   }
   async load_data_csv() {
-    let df = await dfjs.DataFrame.fromCSV(
-      `${this.dic_meta["資料檔案"]}`
-    );
+    let str_path = `${window.location.href}/../${this.dic_meta["資料檔案"]}`;
+    console.log(str_path);
+    let df = await DataFrame.fromCSV(str_path);
     df = df.transpose();
     let ary = df.toArray();
     return ary;
@@ -94,7 +96,4 @@ class CameoLineColumn extends HTMLElement {
     chart.render();
   }
 }
-
-function main() {
-  customElements.define("cameo-line-column", CameoLineColumn);
-}
+customElements.define("cameo-line-column", CameoLineColumn);
