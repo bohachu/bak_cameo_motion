@@ -1,9 +1,15 @@
---- 
-2020-11-28 10:17 Bowen 
+---
+2020-11-28 10:44 Bowen
+下面網址已經有檔案可以看到內容（透過genie)
+http://iek.cameo.tw:18866/cameo_motion/user/baby/am-divergent-stacked-bars/js/am-divergent-stacked-bars.js
 
-測試網址已經改為 
+下面網址已經可以測試網頁有圖表
 http://iek.cameo.tw:18866/cameo_motion/user/baby/am-divergent-stacked-bars/index.html
 
+--- 
+2020-11-28 10:17 Bowen 
+測試網址已經改為 
+http://iek.cameo.tw:18866/cameo_motion/user/baby/am-divergent-stacked-bars/index.html
 事先 push 備份，因為要 browser 讓出不來的 baby/am-divergent-stacked-bars 要能出來
 
 ---
