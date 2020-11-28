@@ -1,4 +1,8 @@
 ---
+2020-11-28 10:48 Bowen 已經可以在狗三八與 github 連結互動，測試網址要在右邊打入：
+https://fxsi5.csb.app/user/baby/am-divergent-stacked-bars/index.html
+
+---
 2020-11-28 10:44 Bowen
 下面網址已經有檔案可以看到內容（透過genie)
 http://iek.cameo.tw:18866/cameo_motion/user/baby/am-divergent-stacked-bars/js/am-divergent-stacked-bars.js
