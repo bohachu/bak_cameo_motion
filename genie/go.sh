@@ -1,3 +1,2 @@
-cd /home/bohachu/cameo_motion/
-# julia genie/genie.jl
-nohup julia genie/genie.jl &
+cd
+nohup /usr/local/bin/julia /home/bohachu/cameo_motion/genie/genie.jl &
