@@ -1,10 +1,18 @@
 ---
+2020-11-29 11:46 Bowen
+已經有 cameo-common, 而且跑跑圖已經是 load 數字 data.csv
+todo 缺 meta.csv 處理
+todo 缺 icon img 處理
+---
+
 2020-11-29 10:10 Bowen
-如果在狗三八不好複製 cameo-run to src 那可以直接在local machine做，再push
+如果在狗三八不好複製 cameo-run to src 那可以直接在 local machine 做，再 push
 
 ---
+
 2020-11-29 09:55 Bowen
 衝突了，這是狗三八修改
+
 ---
 
 2020-11-28 11:45 Bowen

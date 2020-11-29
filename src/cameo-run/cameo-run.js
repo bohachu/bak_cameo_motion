@@ -1,5 +1,5 @@
 import dfjs from "https://jspm.dev/dataframe-js";
-import { load_js_async, load_css } from "./cameo-load.js";
+import { load_js_async, load_css } from "../cameo-common/cameo-load.js";
 
 class CameoRun extends HTMLElement {
   connectedCallback() {
@@ -12,22 +12,30 @@ class CameoRun extends HTMLElement {
   }
   async load_data_csv() {
     let str_data_path = this.getAttribute("data");
-    let str_meta_path = this.getAttribute("meta");
+    // let str_meta_path = this.getAttribute("meta");
     let str_url = `${window.location.href}/../${str_data_path}`;
     console.log(str_url);
     let df = await dfjs.DataFrame.fromCSV(str_url);
     df = df.transpose();
     let ary = df.toArray();
-    console.log("@@@@@@@@@@@@");
-    console.log(ary);
-    console.log("!!!!!!!!!!!!");
     return ary;
   }
 
   async chart_render() {
-    let ary = await this.load_data_csv();
-    console.log("show show show");
-    console.log(ary);
+    let ary_data = await this.load_data_csv();
+    console.log(ary_data);
+    let i = 0;
+    let ary_chart_data = [];
+    for (; i < ary_data[0].length; i++) {
+      let dic_data = {};
+      dic_data["name"] = ary_data[0][i];
+      dic_data["file"] = "??";
+      dic_data["track"] = i + 1;
+      dic_data["value"] = parseFloat(ary_data[1][i]);
+      ary_chart_data.push(dic_data);
+    }
+    console.log("ary_chart_data:");
+    console.log(ary_chart_data);
     /**
      * ---------------------------------------
      * This demo was created using amCharts 4.
@@ -53,44 +61,45 @@ class CameoRun extends HTMLElement {
     );
     chart.curveContainer.padding(50, 50, 50, 50);
 
-    chart.data = [
-      {
-        name: "面板",
-        file: "img/lcd.png",
-        track: 1,
-        value: 17.4
-      },
-      {
-        name: "石化",
-        file: "img/petrochemical.png",
-        track: 2,
-        value: 19.5
-      },
-      {
-        name: "汽車",
-        file: "img/car.png",
-        track: 3,
-        value: 26.1
-      },
-      {
-        name: "半導體",
-        file: "img/cpu.png",
-        track: 4,
-        value: 27.1
-      },
-      {
-        name: "工具機",
-        file: "img/machine.png",
-        track: 5,
-        value: 29.4
-      },
-      {
-        name: "電子零組件",
-        file: "img/electronic.png",
-        track: 6,
-        value: 33.2
-      }
-    ];
+    chart.data = ary_chart_data;
+    //   [
+    //   {
+    //     name: "面板",
+    //     file: "img/lcd.png",
+    //     track: 1,
+    //     value: 17.4
+    //   },
+    //   {
+    //     name: "石化",
+    //     file: "img/petrochemical.png",
+    //     track: 2,
+    //     value: 19.5
+    //   },
+    //   {
+    //     name: "汽車",
+    //     file: "img/car.png",
+    //     track: 3,
+    //     value: 26.1
+    //   },
+    //   {
+    //     name: "半導體",
+    //     file: "img/cpu.png",
+    //     track: 4,
+    //     value: 27.1
+    //   },
+    //   {
+    //     name: "工具機",
+    //     file: "img/machine.png",
+    //     track: 5,
+    //     value: 29.4
+    //   },
+    //   {
+    //     name: "電子零組件",
+    //     file: "img/electronic.png",
+    //     track: 6,
+    //     value: 33.2
+    //   }
+    // ];
     draw_on_browser();
 
     // fetch("julia_data.json")
