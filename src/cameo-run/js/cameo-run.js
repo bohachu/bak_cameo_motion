@@ -1,12 +1,8 @@
 import dfjs from "https://jspm.dev/dataframe-js";
 import { load_js_async, load_css } from "./cameo-load.js";
 
-// import { load_js, load_css } from "./cameo_load.js";
-// load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
-
 class CameoRun extends HTMLElement {
   connectedCallback() {
-    console.log("跑跑跑出來出來哈哈哈");
     this.str_random_id = "id_" + Math.random().toString(36).substr(2, 9);
     this.innerHTML = `
       <div class="cameo-run" id="${this.str_random_id}" 
@@ -14,20 +10,24 @@ class CameoRun extends HTMLElement {
     `;
     this.chart_render();
   }
-  //   async load_data_csv() {
-  //     let df = await dfjs.DataFrame.fromCSV(
-  //       `data.csv`
-  //     );
-  //     df = df.transpose();
-  //     let ary = df.toArray();
-  //     console.log("@@@@@@@@@@@@");
-  //     console.log(ary);
-  //     console.log("!!!!!!!!!!!!");
-  //     return ary;
-  //   }
+  async load_data_csv() {
+    let str_data_path = this.getAttribute("data");
+    let str_meta_path = this.getAttribute("meta");
+    let str_url = `${window.location.href}/../${str_data_path}`;
+    console.log(str_url);
+    let df = await dfjs.DataFrame.fromCSV(str_url);
+    df = df.transpose();
+    let ary = df.toArray();
+    console.log("@@@@@@@@@@@@");
+    console.log(ary);
+    console.log("!!!!!!!!!!!!");
+    return ary;
+  }
 
   async chart_render() {
-    //         let ary = await this.load_data_csv();
+    let ary = await this.load_data_csv();
+    console.log("show show show");
+    console.log(ary);
     /**
      * ---------------------------------------
      * This demo was created using amCharts 4.
@@ -56,37 +56,37 @@ class CameoRun extends HTMLElement {
     chart.data = [
       {
         name: "面板",
-        file: "img/run-icon/lcd.png",
+        file: "img/lcd.png",
         track: 1,
         value: 17.4
       },
       {
         name: "石化",
-        file: "img/run-icon/petrochemical.png",
+        file: "img/petrochemical.png",
         track: 2,
         value: 19.5
       },
       {
         name: "汽車",
-        file: "img/run-icon/car.png",
+        file: "img/car.png",
         track: 3,
         value: 26.1
       },
       {
         name: "半導體",
-        file: "img/run-icon/cpu.png",
+        file: "img/cpu.png",
         track: 4,
         value: 27.1
       },
       {
         name: "工具機",
-        file: "img/run-icon/machine.png",
+        file: "img/machine.png",
         track: 5,
         value: 29.4
       },
       {
         name: "電子零組件",
-        file: "img/run-icon/electronic.png",
+        file: "img/electronic.png",
         track: 6,
         value: 33.2
       }
