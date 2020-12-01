@@ -1,8 +1,13 @@
 ---
+2020-12-01 10:05 caro
+成功將 carousel 元件包 cameo-run
+---
+
 2020-11-29 11:46 Bowen
 已經有 cameo-common, 而且跑跑圖已經是 load 數字 data.csv
 todo 缺 meta.csv 處理
 todo 缺 icon img 處理
+
 ---
 
 2020-11-29 10:10 Bowen

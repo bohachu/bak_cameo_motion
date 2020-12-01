@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.3.19/dist/vuetify.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <v-app id="inspire">
+        <v-carousel
+          cycle
+          height="400"
+          hide-delimiter-background
+          show-arrows-on-hover
+        >
+          <v-carousel-item>
+            <cameo-run data="data/data.csv" meta="data/meta.csv"></cameo-run>
+          </v-carousel-item>
+          <v-carousel-item v-for="(slide, i) in slides" :key="i">
+            <v-sheet :color="colors[i]" height="100%">
+              <v-row class="fill-height" align="center" justify="center">
+                <div class="display-3">
+                  {{ slide }} Slide
+                </div>
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+      </v-app>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.19/dist/vuetify.min.js"></script>
+    <script src="carousel.js"></script>
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/timeline.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldHigh.js"></script>
+    <script src="/src/cameo-run/cameo-run.js" type="module"></script>
+  </body>
+</html>
