@@ -15,6 +15,8 @@
 ## 2. 打包好測試沒問題的 docker image 須上傳到 gcr.io 以方便署內部署ˋ
 ### gcloud docker -- push asia.gcr.io/cameoflow/cameo_motion:{version}.{date}{serial}
 
+google container registry 此專案的控制台網址
+https://console.cloud.google.com/gcr/images/cameoflow?project=cameoflow
 
 # Reference
 main reference: https://github.com/bohachu/iot_turbo/blob/master/docker/Dockerfile
