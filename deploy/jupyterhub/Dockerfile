@@ -113,6 +113,9 @@ LABEL tw.cameo.jupyter.service="jupyterhub"
 # cp jupyterhub_config.py; execute from 專案目錄上一層
 COPY cameo_motion/docker/jupyterhub_config.py /srv/jupyterhub/jupyterhub_config.py
 
+# 設定共享權限,建立連結
+
+
 EXPOSE 3800
 
 CMD ["jupyterhub", "-f", "/srv/jupyterhub/jupyterhub_config.py"]
