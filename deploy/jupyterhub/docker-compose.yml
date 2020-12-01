@@ -1,0 +1,21 @@
+# TODO
+# docker-compose build && docker-compose up -d
+# If "docker-compose logs ckan" shows DB not ready, run "docker-compose restart ckan" a few times.
+version: "3"
+
+services:
+  jupyterhub:
+    container_name: jupyterhub
+    image: asia.gcr.io/cameoflow/cameo_motion_jupyterhub:0.1.0.2020120101
+    restart: always
+    tty: true
+    volumes:
+      - data:/home/cameo/cameo_motion/data
+      - gcloud-config:/root/.config/
+      - cron-config:/etc/cron.d/
+    restart: always
+
+volumes:
+  data: 
+  gcloud-config:
+  cron-config:
