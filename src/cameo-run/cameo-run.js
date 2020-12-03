@@ -23,7 +23,10 @@ class CameoRun extends HTMLElement {
 
   async chart_render() {
     let ary_data = await this.load_data_csv();
+    console.log("001 ---------------");
     console.log(ary_data);
+    console.log("002 ---------------");
+
     let i = 0;
     let ary_chart_data = [];
     for (; i < ary_data[0].length; i++) {
