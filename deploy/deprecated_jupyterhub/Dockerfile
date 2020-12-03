@@ -23,10 +23,10 @@ RUN apt-get -q -y install \
     && rm -rf /var/lib/apt/lists/*
 
 # 預設git user設定
-RUN git config --global user.email "cbh@cameo.tw" \
-    && git config --global user.name "bohachu" \
-    && git config --global credential.helper cache \
-    && git config --global credential.helper store \
+# RUN git config --global user.email "cbh@cameo.tw" \
+#     && git config --global user.name "bohachu" \
+#     && git config --global credential.helper cache \
+#     && git config --global credential.helper store 
     # && cd ~ \
     # && git clone https://github.com/bohachu/cameo_motion.git
 

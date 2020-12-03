@@ -31,6 +31,49 @@ services:
       timeout: 30s
       retries: 3
 
+  nginx-proxy:
+    build:
+      context: nginx-proxy/
+      dockerfile: Dockerfile
+    image: nginx_proxy
+    ports:
+      - "80:80"
+    container_name: nginx_proxy
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+      - "./secrets:/etc/nginx/certs:rw"
+      - "nginx_vhostd:/etc/nginx/vhost.d:rw"
+      - "nginx_html:/usr/share/nginx/html:rw"
+    #logging:
+    #    driver: syslog
+    #    options:
+    #      syslog-address: "udp://0.0.0.0:514"
+    #      syslog-format: rfc3164
+    #      tag: nginxproxy
+  letsencrypt:
+    depends_on:
+      - nginx-proxy
+    build:
+      context: server_apps/letsencrypt
+      dockerfile: Dockerfile
+    restart: always
+    image: letsencrypt
+    container_name: letsencrypt
+    environment:
+      DEFAULT_EMAIL: herman.tolentino@gmail.com
+      NGINX_PROXY_CONTAINER: nginx_proxy
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./secrets:/etc/nginx/certs:rw"
+      - "nginx_vhostd:/etc/nginx/vhost.d:rw"
+      - "nginx_html:/usr/share/nginx/html:rw"
+    healthcheck:
+      test: "ping -c 1 localhost || fail"
+      interval: 3m
+      timeout: 3s
+      retries: 3
+
   hub:
     #depends_on:
     #  - hub-db
@@ -60,8 +103,6 @@ services:
     ports:
       - "443:443"
       - "8000:8000"
-    #links:
-    #  - hub-db
     env_file:
       - .env
     environment:
@@ -84,9 +125,8 @@ services:
       VIRTUAL_HOST: ${JH_FQDN}
       VIRTUAL_PORT: ${VIRTUAL_PORT}
     command: >
-      # jupyterhub --ip=0.0.0.0 -f /srv/jupyterhub/jupyterhub_config.py --log-level=${JUPYTERHUB_LOG_LEVEL}
-      jupyterhub --ip=127.0.0.1 -f /srv/jupyterhub/jupyterhub_config.py --log-level=${JUPYTERHUB_LOG_LEVEL}
-    
+      jupyterhub --ip=0.0.0.0 -f /srv/jupyterhub/jupyterhub_config.py --log-level=${JUPYTERHUB_LOG_LEVEL}
+
 volumes:
   data:
     external:
@@ -94,6 +134,12 @@ volumes:
   db:
     external:
       name: ${DB_VOLUME_HOST}
+  nginx_vhostd:
+    external:
+      name: nginx_vhostd
+  nginx_html:
+    external:
+      name: nginx_html
 
 networks:
   default:
