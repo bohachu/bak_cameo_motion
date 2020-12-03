@@ -4,6 +4,22 @@
 version: "3"
 
 services:
+
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Q!w2e3r4
+    ports:
+      - "5432:5432"
+      # (HOST:CONTAINER)
+    volumes:
+      # - pgdata:/var/lib/postgresql/data/    
+      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./pgdata:/var/lib/postgresql/data
+      - ./postgres.conf:/etc/postgresql/postgresql.conf
+      
   jupyterhub:
     container_name: jupyterhub
     image: asia.gcr.io/cameoflow/cameo_motion_jupyterhub:0.1.0.2020120101
@@ -11,11 +27,17 @@ services:
     tty: true
     volumes:
       - data:/home/cameo/cameo_motion/data
-      - gcloud-config:/root/.config/
+      # - gcloud-config:/root/.config/
       - cron-config:/etc/cron.d/
     restart: always
+    depends_on: 
+      - db
+    ports:
+      - 3800:3800
+  
 
 volumes:
+  pgdata: 
   data: 
   gcloud-config:
   cron-config:
