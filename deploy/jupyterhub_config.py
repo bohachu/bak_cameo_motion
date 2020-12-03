@@ -7,7 +7,6 @@
 #
 import os
 import sys
-# c.Authenticator.admin_users = { 'johnsnow' }
 c = get_config()
 
 from jupyter_client.localinterfaces import public_ips
@@ -108,9 +107,9 @@ if os.environ['JUPYTERHUB_AUTHENTICATOR'] == 'native_authenticator':
         c.Authenticator.ask_email_on_signup = True
     else:
         c.Authenticator.ask_email_on_signup = False
-        
     c.Authenticator.allowed_failed_logins = 3
     c.Authenticator.seconds_before_next_try = 1200
+
 
 elif os.environ['JUPYTERHUB_AUTHENTICATOR'] == 'dummy_authenticator':
 # DEFAULT in .env
