@@ -31,7 +31,7 @@ class CameoRank extends HTMLElement {
     let ary_chart_data = [];
     for (; i < ary_data[0].length; i++) {
       let dic_data = {};
-      dic_data["name"] = ary_data[0][i];
+      dic_data["name"] = ary_data[0][i] + " " + ary_data[1][i];
       // arry 0 和 1 合併在 name
       dic_data["steps"] = ary_data[2][i];
       dic_data["file"] = "??";
