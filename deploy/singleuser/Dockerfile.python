@@ -1,0 +1,178 @@
+# Version: 2020-07-18
+FROM phitoolkit/notebook-base:latest
+ARG JUPYTERHUB_VERSION
+ARG JUPYTERLAB_VERSION
+ARG NOTEBOOK_VERSION
+
+RUN \
+    #conda update -y conda && \
+    conda install -c conda-forge --yes --verbose \
+      # uncomment nomkl as necessary
+      #'nomkl=2.0*' \
+      # begin stack entries
+      'conda-forge::blas=*=openblas' \
+      'ipywidgets=7.5.*' \
+      'pandas=1.0*' \
+      'numexpr=2.7.*' \
+      #'matplotlib=3.2.2' \
+      #'matplotlib-base=3.2.2' \
+      'matplotlib' \
+      'matplotlib-base' \
+      'scipy=1.5.*' \
+      'seaborn=0.10.*' \
+      'scikit-learn=0.22.*' \
+      'scikit-image=0.16.*' \
+      'sympy=1.5.*' \
+      'cython=0.29.*' \
+      'patsy=0.5.*' \
+      'statsmodels=0.11.*' \
+      'cloudpickle=1.4.*' \
+      'dill=0.3.*' \
+      'dask=2.15.*' \
+      'numba=0.48.*' \
+      'bokeh=2.0.*' \
+      'sqlalchemy=1.3.*' \
+      #'hdf5=1.10.*' \
+      'hdf5' \
+      'h5py=2.10.*' \
+      'vincent=0.4.*' \
+      'beautifulsoup4' \
+      'protobuf' \
+      'xlrd' \
+      'widgetsnbextension=3.5.*' \
+      'ipympl=0.5.*' \
+      'xarray' && \
+      # end of stack entries
+      conda build purge-all && \
+      conda clean --all -f -y
+
+# comment out next 5 lines below if errors persist
+RUN \
+    conda install -c stcorp --yes 'harp' && \
+    conda build purge-all && \
+    conda clean --all -f -y
+
+RUN \
+    conda install -c conda-forge --yes --verbose \
+      #'libstdcxx-ng=7.3*' \
+      #'libgcc-ng=7.3*' \
+      'libstdcxx-ng=9.2.0' \
+      'libgcc-ng=9.2.0' \
+      'folium=0.11*' \
+      #'proj4=5.2*' \
+      'proj=7.0.0' \
+      #'pyproj>=1.9.3,<2' \
+      #'geos=3.7*' \
+      'geos' \
+      'rtree' \
+      'nodejs=10.*' \
+      'cartopy' \
+      'basemap' && \
+      conda build purge-all && \
+      conda clean --all -f -y
+
+RUN \
+    conda install -c conda-forge --yes \
+      'netcdf4' \
+      'cf_units'  \
+      'setuptools' \
+      'networkx' \
+      'datashader' \
+      'altair' \
+      'numpy' && \
+    conda build purge-all && \
+    conda clean --all -f -y
+
+RUN \
+  conda install -c conda-forge --yes \
+      'wordcloud' \
+      'nbconvert' \
+      'psycopg2' \
+      'twisted' \
+      'ujson' \
+      'gensim' \
+      'nbdime' && \
+    conda build purge-all && \
+    conda clean --all -f -y
+
+RUN \
+    conda install -c conda-forge -y h3 h3-py && \
+    conda build purge-all && \
+    conda clean --all -f -y
+
+RUN \
+    python -m pip install --no-cache-dir --upgrade 'pip' && \
+    python -m pip install  --no-cache-dir --upgrade \
+      'ipython[all]' && \
+    python -m pip install  --no-cache-dir \
+      'gtts==2.1.1' \
+      'python-dateutil<2.8.1' \
+      'osmnx==0.15.0' \
+      'qgrid==1.3.0' \
+      'pyproj==2.6.1.post1' \
+      'geopandas==0.8.0' \
+      'plotly==4.9.0' \
+      'plotly-geo==1.0.0' \
+      'dash==1.13.4' \
+      'dash-daq==0.5.0' \
+      'pysal==2.2.0' && \
+    # Note: The cartopy installation below is a workaround:
+    # https://github.com/SciTools/cartopy/issues/1377
+    #python -m pip install --no-cache-dir 'git+https://github.com/SciTools/cartopy.git' --no-binary cartopy && \
+    python -m pip install jupyter-tabnine --user && \
+    python -m pip install --no-cache-dir  \
+      'camelot-py[cv]' \
+      'spacy[lookups]' \
+      'shapely' \
+      'twisted' \
+      'fuzzywuzzy[speedup]' \
+      'missingno' \
+      'geojson' \
+      'jupyter_contrib_core' \
+      'mplleaflet' \
+      'uritemplate' \
+      'movingpandas' \
+      'pandas-datareader' \
+      'pyshp' \
+      'tabulate' \
+      'py2neo' \
+      'websocket' \
+      'nbresuse' \
+      'dedupe' \
+      'apiclient' \
+      'jupyterlab_latex' \
+      'sklearn-pandas' \
+      'jupyterlab_geojson' \
+      'jupyterlab-widgets' \
+      'pyzmq' \
+      'goose3' \
+      'newspaper3k' \
+      'geocoder' \
+      'pyldavis' \
+      'alphashape' \
+      'pyepsg' \
+      'chart-studio' \
+      'geonamescache' \
+      'hvplot' \
+      'recordlinkage' \
+      'opencv-python' \
+      'opencv-contrib-python' \
+      'vega' \
+      'vega_datasets'
+
+RUN \
+    # Activate ipywidgets extension in the environment that runs the notebook server
+    jupyter nbextension install --py qgrid && \
+    jupyter nbextension enable --py qgrid && \
+    jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+    jupyter nbextension enable widgetsnbextension --py --sys-prefix && \
+    jupyter nbextension install --py jupyter_tabnine --user && \
+    jupyter nbextension enable --py jupyter_tabnine --user && \
+    jupyter serverextension enable --py jupyter_tabnine --user && \
+    rm -fvR /home/jovyan/work/notebook-extensions && \
+    rm -rf $CONDA_DIR/share/jupyter/lab/staging && \
+    rm -rf /home/$NB_USER/.cache/yarn && \
+    rm -rf /home/$NB_USER/.node-gyp && \
+    fix-permissions $CONDA_DIR && \
+    fix-permissions /home/$NB_USER && \
+    mkdir -p /usr/share/proj

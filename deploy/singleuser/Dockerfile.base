@@ -1,0 +1,84 @@
+# Version: 2020-07-18
+ARG DOCKER_NOTEBOOK_IMAGE
+FROM $DOCKER_NOTEBOOK_IMAGE
+ARG JUPYTERHUB_VERSION
+ARG JUPYTERLAB_VERSION
+ARG NOTEBOOK_VERSION
+ARG LOGO_IMAGE
+ARG JUPYTER_UI
+ENV JUPYTER_UI ${JUPYTER_UI}
+
+LABEL maintainer='herman.tolentino@gmail.com'
+
+RUN \
+    conda config --set channel_priority false && \
+    echo "python=3.7.6" > /opt/conda/conda-meta/pinned && \
+    echo "conda=4.6.12" >> /opt/conda/conda-meta/pinned && \
+    conda config --show-sources && \
+    conda config --set auto_update_conda false && \
+    conda config --set allow_conda_downgrades true && \
+    conda install 'conda=4.6.12' 'python=3.7*' && \
+    conda install -c conda-forge -y 'conda-build' && \
+    conda config --prepend channels conda-forge && \
+    conda config --describe channel_priority && \
+    #conda config --set unsatisfiable_hints True && \
+    conda config --set ssl_verify no && \
+    conda update \
+      'openssl' \
+      'ca-certificates' \
+      'certifi' && \
+    conda config --set ssl_verify yes && \
+    cat .condarc && \
+    python3 -m pip install --no-cache-dir --upgrade pip
+
+USER root
+
+ENV DEBIAN_FRONTEND noninteractive
+
+WORKDIR /home/jovyan/work
+
+RUN \
+    # uncomment the line below if necessary
+    #/bin/bash upgrade-distro.sh
+    ln -sf /bin/bash /bin/sh && \
+    ln -s /bin/tar /bin/gtar && \
+    echo "jovyan ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# Code below based on https://github.com/jenkinsci/docker/issues/543
+# For addressing errors: "E: Unable to fetch some archives", "Hash Sum mismatch"
+COPY 99fixbadproxy /etc/apt/apt.conf.d/
+
+RUN \
+    conda install -c conda-forge --yes \
+      "jupyterhub=$JUPYTERHUB_VERSION" \
+      "jupyterlab=$JUPYTERLAB_VERSION" \
+      "notebook=$NOTEBOOK_VERSION" \
+      'libsodium' \
+      'python-libarchive-c' \
+      'conda-package-handling' \
+      'libarchive' \
+      'jupyter_client=5.3.4' && \
+    conda build purge-all && \
+    conda clean --all -f -y
+
+RUN \
+    jupyter serverextension enable --py jupyterlab --sys-prefix && \
+    conda build purge-all && \
+    mkdir -p /etc/apt/apt.conf.d/ && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+      software-properties-common apt-utils ffmpeg \
+      libssl1.1 libssl-dev libxtst6 xvfb xdotool wmctrl cmake \
+      zip unzip file fonts-dejavu tzdata nano graphviz graphviz-dev \
+      libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev python-dev \
+      git-lfs mc && \
+    add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
+    apt-get update && \
+    ln -sf /usr/share/zoneinfo/EST /etc/localtime && \
+    export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    chmod -R a+w /opt/conda/ && \
+    chown -R root:users /opt/conda && \
+    chmod g+s /opt/conda && \
+    chown -R 1000:1000 /home/jovyan/.conda/

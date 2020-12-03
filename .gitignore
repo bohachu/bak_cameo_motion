@@ -1,0 +1,14 @@
+secrets/
+.DS_Store
+userlist
+.ftpconfig
+.env
+.env-e
+drive.jupyterlab-settings
+*.tar
+errorlog.txt
+_config.yml
+proxy_token
+pg_pass
+server_apps/neo4j/data/databases
+server_apps/neo4j/data/dbms
