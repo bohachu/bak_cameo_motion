@@ -16,7 +16,7 @@ c.Spawner.notebook_dir = '~/notebooks'
 # class MyAuthenticator(LDAPAuthenticator):      
 class MyAuthenticator(NativeAuthenticator):   
     def add_user(self, user):             
-	super().add_user(user)
+        super().add_user(user)
         script_path = os.path.join(config_dir, "add_user.sh")      
         subprocess.check_call(['bash', script_path, user.name])
 

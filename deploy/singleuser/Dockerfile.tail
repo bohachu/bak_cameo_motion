@@ -1,5 +1,6 @@
-# Version: 2020-07-18
-FROM phitoolkit/notebook-body:latest
+# Version: 2020-12-03
+# FROM phitoolkit/notebook-body:latest
+FROM cameotoolkit/notebook-body:latest
 ARG JUPYTERHUB_VERSION
 ARG JUPYTERLAB_VERSION
 ARG NOTEBOOK_VERSION

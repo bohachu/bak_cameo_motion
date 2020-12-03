@@ -1,4 +1,4 @@
-# Version: 2020-07-18
+# Version: 2020-12-03
 ARG DOCKER_NOTEBOOK_IMAGE
 FROM $DOCKER_NOTEBOOK_IMAGE
 ARG JUPYTERHUB_VERSION
@@ -8,7 +8,7 @@ ARG LOGO_IMAGE
 ARG JUPYTER_UI
 ENV JUPYTER_UI ${JUPYTER_UI}
 
-LABEL maintainer='herman.tolentino@gmail.com'
+LABEL maintainer='service@cameo.tw'
 
 RUN \
     conda config --set channel_priority false && \
