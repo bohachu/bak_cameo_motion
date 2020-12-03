@@ -12,3 +12,14 @@ export function load_css(str_url) {
   link.type = "text/css";
   document.head.appendChild(link); //or something of the likes
 }
+
+export async function load_js_async(str_url) {
+  return new Promise((resolve, reject) => {
+    var script = document.createElement("script");
+    script.onload = (event) => {
+      resolve();
+    };
+    script.src = str_url;
+    document.head.appendChild(script);
+  });
+}

@@ -1,4 +1,4 @@
-import { load_js, load_css } from "./cameo_load.js";
+import { load_js, load_css } from "./cameo-load.js";
 load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
 
 class CameoRank extends HTMLElement {
@@ -10,21 +10,36 @@ class CameoRank extends HTMLElement {
     `;
     this.chart_render();
   }
-  /*
   async load_data_csv() {
-    let df = await dfjs.DataFrame.fromCSV(
-      `data.csv`
-    );
+    let str_data_path = this.getAttribute("data");
+    // let str_meta_path = this.getAttribute("meta");
+    let str_url = `${window.location.href}/../${str_data_path}`;
+    console.log(str_url);
+    let df = await dfjs.DataFrame.fromCSV(str_url);
     df = df.transpose();
     let ary = df.toArray();
-    console.log("@@@@@@@@@@@@");
-    console.log(ary);
-    console.log("!!!!!!!!!!!!");
     return ary;
   }
-  */
 
   async chart_render() {
+    let ary_data = await this.load_data_csv();
+    console.log("001 ---------------");
+    console.log(ary_data);
+    console.log("002 ---------------");
+
+    let i = 0;
+    let ary_chart_data = [];
+    for (; i < ary_data[0].length; i++) {
+      let dic_data = {};
+      dic_data["name"] = ary_data[0][i];
+      // arry 0 和 1 合併在 name
+      dic_data["steps"] = ary_data[2][i];
+      dic_data["file"] = "??";
+      ary_chart_data.push(dic_data);
+    }
+    console.log("ary_chart_data:");
+    console.log(ary_chart_data);
+
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
@@ -42,43 +57,68 @@ class CameoRank extends HTMLElement {
     // title.text = "[bold font-size: 20]台灣半導體營收排行榜";
     // title.textAlign = "middle";
 
-    chart.data = [
-      {
-        name: "3231 緯創",
-        steps: 72192,
-        href: "https://www.wistronits.com/tw/images/logo.svg"
-      },
-      {
-        name: "2382 廣達",
-        steps: 90339,
-        href:
-          "https://upload.wikimedia.org/wikipedia/zh/thumb/9/9b/Quanta_Computer_logo.svg/440px-Quanta_Computer_logo.svg.png"
-      },
-      {
-        name: "2324 仁寶",
-        steps: 112734,
-        href:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Compal_Electronics_logo.svg/1280px-Compal_Electronics_logo.svg.png"
-      },
-      {
-        name: "2330 台積電",
-        steps: 119302,
-        href:
-          "https://upload.wikimedia.org/wikipedia/zh/thumb/f/fd/TSMC.svg/360px-TSMC.svg.png"
-      },
-      {
-        name: "4938 和碩",
-        steps: 138168,
-        href:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Pegatron_logo.svg/1280px-Pegatron_logo.svg.png"
-      },
-      {
-        name: "2317 鴻海",
-        steps: 612553,
-        href:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Foxconn_logo.svg/1200px-Foxconn_logo.svg.png"
-      }
-    ];
+    chart.data = ary_chart_data;
+    // [
+    //   {
+    //     name: "2337	旺宏",
+    //     steps: 4.66,
+    //     file: "img/10.png"
+    //   },
+    //   {
+    //     name: "2408	南亞科",
+    //     steps: 5.54,
+    //     file: "img/09.png"
+    //   },
+    //   {
+    //     name: "6239	力成",
+    //     steps: 6.31,
+    //     file: "img/08.png"
+    //   },
+    //   {
+    //     name: "2344	華邦電",
+    //     steps: 7.48,
+    //     file: "img/07.png"
+    //   },
+    //   {
+    //     name: "3034 聯詠",
+    //     steps: 7.97,
+    //     file: "img/06.png"
+    //   },
+    //   {
+    //     name: "2379 瑞昱",
+    //     steps: 8.17,
+    //     file: "img/05.png"
+    //   },
+    //   {
+    //     name: "2303 聯電",
+    //     steps: 14.53,
+    //     file: "img/04.png"
+    //   },
+    //   {
+    //     name: "2454 聯發科",
+    //     steps: 37.87,
+    //     file: "img/03.png"
+    //   },
+    //   {
+    //     name: "3711 日月光投控",
+    //     steps: 43.93,
+    //     file: "img/02.png"
+    //   },
+    //   {
+    //     name: "2330 台積電",
+    //     steps: 127.58,
+    //     file: "img/01.png"
+    //   }
+    // ];
+
+    // watermark
+    var watermark = chart.createChild(am4core.Label);
+    watermark.text = "資料來源: 工研院產科國際所[/]";
+    watermark.fontSize = 10;
+    watermark.align = "right";
+    watermark.valign = "bottom";
+    // watermark.paddingRight = 10;
+    watermark.fillOpacity = 0.5;
 
     var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "name";
@@ -97,7 +137,7 @@ class CameoRank extends HTMLElement {
     valueAxis.cursorTooltipEnabled = false;
     valueAxis.renderer.baseGrid.strokeOpacity = 0;
     valueAxis.renderer.labels.template.dy = 30;
-    valueAxis.title.text = "百萬台幣";
+    valueAxis.title.text = "億元新台幣";
     valueAxis.title.align = "center";
     valueAxis.title.paddingTop = 30;
     valueAxis.fontSize = "12px";
@@ -124,8 +164,8 @@ class CameoRank extends HTMLElement {
       target: columnTemplate,
       property: "fill",
       dataField: "valueX",
-      min: am4core.color("#54d2d2"),
-      max: am4core.color("#072448")
+      max: am4core.color("#357993"),
+      min: am4core.color("#4DD6C1")
     });
     series.mainContainer.mask = undefined;
 
@@ -136,7 +176,7 @@ class CameoRank extends HTMLElement {
     cursor.behavior = "none";
 
     var bullet = columnTemplate.createChild(am4charts.CircleBullet);
-    bullet.circle.radius = 20;
+    bullet.circle.radius = 13;
     bullet.valign = "middle";
     bullet.align = "left";
     bullet.isMeasured = true;
@@ -148,15 +188,15 @@ class CameoRank extends HTMLElement {
     var outlineCircle = bullet.createChild(am4core.Circle);
     outlineCircle.adapter.add("radius", function (radius, target) {
       var circleBullet = target.parent;
-      return circleBullet.circle.pixelRadius + 10;
+      return circleBullet.circle.pixelRadius + 3;
     });
 
     var image = bullet.createChild(am4core.Image);
-    image.width = 40;
-    image.height = 40;
+    image.width = 23;
+    image.height = 23;
     image.horizontalCenter = "middle";
     image.verticalCenter = "middle";
-    image.propertyFields.href = "href";
+    image.propertyFields.href = "file";
     // chart.legend = new am4maps.Legend();
     // chart.legend.useDefaultMarker = true;
 
