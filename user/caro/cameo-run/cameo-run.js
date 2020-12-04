@@ -1,12 +1,8 @@
 import dfjs from "https://jspm.dev/dataframe-js";
-import { load_js_async, load_css } from "./cameo-load.js";
-
-// import { load_js, load_css } from "./cameo_load.js";
-// load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
+import { load_js_async, load_css } from "../cameo-common/cameo-load.js";
 
 class CameoRun extends HTMLElement {
   connectedCallback() {
-    console.log("跑跑跑出來出來哈哈哈");
     this.str_random_id = "id_" + Math.random().toString(36).substr(2, 9);
     this.innerHTML = `
       <div class="cameo-run" id="${this.str_random_id}" 
@@ -14,31 +10,58 @@ class CameoRun extends HTMLElement {
     `;
     this.chart_render();
   }
-  //   async load_data_csv() {
-  //     let df = await dfjs.DataFrame.fromCSV(
-  //       `data.csv`
-  //     );
-  //     df = df.transpose();
-  //     let ary = df.toArray();
-  //     console.log("@@@@@@@@@@@@");
-  //     console.log(ary);
-  //     console.log("!!!!!!!!!!!!");
-  //     return ary;
-  //   }
+  async load_data_csv() {
+    let str_data_path = this.getAttribute("data");
+    // let str_meta_path = this.getAttribute("meta");
+    let str_url = `${window.location.href}/../${str_data_path}`;
+    console.log(str_url);
+    let df = await dfjs.DataFrame.fromCSV(str_url);
+    df = df.transpose();
+    let ary = df.toArray();
+    return ary;
+  }
+
+  // async load_meta_csv() {
+  //   let str_meta_path = this.getAttribute("meta");
+  //   let str_url = `${window.location.href}/../${str_meta_path}`;
+  //   console.log(str_url);
+  //   let df = await dfjs.DataFrame.fromCSV(str_url);
+  //   df = df.transpose();
+  //   let ary = df.toArray();
+  //   return ary;
+  // }
 
   async chart_render() {
-    //         let ary = await this.load_data_csv();
-    /**
-     * ---------------------------------------
-     * This demo was created using amCharts 4.
-     *
-     * For more information visit:
-     * https://www.amcharts.com/
-     *
-     * Documentation is available at:
-     * https://www.amcharts.com/docs/v4/
-     * ---------------------------------------
-     */
+    let ary_data = await this.load_data_csv();
+    console.log("001 ---------------");
+    console.log(ary_data);
+    console.log("002 ---------------");
+    // let ary_meta = await this.load_meta_csv();
+    // console.log("003 ---------------");
+    // console.log(ary_meta);
+    // console.log("004 ---------------");
+
+    let i = 0;
+    let ary_chart_data = [];
+    for (; i < ary_data[0].length; i++) {
+      let dic_data = {};
+      dic_data["name"] = ary_data[0][i];
+      dic_data["file"] = "??";
+      dic_data["track"] = i + 1;
+      dic_data["value"] = parseFloat(ary_data[1][i]);
+      ary_chart_data.push(dic_data);
+    }
+
+    // let y = 0;
+    // let ary_chart_meta = [];
+    // for (; i < ary_meta[0].length; y++) {
+    //   let dic_data = {};
+    //   dic_data["file"] = ary_meta[0][y];
+    //   ary_chart_meta.push(dic_data);
+    // }
+
+    console.log("ary_chart_data:");
+    console.log(ary_chart_data);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -53,62 +76,97 @@ class CameoRun extends HTMLElement {
     );
     chart.curveContainer.padding(50, 50, 50, 50);
 
-    chart.data = [
-      {
-        name: "面板",
-        file: "img/run-icon/lcd.png",
-        track: 1,
-        value: 17.4
-      },
-      {
-        name: "石化",
-        file: "img/run-icon/petrochemical.png",
-        track: 2,
-        value: 19.5
-      },
-      {
-        name: "汽車",
-        file: "img/run-icon/car.png",
-        track: 3,
-        value: 26.1
-      },
-      {
-        name: "半導體",
-        file: "img/run-icon/cpu.png",
-        track: 4,
-        value: 27.1
-      },
-      {
-        name: "工具機",
-        file: "img/run-icon/machine.png",
-        track: 5,
-        value: 29.4
-      },
-      {
-        name: "電子零組件",
-        file: "img/run-icon/electronic.png",
-        track: 6,
-        value: 33.2
-      }
-    ];
+    // watermark
+    var watermark = chart.createChild(am4core.Label);
+    watermark.text = "資料來源: 工研院產科國際所[/]";
+    watermark.fontSize = 10;
+    watermark.align = "right";
+    watermark.valign = "bottom";
+    // watermark.paddingRight = 10;
+    watermark.fillOpacity = 0.5;
+
+    chart.data = ary_chart_data;
+    // [
+    //   {
+    //     name: "電腦電子及光學製品(含零組件)",
+    //     file: "img/lcd.png",
+    //     track: 1,
+    //     value: 39.3
+    //   },
+    //   {
+    //     name: "食品飲料及煙草",
+    //     file: "img/lcd.png",
+    //     track: 2,
+    //     value: 35.1
+    //   },
+    //   {
+    //     name: "其他製品與機器修配",
+    //     file: "img/electronic.png",
+    //     track: 3,
+    //     value: 31.6
+    //   },
+    //   {
+    //     name: "塑像膠與非金屬礦物製品",
+    //     file: "img/machine.png",
+    //     track: 4,
+    //     value: 30.1
+    //   },
+    //   {
+    //     name: "電力設備",
+    //     file: "img/run-icon/cpu.png",
+    //     track: 5,
+    //     value: 28.1
+    //   },
+    //   {
+    //     name: "紡織品",
+    //     file: "img/petrochemical.png",
+    //     track: 6,
+    //     value: 27.5
+    //   }
+    //   // {
+    //   //   name: "機械設備",
+    //   //   file: "img/machine.png",
+    //   //   track: 7,
+    //   //   value: 25.9
+    //   // },
+    //   // {
+    //   //   name: "交通運輸工具",
+    //   //   file: "img/car.png",
+    //   //   track: 8,
+    //   //   value: 26.4
+    //   // },
+    //   // {
+    //   //   name: "紙漿及紙製品",
+    //   //   file: "img/car.png",
+    //   //   track: 9,
+    //   //   value: 22.7
+    //   // },
+    //   // {
+    //   //   name: "基本金屬及製品",
+    //   //   file: "img/electronic.png",
+    //   //   track: 10,
+    //   //   value: 19.3
+    //   // },
+    //   // {
+    //   //   name: "石油及媒製品",
+    //   //   file: "img/petrochemical.png",
+    //   //   track: 11,
+    //   //   value: 18.0
+    //   // },
+    //   // {
+    //   //   name: "化學材料與製品",
+    //   //   file: "img/cpu.png",
+    //   //   track: 12,
+    //   //   value: 16.1
+    //   // },
+    // ];
     draw_on_browser();
-
-    // fetch("julia_data.json")
-    //     .then(draw_on_browser);
-
-    // fetch("julia_data.json")
-    //     .then(response => chart.data=response.json())
-    //     .then(draw_on_browser);
-
-    //$.getJSON("julia_data.json", function(julia_data) {
-    //    chart.data = julia_data
-    //});
 
     function draw_on_browser() {
       var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
       categoryAxis.dataFields.category = "name";
       categoryAxis.renderer.minGridDistance = 10;
-      categoryAxis.renderer.innerRadius = 5;
+      categoryAxis.renderer.innerRadius = 20;
       categoryAxis.renderer.radius = 145;
       categoryAxis.renderer.line.stroke = lineColor;
       categoryAxis.renderer.line.strokeWidth = 5;
@@ -116,8 +174,8 @@ class CameoRun extends HTMLElement {
 
       var labelTemplate = categoryAxis.renderer.labels.template;
       labelTemplate.fill = lineColor;
-      labelTemplate.fontWeight = 600;
-      labelTemplate.fontSize = 12;
+      labelTemplate.fontWeight = 400;
+      labelTemplate.fontSize = 10;
 
       var gridTemplate = categoryAxis.renderer.grid.template;
       gridTemplate.strokeWidth = 1;
@@ -128,7 +186,7 @@ class CameoRun extends HTMLElement {
 
       var fillTemplate = categoryAxis.renderer.axisFills.template;
       fillTemplate.disabled = false;
-      fillTemplate.fill = am4core.color("#b84f49");
+      fillTemplate.fill = am4core.color("#31AFA0");
       fillTemplate.fillOpacity = 1;
 
       categoryAxis.fillRule = function (dataItem) {
@@ -171,7 +229,7 @@ class CameoRun extends HTMLElement {
       var valueLabelTemplate = valueAxis.renderer.labels.template;
       valueLabelTemplate.fill = lineColor;
       valueLabelTemplate.fontSize = 8;
-      valueLabelTemplate.fontWeight = 600;
+      valueLabelTemplate.fontWeight = 400;
       valueLabelTemplate.fillOpacity = 1;
       valueLabelTemplate.horizontalCenter = "right";
       valueLabelTemplate.verticalCenter = "bottom";
@@ -214,14 +272,14 @@ class CameoRun extends HTMLElement {
       chart.legend = new am4charts.Legend();
       chart.legend.data = chart.data;
       chart.legend.parent = chart.curveContainer;
-      chart.legend.width = 360;
+      chart.legend.width = 350;
       chart.legend.horizontalCenter = "middle";
       chart.legend.verticalCenter = "middle";
-      chart.legend.fontSize = 12;
+      chart.legend.fontSize = 10;
 
       var markerTemplate = chart.legend.markers.template;
-      markerTemplate.width = 25;
-      markerTemplate.height = 25;
+      markerTemplate.width = 20;
+      markerTemplate.height = 20;
 
       chart.legend.itemContainers.template.events.on("over", function (event) {
         series.dataItems.each(function (dataItem) {
@@ -253,8 +311,8 @@ class CameoRun extends HTMLElement {
 
       var image = markerTemplate.createChild(am4core.Image);
       image.propertyFields.href = "file";
-      image.width = 25;
-      image.height = 25;
+      image.width = 20;
+      image.height = 20;
       image.filters.push(new am4core.DesaturateFilter());
 
       image.events.on("inited", function (event) {
@@ -265,5 +323,4 @@ class CameoRun extends HTMLElement {
     }
   }
 }
-
 customElements.define("cameo-run", CameoRun);

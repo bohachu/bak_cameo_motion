@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>佳珞操場跑跑動圖元件</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <img
+        src="img/light-city.png"
+        alt="light-city"
+        width="100%"
+        height="480px"
+      />
+    </div>
+
+    <div class="jumbotron text-center" style="width: 100%; height: 240px;">
+      <!-- <h1 align="center" class="pt-3 pb-2" style="color:#05172e;">IEK 產業數據動圖，情報即時入手！</h1>
+        <h3 style="color:#36c9c9;">絕不錯過關鍵資訊</h3> -->
+      <h1 align="center" class="pt-3 pb-2" style="color: #05172e;">
+        全球肺炎疫情(COVID-19)對臺灣產業影響關鍵報告｜總論
+      </h1>
+      <h3 style="color: #36c9c9;">2020/06/24 最終回</h3>
+    </div>
+
+    <div class="graybg">
+      <div class="container" style="height: 720px;">
+        <div class="row pb-5 pt-5">
+          <div class="col-md-8 my-auto">
+            <cameo-run data="data/data.csv" meta="data/meta.csv"></cameo-run>
+            <!-- <cameo-run
+              data="data/data-002.csv"
+              meta="data/meta.csv"
+            ></cameo-run>
+            <cameo-run data="data/data-003.csv"></cameo-run> -->
+          </div>
+          <div class="col-md-4 pt-5 my-auto">
+            <img
+              src="img/index-icon/002-B02-crown.png"
+              style="width: 75px; height: 75px;"
+              alt="圖002操場圖-002-B02-crown"
+            />
+            <h3 class="pt-3" style="color: #2868b1;">
+              2020 臺灣產業附加價值率
+            </h3>
+            <p style="color: #072448;">電子零組件產業居冠</p>
+            <hr
+              style="
+                height: 1px;
+                border-width: 0;
+                color: #363434;
+                background-color: #363434;
+              "
+            />
+            <p1 style="color: #6e7073;">
+              台灣半導體產值包含IC設計業產值、IC製造業產值、IC封裝業產值及IC測試業產值。研院產科國際所產業分析師預估。
+            </p1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="jumbotron text-center"
+      style="width: 100%; height: 240px; background-color: #54d2d2;"
+    >
+      <h3
+        align="center"
+        class="pt-4 pb-4"
+        style="color: #ffffff; font-weight: 300;"
+      >
+        還想搜集更多情報，馬上告訴你！
+      </h3>
+      <a
+        href="https://ieknet.iek.org.tw/"
+        class="btn"
+        style="
+          color: #ffffff;
+          font-size: 1.3rem;
+          background-color: #ffcb00;
+          width: 220px;
+        "
+        role="button"
+        >我要訂閱</a
+      >
+    </div>
+
+    <footer>
+      <div class="copyright">
+        <div class="container">
+          <div class="row justify-content-center pb-3">
+            <div class="col-md-auto">
+              <img src="img/iek_logo.png" style="width: 200px; height: 70px;" />
+            </div>
+            <div class="col-md-auto">
+              <span style="font-size: 0.9rem;">
+                版權所有 © 工業技術研究院 產業科技國際策略發展所<br />
+                310 臺灣新竹縣竹東鎮中興路四段195號10館<br />
+                +886-3-5912340
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/timeline.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldHigh.js"></script>
+
+    <script src="../cameo-run/cameo-run.js" type="module"></script>
+  </body>
+</html>
