@@ -1,5 +1,8 @@
-import { load_js, load_css } from "./cameo-load.js";
-load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
+import dfjs from "https://jspm.dev/dataframe-js";
+import { load_js_async, load_css } from "../cameo-common/cameo-load.js";
+
+// import { load_js, load_css } from "./cameo-load.js";
+// load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
 
 class CameoRank extends HTMLElement {
   connectedCallback() {
@@ -233,6 +236,4 @@ class CameoRank extends HTMLElement {
   }
 }
 
-function main() {
-  customElements.define("cameo-rank", CameoRank);
-}
+customElements.define("cameo-rank", CameoRank);
