@@ -46,10 +46,9 @@
       },
       "properties": {
         "COUNTYID": "B",
-        "COUNTYCODE": 66000,
+        "COUNTYCODE": "66000",
         "name": "臺中市",
-        "COUNTYENG": "Taichung City",
-        "number": 33386
+        "COUNTYENG": "Taichung City"
       },
       "id": "TW-TXG"
     },
@@ -96,10 +95,9 @@
       },
       "properties": {
         "COUNTYID": "G",
-        "COUNTYCODE": 10002,
+        "COUNTYCODE": "10002",
         "name": "宜蘭縣",
-        "COUNTYENG": "Yilan County",
-        "number": 2103
+        "COUNTYENG": "Yilan County"
       },
       "id": "TW-ILA"
     },
@@ -150,10 +148,9 @@
       },
       "properties": {
         "COUNTYID": "M",
-        "COUNTYCODE": 10008,
+        "COUNTYCODE": "10008",
         "name": "南投縣",
-        "COUNTYENG": "Nantou County",
-        "number": 2118
+        "COUNTYENG": "Nantou County"
       },
       "id": "TW-NAN"
     },
@@ -192,10 +189,9 @@
       },
       "properties": {
         "COUNTYID": "P",
-        "COUNTYCODE": 10009,
+        "COUNTYCODE": "10009",
         "name": "雲林縣",
-        "COUNTYENG": "Yunlin County",
-        "number": 2921
+        "COUNTYENG": "Yunlin County"
       },
       "id": "TW-YUN"
     },
@@ -249,10 +245,9 @@
       },
       "properties": {
         "COUNTYID": "T",
-        "COUNTYCODE": 10013,
+        "COUNTYCODE": "10013",
         "name": "屏東縣",
-        "COUNTYENG": "Pingtung County",
-        "number": 2212
+        "COUNTYENG": "Pingtung County"
       },
       "id": "TW-PIF"
     },
@@ -273,10 +268,9 @@
       },
       "properties": {
         "COUNTYID": "O",
-        "COUNTYCODE": 10018,
+        "COUNTYCODE": "10018",
         "name": "新竹市",
-        "COUNTYENG": "Hsinchu City",
-        "number": 2556
+        "COUNTYENG": "Hsinchu City"
       },
       "id": "TW-HSZ"
     },
@@ -301,10 +295,9 @@
       },
       "properties": {
         "COUNTYID": "A",
-        "COUNTYCODE": 63000,
+        "COUNTYCODE": "63000",
         "name": "臺北市",
-        "COUNTYENG": "Taipei City",
-        "number": 7230
+        "COUNTYENG": "Taipei City"
       },
       "id": "TW-TPE"
     },
@@ -364,10 +357,9 @@
       },
       "properties": {
         "COUNTYID": "F",
-        "COUNTYCODE": 65000,
+        "COUNTYCODE": "65000",
         "name": "新北市",
-        "COUNTYENG": "New Taipei City",
-        "number": 37033
+        "COUNTYENG": "New Taipei City"
       },
       "id": "TW-NWT"
     },
@@ -405,10 +397,9 @@
       },
       "properties": {
         "COUNTYID": "D",
-        "COUNTYCODE": 67000,
+        "COUNTYCODE": "67000",
         "name": "臺南市",
-        "COUNTYENG": "Tainan City",
-        "number": 16298
+        "COUNTYENG": "Tainan City"
       },
       "id": "TW-TNN"
     },
@@ -454,10 +445,9 @@
       },
       "properties": {
         "COUNTYID": "H",
-        "COUNTYCODE": 68000,
+        "COUNTYCODE": "68000",
         "name": "桃園市",
-        "COUNTYENG": "Taoyuan City",
-        "number": 14579
+        "COUNTYENG": "Taoyuan City"
       },
       "id": "TW-TYC"
     },
@@ -495,10 +485,9 @@
       },
       "properties": {
         "COUNTYID": "K",
-        "COUNTYCODE": 10005,
+        "COUNTYCODE": "10005",
         "name": "苗栗縣",
-        "COUNTYENG": "Miaoli County",
-        "number": 2790
+        "COUNTYENG": "Miaoli County"
       },
       "id": "TW-MIA"
     },
@@ -533,10 +522,9 @@
       },
       "properties": {
         "COUNTYID": "N",
-        "COUNTYCODE": 10007,
+        "COUNTYCODE": "10007",
         "name": "彰化縣",
-        "COUNTYENG": "Changhua County",
-        "number": 18588
+        "COUNTYENG": "Changhua County"
       },
       "id": "TW-CHA"
     },
@@ -558,10 +546,9 @@
       },
       "properties": {
         "COUNTYID": "C",
-        "COUNTYCODE": 10017,
+        "COUNTYCODE": "10017",
         "name": "基隆市",
-        "COUNTYENG": "Keelung City",
-        "number": 790
+        "COUNTYENG": "Keelung City"
       },
       "id": "TW-KEE"
     },
@@ -601,10 +588,9 @@
       },
       "properties": {
         "COUNTYID": "J",
-        "COUNTYCODE": 10004,
+        "COUNTYCODE": "10004",
         "name": "新竹縣",
-        "COUNTYENG": "Hsinchu County",
-        "number": 3369
+        "COUNTYENG": "Hsinchu County"
       },
       "id": "TW-HSQ"
     },
@@ -624,10 +610,9 @@
       },
       "properties": {
         "COUNTYID": "I",
-        "COUNTYCODE": 10020,
+        "COUNTYCODE": "10020",
         "name": "嘉義市",
-        "COUNTYENG": "Chiayi City",
-        "number": 1059
+        "COUNTYENG": "Chiayi City"
       },
       "id": "TW-CYI"
     },
@@ -680,10 +665,9 @@
       },
       "properties": {
         "COUNTYID": "Q",
-        "COUNTYCODE": 10010,
+        "COUNTYCODE": "10010",
         "name": "嘉義縣",
-        "COUNTYENG": "Chiayi County",
-        "number": 2769
+        "COUNTYENG": "Chiayi County"
       },
       "id": "TW-CYQ"
     },
@@ -740,10 +724,9 @@
       },
       "properties": {
         "COUNTYID": "E",
-        "COUNTYCODE": 64000,
+        "COUNTYCODE": "64000",
         "name": "高雄市",
-        "COUNTYENG": "Kaohsiung City",
-        "number": 14579
+        "COUNTYENG": "Kaohsiung City"
       },
       "id": "TW-KHH"
     },
@@ -805,10 +788,9 @@
       },
       "properties": {
         "COUNTYID": "U",
-        "COUNTYCODE": 10015,
+        "COUNTYCODE": "10015",
         "name": "花蓮縣",
-        "COUNTYENG": "Hualien County",
-        "number": 850
+        "COUNTYENG": "Hualien County"
       },
       "id": "TW-HUA"
     },
@@ -885,10 +867,139 @@
         "COUNTYID": "V",
         "COUNTYCODE": "10014",
         "name": "臺東縣",
-        "COUNTYENG": "Taitung County",
-        "number": 353
+        "COUNTYENG": "Taitung County"
       },
       "id": "TW-TTT"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [118.2785, 24.4131],
+              [118.3032, 24.4412],
+              [118.2846, 24.4781],
+              [118.2936, 24.4906],
+              [118.3107, 24.4956],
+              [118.321, 24.49],
+              [118.3389, 24.4756],
+              [118.3615, 24.4718],
+              [118.3849, 24.4918],
+              [118.3849, 24.5081],
+              [118.4103, 24.5299],
+              [118.4295, 24.5249],
+              [118.4467, 24.5112],
+              [118.4755, 24.45],
+              [118.4694, 24.4393],
+              [118.4659, 24.4412],
+              [118.4604, 24.4368],
+              [118.4659, 24.4306],
+              [118.4474, 24.4131],
+              [118.4282, 24.4075],
+              [118.4323, 24.4181],
+              [118.3986, 24.4343],
+              [118.3506, 24.42],
+              [118.3341, 24.3912],
+              [118.321, 24.3856],
+              [118.2785, 24.4131]
+            ],
+            [
+              [118.2113, 24.4101],
+              [118.2179, 24.4264],
+              [118.2309, 24.4495],
+              [118.2481, 24.4545],
+              [118.2663, 24.442],
+              [118.2618, 24.4239],
+              [118.2498, 24.4236],
+              [118.2471, 24.4164],
+              [118.2402, 24.4129],
+              [118.2254, 24.4052],
+              [118.2203, 24.4095],
+              [118.2113, 24.4101]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "COUNTYID": "W",
+        "COUNTYCODE": "9020",
+        "name": "金門縣",
+        "COUNTYENG": "Kinmen County"
+      },
+      "id": "TW-KIN"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [119.5199, 23.367],
+            [119.5209, 23.3672],
+            [119.5233, 23.3659],
+            [119.5276, 23.3689],
+            [119.5266, 23.3708],
+            [119.5276, 23.3727],
+            [119.5292, 23.3714],
+            [119.5311, 23.372],
+            [119.5318, 23.3727],
+            [119.5367, 23.3744],
+            [119.5403, 23.3732],
+            [119.5422, 23.3691],
+            [119.5406, 23.3672],
+            [119.5436, 23.3652],
+            [119.5397, 23.3665],
+            [119.5372, 23.3654],
+            [119.5325, 23.3669],
+            [119.5257, 23.3628],
+            [119.5267, 23.3601],
+            [119.5246, 23.3586],
+            [119.5233, 23.3609],
+            [119.5207, 23.3609],
+            [119.5183, 23.3643],
+            [119.5199, 23.367]
+          ]
+        ]
+      },
+      "properties": {
+        "COUNTYID": "X",
+        "COUNTYCODE": "10016",
+        "name": "澎湖縣",
+        "COUNTYENG": "Penghu County"
+      },
+      "id": "TW-PEN"
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [120.0057, 26.2507],
+            [120.0049, 26.2506],
+            [120.0063, 26.2507],
+            [120.0052, 26.2466],
+            [120.0037, 26.2473],
+            [120.0034, 26.245],
+            [120.0013, 26.2449],
+            [119.9982, 26.2422],
+            [119.9953, 26.2425],
+            [119.9984, 26.2498],
+            [120.0016, 26.2489],
+            [120.0032, 26.2512],
+            [120.0057, 26.2507]
+          ]
+        ]
+      },
+      "properties": {
+        "COUNTYID": "Z",
+        "COUNTYCODE": 9007,
+        "name": "連江縣",
+        "COUNTYENG": "Lienchiang County"
+      },
+      "id": "TW-LIE"
     }
   ]
 }
