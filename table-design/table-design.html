@@ -1,0 +1,47 @@
+<html>
+  <script src="https://bossanova.uk/jexcel/v4/jexcel.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://bossanova.uk/jexcel/v4/jexcel.css"
+    type="text/css"
+  />
+  <script src="https://bossanova.uk/jsuites/v3/jsuites.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://bossanova.uk/jsuites/v3/jsuites.css"
+    type="text/css"
+  />
+
+  <div id="spreadsheet1"></div>
+
+  <p><button id="download">Export my spreadsheet as CSV</button></p>
+
+  <script>
+    dic_style = {};
+    for (let i = 0; i < 9; i++) {
+      dic_style[`A${i}`] = "text-align:left;";
+      dic_style[`B${i}`] = "text-align:left;";
+    }
+    mySpreadsheet = jexcel(document.getElementById("spreadsheet1"), {
+      csv: "./table-design.csv",
+      csvHeaders: true,
+      tableOverflow: true,
+      columns: [
+        { type: "text", width: 300 },
+        { type: "text", width: 300 }
+      ],
+      style: dic_style
+    });
+    document.getElementById("download").onclick = function () {
+      mySpreadsheet.download();
+    };
+  </script>
+</html>
+
+<!-- 
+把資料 http post 寫回伺服器的方法
+var data = $('#my').jexcel('getData');
+$('#txt').val(JSON.stringify(data));
+$.post('http://'+window.location.host+"/custom",{text:JSON.stringify(data)});
+$.post('http://'+window.location.host+"/custom",{text:$.csv.fromArrays(data)}); 
+-->

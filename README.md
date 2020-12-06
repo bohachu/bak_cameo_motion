@@ -1,18 +1,4 @@
-2020-12-06 21:55 caro
-將共用程式碼做 inline method 塞回去
-寫在 cameo-run cameo-divergent-stacked-bars
-
----
-
-2020-12-06 20:49 caro
-已經成功將 cameo-run cameo-divergent-stacked-bars 兩個元件，成功讀取 data.csv meta.csv
-都可以任意跟換 csv 內容進行修改
-todo 欄位名稱需要一起討論適合的寫法，讓使用者直覺便利
-
----
-
-2020-12-06 13:25 bowen
-cameo-run-bowen.js 已經寫了三個共用 common function 未來可以提供所有動圖
+2020-12-06 13:25 bowen cameo-run-bowen.js 已經寫了三個共用 common function 未來可以提供所有動圖
 
 ---
 
