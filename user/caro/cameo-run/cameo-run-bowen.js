@@ -11,68 +11,65 @@ class CameoRun extends HTMLElement {
     this.chart_render();
   }
 
+  //2020-12-06 todo bowen 一週之內要放入共用 common
   async load_df(str_attribute) {
-    let str_path = this.getAttribute(str_attribute);
-    let str_url = `${window.location.href}/../${str_path}`;
-    let df = await dfjs.DataFrame.fromCSV(str_url);
-    return df;
+    const str_path = this.getAttribute(str_attribute);
+    const str_url = `${window.location.href}/../${str_path}`;
+    return await dfjs.DataFrame.fromCSV(str_url);
   }
-  async load_data_csv() {
-    console.log("=== data df ===");
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_ary_data() {
     let df = await this.load_df("data");
     df = df.transpose();
-    let ary = df.toArray();
+    const ary = df.toArray();
     return ary;
   }
-  async parse_meta_csv_get_ary_file() {
-    let df = await this.load_df("meta");
-    let ary_df = df.toArray();
-    let i = 0;
-    let ary_file = [];
-    for (; i < ary_df.length; i++) {
-      let str_圖示 = ary_df[i][0];
-      if (str_圖示.includes("圖示_")) {
-        ary_file.push(ary_df[i][1]);
-      }
-    }
-    return ary_file;
-  }
-  async parse_meta_csv() {
-    let df = await this.load_df("meta");
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_dic_meta() {
+    const df = await this.load_df("meta");
+    const ary_df = df.toArray();
     let dic_meta = {};
-    let ary_df = df.toArray();
-    let i = 0;
-    for (; i < ary_df.length; i++) {
+    for (let i = 0; i < ary_df.length; i++) {
       let str_key = ary_df[i][0];
       let str_value = ary_df[i][1];
       dic_meta[str_key] = str_value;
     }
     return dic_meta;
   }
-  async chart_render() {
-    let ary_data = await this.load_data_csv();
-    let ary_file = await this.parse_meta_csv_get_ary_file();
-    let dic_meta = await this.parse_meta_csv();
-    console.log("=== dic_meta ===");
-    console.log(dic_meta);
-
-    let i = 0;
+  //2020-12-06 bowen 專屬於本動圖的解析程式碼
+  parse_ary_icon_file(dic_meta) {
+    let ary_icon_file = [];
+    for (let str_key in dic_meta) {
+      if (str_key.includes("圖示_")) {
+        ary_icon_file.push(dic_meta[str_key]);
+      }
+    }
+    return ary_icon_file;
+  }
+  //2020-12-06 bowen 專屬於本動圖的解析程式碼
+  parse_ary_chart_data(ary_data, ary_icon_file) {
     let ary_chart_data = [];
-    for (; i < ary_data[0].length; i++) {
+    for (let i = 0; i < ary_data[0].length; i++) {
       let dic_data = {};
       dic_data["name"] = ary_data[0][i];
-      dic_data["file"] = ary_file[i];
+      dic_data["file"] = ary_icon_file[i];
       dic_data["track"] = i + 1;
       dic_data["value"] = parseFloat(ary_data[1][i]);
       ary_chart_data.push(dic_data);
     }
+    return ary_chart_data;
+  }
+  //2020-12-06 bowen 專屬於本動圖的：總資料準備
+  async prepare_ary_chart_data() {
+    const ary_data = await this.load_ary_data();
+    const dic_meta = await this.load_dic_meta();
+    const ary_icon_file = this.parse_ary_icon_file(dic_meta);
+    return this.parse_ary_chart_data(ary_data, ary_icon_file);
+  }
 
-    console.log("ary_chart_data:");
-    console.log(ary_chart_data);
-
-    // console.log("ary_chart_meta:");
-    // console.log(ary_chart_meta);
-    // console.log(ary_chart_meta[0][ary_meta[0]]);
+  async chart_render() {
+    //2020-12-06 bowen 一行就完成：總資料準備
+    const ary_chart_data = await this.prepare_ary_chart_data();
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
