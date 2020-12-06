@@ -5,69 +5,72 @@ class CameoRun extends HTMLElement {
   connectedCallback() {
     this.str_random_id = "id_" + Math.random().toString(36).substr(2, 9);
     this.innerHTML = `
-      <div class="cameo-run" id="${this.str_random_id}" 
-        style="width: 100%; height: 500px;"></div>
-    `;
+          <div class="cameo-run" id="${this.str_random_id}" 
+            style="width: 100%; height: 500px;"></div>
+        `;
     this.chart_render();
   }
-  async load_data_csv() {
-    let str_data_path = this.getAttribute("data");
-    let str_url = `${window.location.href}/../${str_data_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
+
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_df(str_attribute) {
+    const str_path = this.getAttribute(str_attribute);
+    const str_url = `${window.location.href}/../${str_path}`;
+    return await dfjs.DataFrame.fromCSV(str_url);
+  }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_ary_data() {
+    let df = await this.load_df("data");
     df = df.transpose();
-    let ary = df.toArray();
+    const ary = df.toArray();
     return ary;
   }
-
-  async load_meta_csv() {
-    let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_meta_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
-    df = df.transpose();
-    let ary = df.toArray();
-    return ary;
-  }
-
-  async chart_render() {
-    let ary_data = await this.load_data_csv();
-    console.log("001 ---------------");
-    console.log(ary_data);
-    console.log("002 ---------------");
-
-    let ary_meta = await this.load_meta_csv();
-    console.log("003 ---------------");
-    console.log(ary_meta);
-    console.log("004 ---------------");
-
-    let j = 0;
-    let ary_chart_meta = [];
-    for (; j < ary_meta[0].length; j++) {
-      let dic_meta = {};
-      dic_meta[ary_meta[0][j]] = ary_meta[1][j];
-      ary_chart_meta.push(dic_meta);
-      console.log("dic_meta:");
-      console.log(dic_meta);
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_dic_meta() {
+    const df = await this.load_df("meta");
+    const ary_df = df.toArray();
+    let dic_meta = {};
+    for (let i = 0; i < ary_df.length; i++) {
+      let str_key = ary_df[i][0];
+      let str_value = ary_df[i][1];
+      dic_meta[str_key] = str_value;
     }
-
-    let i = 0;
+    return dic_meta;
+  }
+  //2020-12-06 caro 專屬於本動圖的解析程式碼
+  parse_ary_icon_file(dic_meta) {
+    let ary_icon_file = [];
+    for (let str_key in dic_meta) {
+      if (str_key.includes("圖示_")) {
+        ary_icon_file.push(dic_meta[str_key]);
+      }
+    }
+    return ary_icon_file;
+  }
+  //2020-12-06 caro 專屬於本動圖的解析程式碼
+  parse_ary_chart_data(ary_data, ary_icon_file) {
     let ary_chart_data = [];
-    for (; i < ary_data[0].length; i++) {
+    for (let i = 0; i < ary_data[0].length; i++) {
       let dic_data = {};
       dic_data["name"] = ary_data[0][i];
-      dic_data["file"] = ary_chart_meta[1][j];
+      dic_data["file"] = ary_icon_file[i];
       dic_data["track"] = i + 1;
       dic_data["value"] = parseFloat(ary_data[1][i]);
       ary_chart_data.push(dic_data);
     }
+    return ary_chart_data;
+  }
+  //2020-12-06 caro 專屬於本動圖的：總資料準備
+  async prepare_ary_chart_data() {
+    const ary_data = await this.load_ary_data();
+    const dic_meta = await this.load_dic_meta();
+    const ary_icon_file = this.parse_ary_icon_file(dic_meta);
+    return this.parse_ary_chart_data(ary_data, ary_icon_file);
+  }
 
-    console.log("ary_chart_data:");
-    console.log(ary_chart_data);
-
-    console.log("ary_chart_meta:");
-    console.log(ary_chart_meta);
-    console.log(ary_chart_meta[0][ary_meta[0]]);
+  async chart_render() {
+    //2020-12-06 caro 一行就完成：總資料準備
+    const ary_chart_data = await this.prepare_ary_chart_data();
+    const dic_meta = await this.load_dic_meta();
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -84,7 +87,7 @@ class CameoRun extends HTMLElement {
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
-    watermark.text = "資料來源: 工研院產科國際所";
+    watermark.text = dic_meta["資料來源"];
     watermark.fontSize = 10;
     watermark.align = "right";
     watermark.valign = "bottom";
@@ -192,7 +195,7 @@ class CameoRun extends HTMLElement {
 
       var fillTemplate = categoryAxis.renderer.axisFills.template;
       fillTemplate.disabled = false;
-      fillTemplate.fill = am4core.color("#31AFA0");
+      fillTemplate.fill = am4core.color(dic_meta["操場跑道顏色"]);
       fillTemplate.fillOpacity = 1;
 
       categoryAxis.fillRule = function (dataItem) {
@@ -225,7 +228,7 @@ class CameoRun extends HTMLElement {
       var flagRange = valueAxis.axisRanges.create();
       flagRange.value = 0;
       var flagBullet = new am4plugins_bullets.FlagBullet();
-      flagBullet.label.text = "START";
+      flagBullet.label.text = dic_meta["旗子文字"];
       flagRange.bullet = flagBullet;
       //flagBullet.dy = -145;
       flagBullet.adapter.add("dy", function (dy, target) {

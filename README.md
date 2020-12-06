@@ -1,4 +1,15 @@
+2020-12-06 20:49 caro
+已經成功將 cameo-run cameo-divergent-stacked-bars 兩個元件，成功讀取 data.csv meta.csv
+都可以任意跟換 csv 內容進行修改
+todo 欄位名稱需要一起討論適合的寫法，讓使用者直覺便利
+
 ---
+
+2020-12-06 13:25 bowen
+cameo-run-bowen.js 已經寫了三個共用 common function 未來可以提供所有動圖
+
+---
+
 2020-12-06 12:38 bowen
 跑跑圖已經可以讀取 meta csv, todo: 要可以共用迴圈讀取的程式碼, data csv , meta csv 都要有共用程式碼
 
