@@ -52,25 +52,20 @@ class CameoRun extends HTMLElement {
     for (let i = 0; i < ary_data[0].length; i++) {
       let dic_data = {};
       dic_data["name"] = ary_data[0][i];
-      dic_data["file"] = ary_icon_file[i];
+      // dic_data["file"] = ary_icon_file[i];
       dic_data["track"] = i + 1;
       dic_data["value"] = parseFloat(ary_data[1][i]);
       ary_chart_data.push(dic_data);
     }
     return ary_chart_data;
   }
-  //2020-12-06 caro 專屬於本動圖的：總資料準備
-  async prepare_ary_chart_data() {
+
+  async chart_render() {
+    //2020-12-06 caro 專屬於本動圖的：總資料準備
     const ary_data = await this.load_ary_data();
     const dic_meta = await this.load_dic_meta();
     const ary_icon_file = this.parse_ary_icon_file(dic_meta);
-    return this.parse_ary_chart_data(ary_data, ary_icon_file);
-  }
-
-  async chart_render() {
-    //2020-12-06 caro 一行就完成：總資料準備
-    const ary_chart_data = await this.prepare_ary_chart_data();
-    const dic_meta = await this.load_dic_meta();
+    const ary_chart_data = this.parse_ary_chart_data(ary_data, ary_icon_file);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);

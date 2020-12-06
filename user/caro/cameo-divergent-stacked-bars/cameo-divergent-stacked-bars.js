@@ -10,41 +10,37 @@ class CameoDivergentStackedBars extends HTMLElement {
     `;
     this.chart_render();
   }
-  async load_data_csv() {
-    let str_data_path = this.getAttribute("data");
-    // let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_data_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
+
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_df(str_attribute) {
+    const str_path = this.getAttribute(str_attribute);
+    const str_url = `${window.location.href}/../${str_path}`;
+    return await dfjs.DataFrame.fromCSV(str_url);
+  }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_ary_data() {
+    let df = await this.load_df("data");
     df = df.transpose();
-    let ary = df.toArray();
+    const ary = df.toArray();
     return ary;
   }
-
-  async load_meta_csv() {
-    let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_meta_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
-    df = df.transpose();
-    let dic = df.toDict();
-    return dic;
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_dic_meta() {
+    const df = await this.load_df("meta");
+    const ary_df = df.toArray();
+    let dic_meta = {};
+    for (let i = 0; i < ary_df.length; i++) {
+      let str_key = ary_df[i][0];
+      let str_value = ary_df[i][1];
+      dic_meta[str_key] = str_value;
+    }
+    return dic_meta;
   }
 
-  async chart_render() {
-    let ary_data = await this.load_data_csv();
-    console.log("001 ---------------");
-    console.log(ary_data);
-    console.log("002 ---------------");
-
-    let ary_meta = await this.load_meta_csv();
-    console.log("003 ---------------");
-    console.log(ary_meta);
-    console.log("004 ---------------");
-
-    let i = 0;
+  //2020-12-06 caro 專屬於本動圖的解析程式碼
+  parse_ary_chart_data(ary_data) {
     let ary_chart_data = [];
-    for (; i < ary_data[0].length; i++) {
+    for (let i = 0; i < ary_data[0].length; i++) {
       let dic_data = {};
       let flo_value = parseFloat(ary_data[1][i]);
       dic_data["category"] = ary_data[0][i];
@@ -66,9 +62,13 @@ class CameoDivergentStackedBars extends HTMLElement {
       }
       ary_chart_data.push(dic_data);
     }
-
-    console.log("ary_chart_data:");
-    console.log(ary_chart_data);
+    return ary_chart_data;
+  }
+  async chart_render() {
+    //2020-12-06 caro 專屬於本動圖的：總資料準備
+    const ary_data = await this.load_ary_data();
+    const dic_meta = await this.load_dic_meta();
+    const ary_chart_data = this.parse_ary_chart_data(ary_data);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -78,14 +78,15 @@ class CameoDivergentStackedBars extends HTMLElement {
     var chart = am4core.create(this.str_random_id, am4charts.XYChart);
 
     // Title
-    // var title = chart.titles.push(new am4core.Label());
+    var title = chart.titles.push(new am4core.Label());
     // title.text = "臺灣產業產值與同期比較：可關注新興能源產值";
-    // title.fontSize = 25;
-    // title.marginBottom = 15;
+    title.text = dic_meta["圖表標題"];
+    title.fontSize = 25;
+    title.marginBottom = 15;
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
-    watermark.text = "資料來源: 工研院產科國際所";
+    watermark.text = dic_meta["資料來源"];
     watermark.fontSize = 10;
     watermark.align = "right";
     // watermark.paddingRight = 10;
@@ -184,8 +185,8 @@ class CameoDivergentStackedBars extends HTMLElement {
     categoryAxis.renderer.labels.template.fontSize = 12;
 
     var valueAxis = chart.xAxes.push(new am4charts.ValueAxis());
-    valueAxis.min = -25;
-    valueAxis.max = 25;
+    valueAxis.min = parseFloat(dic_meta["X軸顯示最小值"]);
+    valueAxis.max = parseFloat(dic_meta["X軸顯示最大值"]);
     valueAxis.renderer.minGridDistance = 50;
     valueAxis.renderer.ticks.template.length = 5;
     valueAxis.renderer.ticks.template.disabled = false;
@@ -228,13 +229,21 @@ class CameoDivergentStackedBars extends HTMLElement {
       return series;
     }
 
-    var positiveColor = am4core.color("#EEAC5D");
-    var negativeColor = am4core.color("#4DD6C1");
+    var positiveColor = am4core.color(dic_meta["右邊顏色"]);
+    var negativeColor = am4core.color(dic_meta["左邊顏色"]);
 
-    createSeries("positive2", "上漲 > 10%", positiveColor);
-    createSeries("positive1", "上漲 < 10%", positiveColor.lighten(0.5));
-    createSeries("negative2", "下跌 < 10% ", negativeColor.lighten(0.5));
-    createSeries("negative1", "下跌 > 10%", negativeColor);
+    createSeries("positive2", dic_meta["資料標籤1名稱"], positiveColor);
+    createSeries(
+      "positive1",
+      dic_meta["資料標籤2名稱"],
+      positiveColor.lighten(0.5)
+    );
+    createSeries(
+      "negative2",
+      dic_meta["資料標籤3名稱"],
+      negativeColor.lighten(0.5)
+    );
+    createSeries("negative1", dic_meta["資料標籤4名稱"], negativeColor);
   }
 }
 
