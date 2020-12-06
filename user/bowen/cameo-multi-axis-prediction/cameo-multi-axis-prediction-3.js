@@ -24,7 +24,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
   }
   async chart_render() {
     let ary_data = await this.load_data_csv();
-    console.log("001 ---------------");
+    console.log("2020-12-06 001 ---------------");
     console.log(ary_data);
     console.log("002 ---------------");
 
