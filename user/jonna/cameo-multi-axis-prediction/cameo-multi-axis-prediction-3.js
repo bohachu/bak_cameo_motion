@@ -1,5 +1,5 @@
-// import { load_js, load_css } from "./cameo-load.js";
-// load_js("https://gmousse.github.io/dataframe-js/dist/dataframe.min.js", main);
+// 2020-12-06 xxx-3 版本是週日 bowen caro 協助修改測試實線與虛線的版本
+
 import dfjs from "https://jspm.dev/dataframe-js";
 import { load_js_async, load_css } from "../cameo-common/cameo-load.js";
 
