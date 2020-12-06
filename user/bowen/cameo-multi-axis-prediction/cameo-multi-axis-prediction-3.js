@@ -30,6 +30,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
 
     let i = 0;
     let ary_chart_data = [];
+    let 開關_是否第一個預測值的年增率已經設定過了 = false;
     for (; i < ary_data[0].length; i++) {
       let dic_data = {};
       let str_value = ary_data[3][i];
@@ -39,7 +40,6 @@ class CameoMultiAxisPrediction extends HTMLElement {
       dic_data["年增率"] = 0;
       dic_data["預測年增率"] = 0;
       dic_data["是否為預測"] = str_value;
-
       if (str_value === "N") {
         dic_data["產值"] = parseFloat(ary_data[1][i]);
         dic_data["年增率"] = parseFloat(ary_data[2][i]);
@@ -49,6 +49,10 @@ class CameoMultiAxisPrediction extends HTMLElement {
         dic_data["預測產值"] = parseFloat(ary_data[1][i]);
         dic_data["預測年增率"] = parseFloat(ary_data[2][i]);
         delete dic_data["年增率"];
+        if (開關_是否第一個預測值的年增率已經設定過了 == false) {
+          開關_是否第一個預測值的年增率已經設定過了 = true;
+          dic_data["年增率"] = parseFloat(ary_data[2][i]);
+        }
       }
       delete dic_data["是否為預測"];
       ary_chart_data.push(dic_data);
@@ -80,43 +84,43 @@ class CameoMultiAxisPrediction extends HTMLElement {
     var data = ary_chart_data;
     // var data = [
     //   {
-    //     期間: "2020 Q1",
+    //     季度: "2020 Q1",
     //     產值: 4.57,
     //     年增率: -2.22
     //   },
     //   {
-    //     期間: "2020 Q2",
+    //     季度: "2020 Q2",
     //     產值: 4.51,
     //     年增率: -8.37
     //   },
     //   {
-    //     期間: "2020 Q3",
+    //     季度: "2020 Q3",
     //     產值: 4.79,
     //     年增率: -3.25
     //   },
     //   {
-    //     期間: "2020 Q4",
+    //     季度: "2020 Q4",
     //     產值: 4.92,
     //     年增率: -2.3
     //   },
     //   {
-    //     期間: "2021 Q1",
+    //     季度: "2021 Q1",
     //     預測產值: 4.73,
     //     年增率: 3.58,
     //     預測年增率: 3.58
     //   },
     //   {
-    //     期間: "2021 Q2",
+    //     季度: "2021 Q2",
     //     預測產值: 4.78,
     //     預測年增率: 6.06
     //   },
     //   {
-    //     期間: "2021 Q3",
+    //     季度: "2021 Q3",
     //     預測產值: 5.02,
     //     預測年增率: 4.77
     //   },
     //   {
-    //     期間: "2021 Q4",
+    //     季度: "2021 Q4",
     //     預測產值: 5.15,
     //     預測年增率: 4.63
     //   }
