@@ -1,7 +1,7 @@
-檔案
-img/lcd.png
-img/electronic.png
-img/machine.png
-img/cpu.png
-img/petrochemical.png
-img/machine.png
+key,value
+圖示_紡織品,img/lcd.png
+圖示_電力設備,img/electronic.png
+圖示_塑像膠與非金屬礦物製品,img/machine.png
+圖示_其他製品與機器修配,img/cpu.png
+圖示_食品飲料及煙草,img/petrochemical.png
+圖示_電腦電子及光學製品(含零組件),img/machine.png

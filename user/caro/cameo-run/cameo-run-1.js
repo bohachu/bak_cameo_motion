@@ -12,17 +12,8 @@ class CameoRun extends HTMLElement {
   }
   async load_data_csv() {
     let str_data_path = this.getAttribute("data");
+    // let str_meta_path = this.getAttribute("meta");
     let str_url = `${window.location.href}/../${str_data_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
-    df = df.transpose();
-    let ary = df.toArray();
-    return ary;
-  }
-
-  async load_meta_csv() {
-    let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_meta_path}`;
     console.log(str_url);
     let df = await dfjs.DataFrame.fromCSV(str_url);
     df = df.transpose();
@@ -36,27 +27,12 @@ class CameoRun extends HTMLElement {
     console.log(ary_data);
     console.log("002 ---------------");
 
-    let ary_meta = await this.load_meta_csv();
-    console.log("003 ---------------");
-    console.log(ary_meta);
-    console.log("004 ---------------");
-
-    let j = 0;
-    let ary_chart_meta = [];
-    for (; j < ary_meta[0].length; j++) {
-      let dic_meta = {};
-      dic_meta[ary_meta[0][j]] = ary_meta[1][j];
-      ary_chart_meta.push(dic_meta);
-      console.log("dic_meta:");
-      console.log(dic_meta);
-    }
-
     let i = 0;
     let ary_chart_data = [];
     for (; i < ary_data[0].length; i++) {
       let dic_data = {};
       dic_data["name"] = ary_data[0][i];
-      dic_data["file"] = ary_chart_meta[1][j];
+      dic_data["file"] = "??";
       dic_data["track"] = i + 1;
       dic_data["value"] = parseFloat(ary_data[1][i]);
       ary_chart_data.push(dic_data);
@@ -64,10 +40,6 @@ class CameoRun extends HTMLElement {
 
     console.log("ary_chart_data:");
     console.log(ary_chart_data);
-
-    console.log("ary_chart_meta:");
-    console.log(ary_chart_meta);
-    console.log(ary_chart_meta[0][ary_meta[0]]);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -84,7 +56,7 @@ class CameoRun extends HTMLElement {
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
-    watermark.text = "資料來源: 工研院產科國際所";
+    watermark.text = "資料來源: 工研院產科國際所[/]";
     watermark.fontSize = 10;
     watermark.align = "right";
     watermark.valign = "bottom";
