@@ -18,6 +18,7 @@ sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel
 sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab
 sudo /opt/jupyterhub/bin/python3 -m pip install ipywidgets
+sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub-nativeauthenticator
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 
 sudo apt install -y nodejs npm curl wget sudo cron joe nano python3-dev \
@@ -91,8 +92,8 @@ sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 \
       "google-cloud-storage" \
     nose pandas scikit-learn -y 
 
-sudo /opt/conda/envs/python/bin/python -m pip install --upgrade pip
-sudo /opt/conda/envs/python/bin/pip3 install keplergl opencv-python --no-cache
+sudo /opt/conda/envs/python/bin/python -m pip install --upgrade pip --no-cache-dir 
+sudo /opt/conda/envs/python/bin/pip3 install keplergl opencv-python --no-cache-dir 
 sudo /opt/conda/bin/conda build purge-all && \
     sudo /opt/conda/bin/conda clean --all -f -y && \
     sudo rm -fvR /opt/conda/pkgs/*
@@ -137,10 +138,8 @@ sudo setfacl -R -m d:o::r /srv/data/share_data_analysts
 # 加入權限使預設新建立的檔案都是rwx權限:
 sudo setfacl -R -m d:mask:rwx /srv/data/share_data_analysts
 
-
-# TODO www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
-
 # TODO jupyterhub_config.py 需要設定建立新使用者時, 自動加入group以及連結上述資料夾到home目錄中
+
 
 # nginx 安裝啟動設定
 # ref https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
@@ -158,6 +157,8 @@ sudo systemctl stop nginx
 # 設定靜態網頁檔案
 sudo mkdir -p /var/www/$SITE_DOMAIN/html/
 sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
+
+# www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
 sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
 # sudo chmod -R 755 /var/www/cameo.tw
 cd /var/www/$SITE_DOMAIN
@@ -205,3 +206,6 @@ sudo ln -s /home/$USER/.deno/bin/deno /usr/local/bin/deno
 
 
 # setting firewall
+
+# restart; wsl not working with this command
+sudo shutdown -r +1
