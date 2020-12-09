@@ -13,7 +13,6 @@ source .env
 # 設定時區為Taipei時區
 sudo timedatectl set-timezone Asia/Taipei
 
-
 sudo python3 -m venv /opt/jupyterhub/
 
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel
@@ -91,11 +90,12 @@ sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 \
       "psutil=5.7.3" \
       "google-cloud-storage" \
     nose pandas scikit-learn -y 
+
+sudo /opt/conda/envs/python/bin/python -m pip install --upgrade pip
+sudo /opt/conda/envs/python/bin/pip3 install keplergl opencv-python --no-cache
 sudo /opt/conda/bin/conda build purge-all && \
     sudo /opt/conda/bin/conda clean --all -f -y && \
     sudo rm -fvR /opt/conda/pkgs/*
-sudo /opt/conda/envs/python/bin/
-sudo /opt/conda/envs/python/bin/pip3 install keplergl opencv-python --no-cache
 
 export NODE_OPTIONS=--max-old-space-size=4096 && \
     sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
@@ -118,9 +118,9 @@ export NODE_OPTIONS=--max-old-space-size=4096 && \
 # sudo rm -rf /var/lib/apt/lists/*
 
 # 啟動jupyterhub服務; 需要重開機才會生效
-# sudo systemctl daemon-reload
-# sudo systemctl enable jupyterhub.service
-# sudo systemctl start jupyterhub.service
+sudo systemctl daemon-reload
+sudo systemctl enable jupyterhub.service
+sudo systemctl start jupyterhub.service
 
 
 # 共享目錄設定
@@ -138,31 +138,35 @@ sudo setfacl -R -m d:o::r /srv/data/share_data_analysts
 sudo setfacl -R -m d:mask:rwx /srv/data/share_data_analysts
 
 
-
-
-
 # TODO www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
 
 # TODO jupyterhub_config.py 需要設定建立新使用者時, 自動加入group以及連結上述資料夾到home目錄中
 
 # nginx 安裝啟動設定
+# ref https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
 # sudo add-apt-repository ppa:nginx/stable -y
 sudo apt update
 sudo apt install nginx -y
 # cd ~/cameo_motion/sh
-sudo mkdir -p /etc/nginx/sites-enabled/cameo.tw
-sudo cp ~/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-enabled/cameo.tw
+sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
+sudo cp ~/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN
 sudo cp ~/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+
 # sudo /etc/init.d/nginx reload
 sudo systemctl stop nginx
 
 # 設定靜態網頁檔案
-sudo mkdir -p /var/www/cameo.tw/html/
-sudo cp ../src/* /var/www/cameo.tw/html/
-sudo chown -R $USER:$USER /var/www/cameo.tw/html/
-sudo chmod -R 755 /var/www/cameo.tw/html/
-sudo ln -s /etc/nginx/sites-available/cameo.tw /etc/nginx/sites-enabled/
+sudo mkdir -p /var/www/$SITE_DOMAIN/html/
+sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
+sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
+# sudo chmod -R 755 /var/www/cameo.tw
+cd /var/www/$SITE_DOMAIN
+sudo find . -type d -exec chmod 0755 {} \;
+sudo find . -type f -exec chmod 0644 {} \;
+sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+cd ~
 
+sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
@@ -170,6 +174,8 @@ sudo systemctl start nginx
 cd ~
 wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz
 tar xvfz julia-1.5.3-linux-x86_64.tar.gz
+sudo chown -R root:users ~/julia-1.5.3/
+# sudo chmod a+x ~/julia-1.5.3/bin/
 # cd /usr/local/bin/
 sudo ln -s ~/julia-1.5.3/bin/julia /usr/local/bin/julia
 
@@ -185,15 +191,17 @@ source ~/.bashrc
 /usr/local/bin/julia -e 'using WebIO; using Interact; WebIO.install_jupyter_labextension();'
 
 ## github
-git config --global user.email "ycchang.pmp@cameo.tw"
-git config --global user.name "austinyuch"
+git config --global user.email "$DEFAULT_GIT_USER_EMAIL"
+git config --global user.name "$DEFAULT_GIT_USER_NAME"
 git config --global credential.helper cache
 git config --global credential.helper store
 
 ## deno
+cd ~
 curl -fsSL https://deno.land/x/install/install.sh | sh
-cd /usr/local/bin/
-sudo ln -s /home/cameo/.deno/bin/deno deno
+# cd /usr/local/bin/
+sudo chown -R root:users /home/$USER/.deno/bin/deno
+sudo ln -s /home/$USER/.deno/bin/deno /usr/local/bin/deno
 
 
 # setting firewall
