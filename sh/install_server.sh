@@ -21,7 +21,7 @@ sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab
 sudo /opt/jupyterhub/bin/python3 -m pip install ipywidgets
 sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 
-sudo apt install nodejs npm curl wget sudo cron joe nano python3-dev \
+sudo apt install -y nodejs npm curl wget sudo cron joe nano python3-dev \
    software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev libxtst6 xvfb xdotool wmctrl cmake \
       zip unzip file fonts-dejavu tzdata graphviz graphviz-dev \
       libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev python3-dev \
@@ -36,7 +36,7 @@ sudo apt install nodejs npm curl wget sudo cron joe nano python3-dev \
 sudo npm install -g configurable-http-proxy -y
 
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
-cd /opt/jupyterhub/etc/jupyterhub/
+# cd /opt/jupyterhub/etc/jupyterhub/
 
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
 sudo cp jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
@@ -45,7 +45,7 @@ sudo cp jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 
 
-curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | gpg --dearmor > conda.gpg
+sudo curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | sudo gpg --dearmor > conda.gpg
 sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
 echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
 
@@ -54,14 +54,14 @@ sudo apt update && sudo apt install conda -y
 sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 
 
-conda install -c conda-forge -y 'conda-build' && \
-    conda config --prepend channels conda-forge
+sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
+    sudo /opt/conda/bin/conda config --prepend channels conda-forge
 
 # Install a default conda environment for all users
 sudo mkdir /opt/conda/envs/
 sudo chmod -R a+w /opt/conda/ && \
-    chown -R root:users /opt/conda && \
-    chmod g+s /opt/conda
+    sudo chown -R root:users /opt/conda && \
+    sudo chmod g+s /opt/conda
 
 # 將jupyterhub內的conda env 放在為jupyterhub安裝的虛擬環境中
 sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 \
@@ -89,28 +89,28 @@ sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 \
       "ipyleaflet=0.13.3" \
       "psutil=5.7.3" \
       "google-cloud-storage" \
-    nose pandas scikit-learn -y && \
-    conda build purge-all && \
-    conda clean --all -f -y && \
-    rm -fvR /opt/conda/pkgs/*
+    nose pandas scikit-learn -y 
+sudo /opt/conda/bin/conda build purge-all && \
+    sudo /opt/conda/bin/conda clean --all -f -y && \
+    sudo rm -fvR /opt/conda/pkgs/*
 
 
 sudo jupyter serverextension enable --py jupyterlab --sys-prefix && \
-    jupyter serverextension enable voila --sys-prefix && \
-    jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-    jupyter nbextension enable widgetsnbextension --py --sys-prefix && \
-    export NODE_OPTIONS=--max-old-space-size=4096 && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+    sodo jupyter serverextension enable voila --sys-prefix && \
+    sodo jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+    sudo jupyter nbextension enable widgetsnbextension --py --sys-prefix && \
+    sudo export NODE_OPTIONS=--max-old-space-size=4096 && \
+    sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
     # jupyter labextension install jupyterlab-plotly@4.6.0 --no-build && \
     # jupyter labextension install plotlywidget@4.6.0 --no-build && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build && \
-    jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
-    jupyter labextension install @jupyterlab/geojson-extension --no-build && \
-    jupyter labextension install jupyter-matplotlib --no-build && \
-    jupyter labextension install spreadsheet-editor --no-build && \
-    jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build && \
-    jupyter lab build && \
-    unset NODE_OPTIONS 
+    sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build && \
+    sudo jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
+    sudo jupyter labextension install @jupyterlab/geojson-extension --no-build && \
+    sudo jupyter labextension install jupyter-matplotlib --no-build && \
+    sudo jupyter labextension install spreadsheet-editor --no-build && \
+    sudo jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build && \
+    sudo jupyter lab build && \
+    sudo unset NODE_OPTIONS 
 
 
 sudo rm -rf /var/lib/apt/lists/*
@@ -128,6 +128,8 @@ sudo mkdir /srv/data/share_data_analysts
 sudo chown -R cameo:analysts /srv/data/share_data_analysts
 
 sudo chmod -R 770 /srv/data/_share_data_analyst
+
+# setfacl only works in native linux; not working for WSL 
 # Granting permission for a group named "analysts" would look something like this:
 sudo setfacl -R -m d:g:analysts:rwx /srv/data/share_data_analysts
 # 非群組的應該都看不到
@@ -148,10 +150,10 @@ sudo cp ../src/* /var/www/html/
 
 ## install julia
 cd ~
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.2-linux-x86_64.tar.gz
-tar xvfz julia-1.5.2-linux-x86_64.tar.gz
+wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz
+tar xvfz julia-1.5.3-linux-x86_64.tar.gz
 cd /usr/local/bin/
-sudo ln -s ~/julia-1.5.2/bin/julia julia
+sudo ln -s ~/julia-1.5.3/bin/julia julia
 
 ## deno
 curl -fsSL https://deno.land/x/install/install.sh | sh
