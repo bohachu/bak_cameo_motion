@@ -20,6 +20,11 @@ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-
 sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
 
 
+sudo curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | sudo gpg --dearmor > conda.gpg
+sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
+sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
+
+
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 sudo add-apt-repository -y ppa:ubuntugis/ppa && \
     sudo apt update && \
@@ -76,8 +81,6 @@ sudo systemctl start nginx
 
 sudo npm install -g configurable-http-proxy -y
 
-
-
 sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel jupyterhub \
@@ -93,10 +96,6 @@ sudo mkdir -p /opt/jupyterhub/etc/systemd
 sudo cp /home/$USER/cameo_motion/sh/jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
-
-sudo curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | sudo gpg --dearmor > conda.gpg
-sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
-sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
 
 # sudo apt update && sudo apt install conda -y
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
@@ -171,9 +170,11 @@ export NODE_OPTIONS=--max-old-space-size=4096 && \
 
 # 共享目錄設定
 sudo groupadd analysts
+sudo usermod -aG analysts $USER
 sudo mkdir -p /srv/data/share_data_analysts
 sudo chown -R cameo:analysts /srv/data/share_data_analysts
 sudo chmod -R 770 /srv/data/share_data_analysts
+
 
 # setfacl only works in native linux; not working for WSL 
 # Granting permission for a group named "analysts" would look something like this:
