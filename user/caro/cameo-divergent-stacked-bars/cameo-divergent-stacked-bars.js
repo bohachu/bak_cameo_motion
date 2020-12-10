@@ -74,6 +74,8 @@ class CameoDivergentStackedBars extends HTMLElement {
     am4core.useTheme(am4themes_animated);
     // Themes end
 
+    // amcharts License
+    am4core.addLicense("CH1234567");
     // Create chart instance
     var chart = am4core.create(this.str_random_id, am4charts.XYChart);
 

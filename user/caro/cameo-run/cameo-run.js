@@ -34,6 +34,8 @@ class CameoRun extends HTMLElement {
       let str_value = ary_df[i][1];
       dic_meta[str_key] = str_value;
     }
+    console.log(";001//");
+    console.log(dic_meta);
     return dic_meta;
   }
   //2020-12-06 caro 專屬於本動圖的解析程式碼
@@ -52,7 +54,7 @@ class CameoRun extends HTMLElement {
     for (let i = 0; i < ary_data[0].length; i++) {
       let dic_data = {};
       dic_data["name"] = ary_data[0][i];
-      // dic_data["file"] = ary_icon_file[i];
+      dic_data["file"] = ary_icon_file[i];
       dic_data["track"] = i + 1;
       dic_data["value"] = parseFloat(ary_data[1][i]);
       ary_chart_data.push(dic_data);
