@@ -18,7 +18,7 @@ sudo timedatectl set-timezone Asia/Taipei
 cd /home/$USER/
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
-
+sudo apt install python3 python3-dev --upgrade -y
 
 sudo curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | sudo gpg --dearmor > conda.gpg
 sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
@@ -52,9 +52,11 @@ sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
 sudo cp ~/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN
 sudo cp ~/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+sudo systemctl stop nginx
 
 # sudo /etc/init.d/nginx reload
 sudo systemctl stop nginx
+sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
 
 # 設定靜態網頁檔案
 sudo mkdir -p /var/www/$SITE_DOMAIN/html/
@@ -67,6 +69,7 @@ cd /var/www/$SITE_DOMAIN
 sudo find . -type d -exec chmod 0755 {} \;
 sudo find . -type f -exec chmod 0644 {} \;
 sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+sudo systemctl start nginx
 
 # ssl_certificate 
 sudo cp /home/$USER/cameo_mnotion/secrets/certificate.crt /var/ssl/certificate.crt
@@ -77,6 +80,7 @@ cd ~
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
+    jupyterlab ipywidgets jupyterhub-nativeauthenticator --no-cache-dir
 
 
 sudo npm install -g configurable-http-proxy -y
@@ -85,9 +89,11 @@ sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel jupyterhub \
     jupyterlab ipywidgets jupyterhub-nativeauthenticator --no-cache-dir
+sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
 # cd /opt/jupyterhub/etc/jupyterhub/
+sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
 
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
 sudo cp /home/$USER/cameo_motion/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
@@ -184,6 +190,7 @@ sudo setfacl -R -m d:o::r /srv/data/share_data_analysts
 # 加入權限使預設新建立的檔案都是rwx權限:
 sudo setfacl -R -m d:mask:rwx /srv/data/share_data_analysts
 
+/usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
 ## install julia
 cd ~
@@ -215,11 +222,3 @@ git config --global credential.helper store
 cd ~
 curl -fsSL https://deno.land/x/install/install.sh | sh
 # cd /usr/local/bin/
-sudo chown -R root:users /home/$USER/.deno/bin/deno
-sudo ln -s /home/$USER/.deno/bin/deno /usr/local/bin/deno
-
-
-# setting firewall
-
-# restart; wsl not working with this command
-sudo shutdown -r +1

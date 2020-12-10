@@ -140,7 +140,8 @@ class CameoMapTw extends HTMLElement {
     // 創新智樞總部及傳統聚落
     var series5 = chart.series.push(new am4maps.MapPolygonSeries());
     series5.geodataSource.url = "data/taiwan.json";
-    series5.name = dic_meta["產業聚落名稱一"];
+    series5.name = ary_data[0][0];
+    //dic_meta["產業聚落名稱一"];
     series5.include = ["TW-KEE", "TW-NWT", "TW-ILA", "TW-TPE"];
     series5.fill = am4core.color("#4DD6C1");
     series5.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -150,7 +151,7 @@ class CameoMapTw extends HTMLElement {
     // 高科技聚落
     var series4 = chart.series.push(new am4maps.MapPolygonSeries());
     series4.geodataSource.url = "data/taiwan.json";
-    series4.name = dic_meta["產業聚落名稱二"];
+    series4.name = ary_data[0][1];
     series4.include = ["TW-TYC", "TW-HSQ", "TW-HSZ", "TW-MIA"];
     series4.fill = am4core.color("#EAE660");
     series4.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -160,7 +161,7 @@ class CameoMapTw extends HTMLElement {
     // 機械及生活傳產聚落
     var series3 = chart.series.push(new am4maps.MapPolygonSeries());
     series3.geodataSource.url = "data/taiwan.json";
-    series3.name = dic_meta["產業聚落名稱三"];
+    series3.name = ary_data[0][2];
     series3.include = ["TW-TXG", "TW-CHA", "TW-NAN"];
     series3.fill = am4core.color("#F7CB46");
     series3.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -170,7 +171,7 @@ class CameoMapTw extends HTMLElement {
     // 農食基地
     var series1 = chart.series.push(new am4maps.MapPolygonSeries());
     series1.geodataSource.url = "data/taiwan.json";
-    series1.name = dic_meta["產業聚落名稱四"];
+    series1.name = ary_data[0][3];
     series1.include = ["TW-YUN", "TW-CYQ", "TW-CYI", "TW-TNN"];
     series1.fill = am4core.color("#EEAC5D");
 
@@ -182,7 +183,7 @@ class CameoMapTw extends HTMLElement {
     // 工業聚落親水聚落
     var series2 = chart.series.push(new am4maps.MapPolygonSeries());
     series2.geodataSource.url = "data/taiwan.json";
-    series2.name = dic_meta["產業聚落名稱五"];
+    series2.name = ary_data[0][4];
     series2.include = ["TW-KHH", "TW-PIF", "TW-PEN"];
     series2.fill = am4core.color("#31AFA0");
     series2.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -192,7 +193,7 @@ class CameoMapTw extends HTMLElement {
     // 天然資源觀光據點
     var series7 = chart.series.push(new am4maps.MapPolygonSeries());
     series7.geodataSource.url = "data/taiwan.json";
-    series7.name = dic_meta["產業聚落名稱六"];
+    series7.name = ary_data[0][5];
     series7.include = ["TW-HUA", "TW-TTT"];
     series7.fill = am4core.color("#8BC9BD");
     series7.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -202,7 +203,7 @@ class CameoMapTw extends HTMLElement {
     // 生態觀光區
     var series6 = chart.series.push(new am4maps.MapPolygonSeries());
     series6.geodataSource.url = "data/taiwan.json";
-    series6.name = dic_meta["產業聚落名稱七"];
+    series6.name = ary_data[0][6];
     series6.include = ["TW-KIN", "TW-LIE"];
     series6.fill = am4core.color("#357993");
     series6.mapPolygons.template.tooltipText = "{name}"; //:{number}家數
@@ -241,12 +242,23 @@ class CameoMapTw extends HTMLElement {
     pin.circle.fill = pin.background.fill;
 
     //var color22 = am4core.color("#ed4e4e");
+    var weight = dic_meta["產業聚落標籤字體"];
+    var color = dic_meta["產業聚落公司家數文字顏色"];
+    var size = dic_meta["產業聚落產值文字大小"];
+    var text =
+      "[" +
+      weight +
+      "]" +
+      "{category}[/]\n[" +
+      color +
+      "]{count}家\n[font-size:" +
+      size +
+      "]({value}億元)[/]";
+
     var label = pin.createChild(am4core.Label);
     label.fontSize = "13px";
-    label.text =
-      "[bold]{category}[/]\n[#ed4e4e]{count}家\n[font-size: 10]({value}億元)[/]";
-
-    //label.fontWeight = "bold";
+    label.text = text;
+    //"[bold]{category}[/]\n[#ed4e4e]{count}家\n[font-size: 10]({value}億元)[/]";
     label.propertyFields.dy = 10;
     label.propertyFields.dx = -5;
     label.verticalCenter = "middle";

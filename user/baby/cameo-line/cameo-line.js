@@ -56,10 +56,10 @@ class CameoLine extends HTMLElement {
       dic_data["德國"] = parseFloat(ary_data[4][i]);
       dic_data["法國"] = parseFloat(ary_data[5][i]);
       dic_data["英國"] = parseFloat(ary_data[6][i]);
-      dic_data["中國大陸"] = parseFloat(ary_data[7][i]);
+      dic_data["新加坡"] = parseFloat(ary_data[7][i]);
       dic_data["韓國"] = parseFloat(ary_data[8][i]);
-      dic_data["新加坡"] = parseFloat(ary_data[9][i]);
-      dic_data["香港"] = parseFloat(ary_data[10][i]);
+      dic_data["香港"] = parseFloat(ary_data[9][i]);
+      dic_data["中國大陸"] = parseFloat(ary_data[10][i]);
       ary_chart_data.push(dic_data);
     }
     return ary_chart_data;
