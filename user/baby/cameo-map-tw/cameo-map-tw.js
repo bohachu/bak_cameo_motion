@@ -64,6 +64,42 @@ class CameoMapTw extends HTMLElement {
     const dic_meta = await this.load_dic_meta();
     const ary_chart_data = this.parse_ary_chart_data(ary_data);
 
+    // console.log("start");
+    // console.log(ary_data[4][0]);
+    // console.log(ary_data[0].length);
+    let i = 0;
+    for (; ary_data[0].length; i++) {
+      var t = "";
+      var j = 0;
+      console.log(t);
+      while (j < ary_data[4][i].length) {
+        t = t + ary_data[4][i].substr(j, 15) + "\n";
+        j = j + 15;
+        // console.log(t);
+      }
+      // console.log("final");
+      // console.log(t);
+      ary_data[4][i] = t;
+    }
+
+    let i = 0;
+    for (; ary_data[0].length; i++) {
+      var t = "";
+      var j = 0;
+      console.log(t);
+      while (j < ary_data[3][i].length) {
+        t = t + ary_data[3][i].substr(j, 15) + "\n";
+        j = j + 15;
+        // console.log(t);
+      }
+      // console.log("final");
+      // console.log(t);
+      ary_data[3][i] = t;
+    }
+
+    console.log("final");
+    console.log(ary_data);
+
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
@@ -369,3 +405,10 @@ class CameoMapTw extends HTMLElement {
 }
 
 customElements.define("cameo-map-tw", CameoMapTw);
+
+// Add amCharts 4 license
+am4core.addLicense("CH251292242");
+// Add Maps license
+am4core.addLicense("MP251292242");
+// Add TimeLine license
+am4core.addLicense("TL251292242");
