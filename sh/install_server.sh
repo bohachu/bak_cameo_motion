@@ -80,8 +80,6 @@ cd ~
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
-    jupyterlab ipywidgets jupyterhub-nativeauthenticator --no-cache-dir
-
 
 sudo npm install -g configurable-http-proxy -y
 
