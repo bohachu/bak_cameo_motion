@@ -22,7 +22,8 @@ c.Authenticator.allowed_failed_logins = 3
 c.Authenticator.seconds_before_next_try = 1200
 c.Authenticator.open_signup = True
 c.Authenticator.ask_email_on_signup = True
-
+c.JupyterHub.ssl_key = '/var/ssl/private.key'
+c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
 # data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
 data_dir = "/srv/data/"
 

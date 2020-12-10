@@ -4,7 +4,7 @@
 # jupyterhub設定檔: 專案目錄/sh/jupyter_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 # nginx設定檔: cp 專案目錄/sh/nginx_http.conf
 # 靜態網頁目錄: cp 專案目錄/src 
-
+cd /home/$USER/cameo_motion/sh
 if [[ ! -f .env ]]; then
     echo "Copying environment template..."
     cp .env-template .env
@@ -18,22 +18,24 @@ sudo timedatectl set-timezone Asia/Taipei
 cd /home/$USER/
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
-sudo apt update
-sudo apt install python3 python3-dev --upgrade -y
+
 
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
+sudo add-apt-repository -y ppa:ubuntugis/ppa && \
+    sudo apt update && \
+    sudo apt install python3 python3-dev --upgrade -y \
+    nodejs npm curl wget sudo cron joe nano \
+    software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev \
+    libxtst6 xvfb xdotool wmctrl cmake \
+    zip unzip file fonts-dejavu tzdata graphviz graphviz-dev \
+    libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev  \
+    git-lfs mc nginx postgresql-12 postgresql-client-12 conda && \
+    sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+    sudo export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib && \
+    sudo apt clean -y && \
+    sudo apt -y autoremove 
 
-sudo apt install -y nodejs npm curl wget sudo cron joe nano python3-dev \
-   software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev libxtst6 xvfb xdotool wmctrl cmake \
-      zip unzip file fonts-dejavu tzdata graphviz graphviz-dev \
-      libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev  \
-      git-lfs mc nginx postgresql-12 postgresql-client-12 conda && \
-    add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
-    apt-get update && \
-    ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
-    export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib && \
-    apt-get clean -y && \
-    apt-get -y autoremove 
+#sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
 
 
 # nginx 安裝啟動設定
@@ -60,6 +62,11 @@ cd /var/www/$SITE_DOMAIN
 sudo find . -type d -exec chmod 0755 {} \;
 sudo find . -type f -exec chmod 0644 {} \;
 sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+
+# ssl_certificate 
+sudo cp /home/$USER/cameo_mnotion/secrets/certificate.crt /var/ssl/certificate.crt
+# ssl_certificate_key 
+sudo cp /home/$USER/cameo_mnotion/private.key /var/ssl/private.key
 cd ~
 
 sudo systemctl daemon-reload
