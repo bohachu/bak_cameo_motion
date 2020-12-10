@@ -7,11 +7,12 @@ sudo systemctl start jupyterhub.service
 
 # 設定postgresql
 
+source .env
 
 # 設定postgresql
 sudo su - postgres
 # in postgres
-POSTGRES_PASSWORD=Q!w2e3r4
+# POSTGRES_PASSWORD=Q!w2e3r4
 # The PostgreSQL service is started and set to come up after every system reboot.
 # The PostgreSQL service is started and set to come up after every system reboot.
 psql -c "alter user postgres with password '$POSTGRES_PASSWORD'"
