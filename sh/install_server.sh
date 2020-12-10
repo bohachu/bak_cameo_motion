@@ -71,7 +71,7 @@ sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
 # ssl_certificate 
 sudo cp /home/$USER/cameo_mnotion/secrets/certificate.crt /var/ssl/certificate.crt
 # ssl_certificate_key 
-sudo cp /home/$USER/cameo_mnotion/private.key /var/ssl/private.key
+sudo cp /home/$USER/cameo_mnotion/secrets/private.key /var/ssl/private.key
 cd ~
 
 sudo systemctl daemon-reload

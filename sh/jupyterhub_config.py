@@ -31,18 +31,27 @@ class MyAuthenticator(NativeAuthenticator):
         script_path = os.path.join(config_dir, "add_user.sh")      
         subprocess.check_call(['bash', script_path, user.name])
 
-# c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
-c.JupyterHub.authenticator_class = MyAuthenticator 
-# Whitlelist users and admins
-c.Authenticator.whitelist = whitelist
-
 c.JupyterHub.admin_access = True
 c.JupyterHub.upgrade_db = True
 
 c.JupyterHub.bind_url = 'http://:3801'
-c.Authenticator.admin_users = {'cameo','iek'}
+
+# Whitlelist users and admins
+c.Authenticator.whitelist = whitelist
+
+# c.JupyterHub.authenticator_class = 'nativeauthenticator.NativeAuthenticator'
+# c.JupyterHub.authenticator_class = MyAuthenticator 
+# c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
+#         host=os.environ['POSTGRES_HOST'],
+#         password=os.environ['POSTGRES_PASSWORD'],
+#         db=os.environ['POSTGRES_DB'],)
 
 c.PAMAuthenticator.admin_groups = {'sudo'}
+# 
+
+c.Authenticator.admin_users = {'cameo','iek'}
+
+
 c.LocalAuthenticator.create_system_users = True
 
 c.Authenticator.minimum_password_length = 8
@@ -57,8 +66,5 @@ c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
 # c.JupyterHub.data_files_path = '/opt/jupyterhub/share/jupyterhub'
 data_dir = "/srv/data/"
 c.Spawner.default_url = '/lab'
-c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
-        host=os.environ['POSTGRES_HOST'],
-        password=os.environ['POSTGRES_PASSWORD'],
-        db=os.environ['POSTGRES_DB'],)
+
 
