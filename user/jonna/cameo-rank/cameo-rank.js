@@ -13,23 +13,47 @@ class CameoRank extends HTMLElement {
     `;
     this.chart_render();
   }
-  async load_data_csv() {
-    let str_data_path = this.getAttribute("data");
-    // let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_data_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
+
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_df(str_attribute) {
+    const str_path = this.getAttribute(str_attribute);
+    const str_url = `${window.location.href}/../${str_path}`;
+    return await dfjs.DataFrame.fromCSV(str_url);
+  }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_ary_data() {
+    let df = await this.load_df("data");
     df = df.transpose();
-    let ary = df.toArray();
+    const ary = df.toArray();
     return ary;
   }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_dic_meta() {
+    const df = await this.load_df("meta");
+    const ary_df = df.toArray();
+    let dic_meta = {};
+    for (let i = 0; i < ary_df.length; i++) {
+      let str_key = ary_df[i][0];
+      let str_value = ary_df[i][1];
+      dic_meta[str_key] = str_value;
+    }
+    console.log("11111");
+    console.log(dic_meta);
+    return dic_meta;
+  }
+  //2020-12-06 caro 專屬於本動圖的解析程式碼
+  parse_ary_icon_file(dic_meta) {
+    let ary_icon_file = [];
+    for (let str_key in dic_meta) {
+      if (str_key.includes("圖示_")) {
+        ary_icon_file.push(dic_meta[str_key]);
+      }
+    }
+    return ary_icon_file;
+  }
 
-  async chart_render() {
-    let ary_data = await this.load_data_csv();
-    console.log("001 ---------------");
-    console.log(ary_data);
-    console.log("002 ---------------");
-
+  //2020-12-09 jonna 專屬於本動圖的解析程式碼
+  parse_ary_chart_data(ary_data, ary_icon_file) {
     let i = 0;
     let ary_chart_data = [];
     for (; i < ary_data[0].length; i++) {
@@ -37,11 +61,18 @@ class CameoRank extends HTMLElement {
       dic_data["name"] = ary_data[0][i] + " " + ary_data[1][i];
       // arry 0 和 1 合併在 name
       dic_data["steps"] = ary_data[2][i];
-      dic_data["file"] = "??";
+      dic_data["file"] = ary_icon_file[i];
       ary_chart_data.push(dic_data);
     }
-    console.log("ary_chart_data:");
-    console.log(ary_chart_data);
+    return ary_chart_data;
+  }
+
+  async chart_render() {
+    //2020-12-09 jonna 專屬於本動圖的：總資料準備
+    const ary_data = await this.load_ary_data();
+    const dic_meta = await this.load_dic_meta();
+    const ary_icon_file = this.parse_ary_icon_file(dic_meta);
+    const ary_chart_data = this.parse_ary_chart_data(ary_data, ary_icon_file);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -59,64 +90,12 @@ class CameoRank extends HTMLElement {
     // var title = chart.titles.create();
     // title.text = "[bold font-size: 20]台灣半導體營收排行榜";
     // title.textAlign = "middle";
-
+    // 12/09 rank 資料目前無法自動排序，對應的圖片檔案也是特別調整過
     chart.data = ary_chart_data;
-    // [
-    //   {
-    //     name: "2337	旺宏",
-    //     steps: 4.66,
-    //     file: "img/10.png"
-    //   },
-    //   {
-    //     name: "2408	南亞科",
-    //     steps: 5.54,
-    //     file: "img/09.png"
-    //   },
-    //   {
-    //     name: "6239	力成",
-    //     steps: 6.31,
-    //     file: "img/08.png"
-    //   },
-    //   {
-    //     name: "2344	華邦電",
-    //     steps: 7.48,
-    //     file: "img/07.png"
-    //   },
-    //   {
-    //     name: "3034 聯詠",
-    //     steps: 7.97,
-    //     file: "img/06.png"
-    //   },
-    //   {
-    //     name: "2379 瑞昱",
-    //     steps: 8.17,
-    //     file: "img/05.png"
-    //   },
-    //   {
-    //     name: "2303 聯電",
-    //     steps: 14.53,
-    //     file: "img/04.png"
-    //   },
-    //   {
-    //     name: "2454 聯發科",
-    //     steps: 37.87,
-    //     file: "img/03.png"
-    //   },
-    //   {
-    //     name: "3711 日月光投控",
-    //     steps: 43.93,
-    //     file: "img/02.png"
-    //   },
-    //   {
-    //     name: "2330 台積電",
-    //     steps: 127.58,
-    //     file: "img/01.png"
-    //   }
-    // ];
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
-    watermark.text = "資料來源: 工研院產科國際所[/]";
+    watermark.text = dic_meta["資料來源"];
     watermark.fontSize = 10;
     watermark.align = "right";
     watermark.valign = "bottom";
@@ -140,7 +119,7 @@ class CameoRank extends HTMLElement {
     valueAxis.cursorTooltipEnabled = false;
     valueAxis.renderer.baseGrid.strokeOpacity = 0;
     valueAxis.renderer.labels.template.dy = 30;
-    valueAxis.title.text = "億元新台幣";
+    valueAxis.title.text = dic_meta["X軸標題文字"];
     valueAxis.title.align = "center";
     valueAxis.title.paddingTop = 30;
     valueAxis.fontSize = "12px";
@@ -167,8 +146,8 @@ class CameoRank extends HTMLElement {
       target: columnTemplate,
       property: "fill",
       dataField: "valueX",
-      max: am4core.color("#357993"),
-      min: am4core.color("#4DD6C1")
+      max: am4core.color(dic_meta["圖表漸層最深色"]),
+      min: am4core.color(dic_meta["圖表漸層最淺色"])
     });
     series.mainContainer.mask = undefined;
 
@@ -200,6 +179,7 @@ class CameoRank extends HTMLElement {
     image.horizontalCenter = "middle";
     image.verticalCenter = "middle";
     image.propertyFields.href = "file";
+
     // chart.legend = new am4maps.Legend();
     // chart.legend.useDefaultMarker = true;
 
