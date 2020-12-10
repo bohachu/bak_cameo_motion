@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>佳珞操場跑跑動圖元件</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="graybg">
+      <div class="container">
+        <div class="row pb-5 pt-5">
+          <div class="col-md-12 my-auto">
+            <cameo-run data="data/data.csv" meta="data/meta.csv"></cameo-run>
+            <!-- <cameo-run
+              data="data/data-002.csv"
+              meta="data/meta.csv"
+            ></cameo-run>
+            <cameo-run data="data/data-003.csv"></cameo-run> -->
+          </div>
+          <!-- <div class="col-md-4 pt-5 my-auto">
+            <img
+              src="img/index-icon/002-B02-crown.png"
+              style="width: 75px; height: 75px;"
+              alt="圖002操場圖-002-B02-crown"
+            />
+            <h3 class="pt-3" style="color: #2868b1;">
+              2020 臺灣產業附加價值率
+            </h3>
+            <p style="color: #072448;">電子零組件產業居冠</p>
+            <hr
+              style="
+                height: 1px;
+                border-width: 0;
+                color: #363434;
+                background-color: #363434;
+              "
+            />
+            <p1 style="color: #6e7073;">
+              台灣半導體產值包含IC設計業產值、IC製造業產值、IC封裝業產值及IC測試業產值。研院產科國際所產業分析師預估。
+            </p1>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/timeline.js"></script>
+    <script src="https://www.amcharts.com/lib/4/plugins/bullets.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldHigh.js"></script>
+
+    <script src="../cameo-run/cameo-run.js" type="module"></script>
+  </body>
+</html>
