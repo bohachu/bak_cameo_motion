@@ -35,24 +35,11 @@ class CameoMultiAxisPrediction extends HTMLElement {
       let str_value = ary_df[i][1];
       dic_meta[str_key] = str_value;
     }
-<<<<<<< Codesandbox
-<<<<<<< Codesandbox
-<<<<<<< Codesandbox
-<<<<<<< Codesandbox
-=======
-    console.log("1/");
->>>>>>> GitHub
-    console.log(dic_meta);
-    return dic_meta;
   }
 
   //2020-12-06 caro 專屬於本動圖的解析程式碼
   parse_ary_chart_data(ary_data) {
-<<<<<<< Codesandbox
-    let ary_chart_data = [];
-=======
     let i = 0;
->>>>>>> GitHub
     let ary_chart_data = [];
     let 開關_是否第一個預測值的年增率已經設定過了 = false;
     for (; i < ary_data[0].length; i++) {
@@ -68,11 +55,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
         dic_data["產值"] = parseFloat(ary_data[1][i]);
         dic_data["年增率"] = parseFloat(ary_data[2][i]);
         delete dic_data["預測年增率"];
-=======
-    console.log("1/");
-    console.log(dic_meta);
-    return dic_meta;
-=======
+
     console.log("1/");
     console.log(dic_meta);
     return dic_meta;
@@ -917,3 +900,4 @@ customElements.define("cameo-multi-axis-prediction", CameoMultiAxisPrediction);
     var circle = bullet.createChild(am4core.Circle);
     circle.radius = 4;
     circle.fill = am4core.color("#ffffff");
+

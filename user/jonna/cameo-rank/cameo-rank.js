@@ -217,3 +217,6 @@ class CameoRank extends HTMLElement {
 }
 
 customElements.define("cameo-rank", CameoRank);
+
+// Add amCharts 4 license
+am4core.addLicense("CH251292242");

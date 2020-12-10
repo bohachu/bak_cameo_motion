@@ -246,10 +246,5 @@ customElements.define(
   CameoDivergentStackedBars
 );
 
-  }
-}
-
-customElements.define(
-  "cameo-divergent-stacked-bars",
-  CameoDivergentStackedBars
-);
+// Add amCharts 4 license
+am4core.addLicense("CH251292242");
