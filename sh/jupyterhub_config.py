@@ -1,6 +1,9 @@
 # Native Authenticator ref https://blog.jupyter.org/simpler-authentication-for-small-scale-jupyterhubs-with-nativeauthenticator-999534c77a09
 # https://native-authenticator.readthedocs.io/en/latest/index.html
 
+# TODO jupyterhub_config.py 需要設定建立新使用者時, 自動加入group以及連結上述資料夾到home目錄中
+
+
 from jupyter_client.localinterfaces import public_ips
 import os
 import sys
