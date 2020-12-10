@@ -11,23 +11,40 @@ class CameoLine extends HTMLElement {
     this.chart_render();
   }
 
-  async load_data_csv() {
-    let str_data_path = this.getAttribute("data");
-    // let str_meta_path = this.getAttribute("meta");
-    let str_url = `${window.location.href}/../${str_data_path}`;
-    console.log(str_url);
-    let df = await dfjs.DataFrame.fromCSV(str_url);
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_df(str_attribute) {
+    const str_path = this.getAttribute(str_attribute);
+    const str_url = `${window.location.href}/../${str_path}`;
+    return await dfjs.DataFrame.fromCSV(str_url);
+  }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_ary_data() {
+    let df = await this.load_df("data");
     df = df.transpose();
-    let ary = df.toArray();
+    const ary = df.toArray();
     return ary;
   }
+  //2020-12-06 todo bowen 一週之內要放入共用 common
+  async load_dic_meta() {
+    const df = await this.load_df("meta");
+    const ary_df = df.toArray();
+    let dic_meta = {};
+    for (let i = 0; i < ary_df.length; i++) {
+      let str_key = ary_df[i][0];
+      let str_value = ary_df[i][1];
+      dic_meta[str_key] = str_value;
+    }
+    return dic_meta;
+  }
 
-  async chart_render() {
-    let ary_data = await this.load_data_csv();
-    console.log("001 ---------------");
-    console.log(ary_data);
-    console.log("002 ---------------");
+  // async chart_render() {
+  //   let ary_data = await this.load_data_csv();
+  //   console.log("001 ---------------");
+  //   console.log(ary_data);
+  //   console.log("002 ---------------");
 
+  //2020-12-06 caro 專屬於本動圖的解析程式碼
+  parse_ary_chart_data(ary_data) {
     let i = 0;
     let ary_chart_data = [];
     for (; i < ary_data[0].length; i++) {
@@ -45,8 +62,16 @@ class CameoLine extends HTMLElement {
       dic_data["香港"] = parseFloat(ary_data[10][i]);
       ary_chart_data.push(dic_data);
     }
-    console.log("ary_chart_data:");
-    console.log(ary_chart_data);
+    return ary_chart_data;
+    // console.log("ary_chart_data:");
+    // console.log(ary_chart_data);
+  }
+
+  async chart_render() {
+    //2020-12-06 caro 專屬於本動圖的：總資料準備
+    const ary_data = await this.load_ary_data();
+    const dic_meta = await this.load_dic_meta();
+    const ary_chart_data = this.parse_ary_chart_data(ary_data);
 
     // Themes begin
     am4core.useTheme(am4themes_animated);
@@ -57,7 +82,7 @@ class CameoLine extends HTMLElement {
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
-    watermark.text = "資料來源: 工研院產科國際所";
+    watermark.text = dic_meta["資料來源"];
     watermark.fontSize = 10;
     watermark.align = "right";
     // watermark.paddingRight = 10;
@@ -183,7 +208,7 @@ class CameoLine extends HTMLElement {
     // Create value axis
     var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.renderer.inversed = false;
-    valueAxis.title.text = "億美元";
+    valueAxis.title.text = dic_meta["左側 Y 軸標題"];
     valueAxis.renderer.minLabelPosition = 0.01;
     valueAxis.fontSize = "12px";
 
