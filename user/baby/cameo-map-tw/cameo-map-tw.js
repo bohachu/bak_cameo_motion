@@ -78,8 +78,8 @@ class CameoMapTw extends HTMLElement {
     chart.projection = new am4maps.projections.Miller();
 
     chart.homeGeoPoint = {
-      latitude: 0,
-      longitude: -80
+      latitude: -25,
+      longitude: -20
     };
 
     // watermark
@@ -93,8 +93,8 @@ class CameoMapTw extends HTMLElement {
     chart.legend = new am4maps.Legend();
     chart.legend.position = "left";
     chart.legend.align = "left";
-    chart.legend.background.fill = am4core.color("#000");
-    chart.legend.background.fillOpacity = 0.05;
+    chart.legend.background.fill = am4core.color("#e3f6f5");
+    //chart.legend.background.fillOpacity = 0.85;
     chart.legend.width = 180;
     chart.legend.fontSize = "12px";
 
@@ -226,7 +226,7 @@ class CameoMapTw extends HTMLElement {
     imageSeries.tooltip.getFillFromObject = false;
     imageSeries.tooltip.background.fillOpacity = 0.65;
     imageSeries.tooltip.background.fill = am4core.color("#000000");
-    imageSeries.tooltip.fontSize = "12px";
+    imageSeries.tooltip.fontSize = "13px";
 
     // Creating a pin bullet
     var pin = imageTemplate.createChild(am4plugins_bullets.PinBullet);
@@ -245,6 +245,7 @@ class CameoMapTw extends HTMLElement {
     var weight = dic_meta["產業聚落標籤字體"];
     var color = dic_meta["產業聚落公司家數文字顏色"];
     var size = dic_meta["產業聚落產值文字大小"];
+
     var text =
       "[" +
       weight +
@@ -368,10 +369,3 @@ class CameoMapTw extends HTMLElement {
 }
 
 customElements.define("cameo-map-tw", CameoMapTw);
-
-// Add amCharts 4 license
-am4core.addLicense("CH251292242");
-// Add Maps license
-am4core.addLicense("MP251292242");
-// Add TimeLine license
-am4core.addLicense("TL251292242");

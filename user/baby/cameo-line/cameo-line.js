@@ -403,6 +403,3 @@ class CameoLine extends HTMLElement {
 }
 
 customElements.define("cameo-line", CameoLine);
-
-// Add amCharts 4 license
-am4core.addLicense("CH251292242");
