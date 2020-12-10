@@ -127,7 +127,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
 
     /* Create series */
     var columnSeries = chart.series.push(new am4charts.ColumnSeries());
-    columnSeries.name = "產值";
+    columnSeries.name = dic_meta["實心軸資料標記"];
     columnSeries.dataFields.valueY = "產值";
     columnSeries.dataFields.categoryX = "季度";
     columnSeries.clustered = false;
@@ -140,7 +140,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
     columnSeries.fill = am4core.color("#ffcb00");
 
     var column2Series = chart.series.push(new am4charts.ColumnSeries());
-    column2Series.name = "預測產值";
+    column2Series.name = dic_meta["虛線軸資料標記"];
     column2Series.dataFields.valueY = "預測產值";
     column2Series.dataFields.categoryX = "季度";
     column2Series.clustered = false;
@@ -156,7 +156,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
     column2Series.fill = am4core.color("#ffcb00").lighten(0.7);
 
     var lineSeries = chart.series.push(new am4charts.LineSeries());
-    lineSeries.name = "年增率";
+    lineSeries.name = dic_meta["實線資料標記"];
     lineSeries.dataFields.valueY = "年增率";
     lineSeries.dataFields.categoryX = "季度";
     lineSeries.yAxis = y2Axis;
@@ -165,7 +165,7 @@ class CameoMultiAxisPrediction extends HTMLElement {
     lineSeries.tooltip.label.textAlign = "middle";
 
     var line2Series = chart.series.push(new am4charts.LineSeries());
-    line2Series.name = "預測年增率";
+    line2Series.name = dic_meta["虛線資料標記"];
     line2Series.dataFields.valueY = "預測年增率";
     line2Series.dataFields.categoryX = "季度";
     line2Series.yAxis = y2Axis;
