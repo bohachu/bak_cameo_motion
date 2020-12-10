@@ -55,7 +55,7 @@ sudo cp ~/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
 sudo systemctl stop nginx
 
 # sudo /etc/init.d/nginx reload
-sudo systemctl stop nginx
+# sudo systemctl stop nginx
 sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
 
 # 設定靜態網頁檔案
