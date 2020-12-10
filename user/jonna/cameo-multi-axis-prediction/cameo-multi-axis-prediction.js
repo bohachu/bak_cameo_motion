@@ -90,6 +90,26 @@ class CameoMultiAxisPrediction extends HTMLElement {
 
     // Export
     chart.exporting.menu = new am4core.ExportMenu();
+    chart.exporting.menu.items = [
+      {
+        label: "...",
+        menu: [
+          {
+            label: "Image",
+            menu: [
+              { type: "png", label: "PNG" },
+              { type: "jpg", label: "JPG" },
+              { type: "svg", label: "SVG" },
+              { type: "pdf", label: "PDF" }
+            ]
+          },
+          {
+            label: "Print",
+            type: "print"
+          }
+        ]
+      }
+    ];
 
     // watermark
     var watermark = chart.createChild(am4core.Label);
