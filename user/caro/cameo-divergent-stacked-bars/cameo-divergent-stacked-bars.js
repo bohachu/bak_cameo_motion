@@ -231,21 +231,21 @@ class CameoDivergentStackedBars extends HTMLElement {
       return series;
     }
 
-    var positiveColor = am4core.color(dic_meta["右邊顏色"]);
-    var negativeColor = am4core.color(dic_meta["左邊顏色"]);
+    var positiveColor = am4core.color(dic_meta["強烈正值顏色"]);
+    var negativeColor = am4core.color(dic_meta["強烈負值顏色"]);
 
-    createSeries("positive2", dic_meta["資料標籤1名稱"], positiveColor);
-    createSeries(
-      "positive1",
-      dic_meta["資料標籤2名稱"],
-      positiveColor.lighten(0.5)
-    );
-    createSeries(
-      "negative2",
-      dic_meta["資料標籤3名稱"],
-      negativeColor.lighten(0.5)
-    );
-    createSeries("negative1", dic_meta["資料標籤4名稱"], negativeColor);
+    createSeries("positive2", dic_meta["強烈正值名稱"], positiveColor);
+    createSeries("positive1", dic_meta["正值名稱"], positiveColor.lighten(0.5));
+    createSeries("negative2", dic_meta["負值名稱"], negativeColor.lighten(0.5));
+    createSeries("negative1", dic_meta["強烈負值名稱"], negativeColor);
+  }
+}
+
+customElements.define(
+  "cameo-divergent-stacked-bars",
+  CameoDivergentStackedBars
+);
+
   }
 }
 
