@@ -16,31 +16,40 @@ source .env
 sudo timedatectl set-timezone Asia/Taipei
 
 cd /home/$USER/
+# postgresql ppa
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
-sudo apt install python3 python3-dev --upgrade -y
+sudo apt install postgresql-12 postgresql-client-12  --upgrade -y
 
-sudo curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | sudo gpg --dearmor > conda.gpg
+# conda ppa
+curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | gpg --dearmor > conda.gpg
 sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
 sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
+sudo apt update && sudo apt install conda --upgrade -y
 
+# vscode ppa
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo apt install apt-transport-https
+sudo apt update && sudo apt install code -y
 
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
-sudo add-apt-repository -y ppa:ubuntugis/ppa && \
-    sudo apt update && \
+# sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+sudo apt update && \
     sudo apt install python3 python3-dev --upgrade -y \
     nodejs npm curl wget sudo cron joe nano \
-    software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev \
-    libxtst6 xvfb xdotool wmctrl cmake \
-    zip unzip file fonts-dejavu tzdata graphviz graphviz-dev \
-    libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev  \
-    git-lfs mc nginx postgresql-12 postgresql-client-12 conda && \
-    sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+    zip unzip file fonts-dejavu \
+    # software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev \
+    # libxtst6 xvfb xdotool wmctrl cmake \
+    #  tzdata graphviz graphviz-dev \
+    # libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev  \
+    git-lfs mc nginx && \
     sudo export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib && \
     sudo apt clean -y && \
     sudo apt -y autoremove 
 
-#sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable && \
+# sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 
 
 # nginx 安裝啟動設定
@@ -52,6 +61,7 @@ sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
 sudo cp ~/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN
 sudo cp ~/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 sudo systemctl stop nginx
 
 # sudo /etc/init.d/nginx reload
@@ -69,8 +79,8 @@ cd /var/www/$SITE_DOMAIN
 sudo find . -type d -exec chmod 0755 {} \;
 sudo find . -type f -exec chmod 0644 {} \;
 sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
-sudo systemctl start nginx
 
+sudo mkdir -p /etc/nginx/ssl
 # ssl_certificate 
 sudo cp /home/$USER/cameo_mnotion/secrets/certificate.crt /var/ssl/certificate.crt
 # ssl_certificate_key 
@@ -80,6 +90,7 @@ cd ~
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
+
 
 sudo npm install -g configurable-http-proxy -y
 
