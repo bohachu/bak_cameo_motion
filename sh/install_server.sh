@@ -113,6 +113,7 @@ sudo cp /home/$USER/cameo_motion/sh/userlist /opt/jupyterhub/etc/jupyterhub/user
 
 
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
+# sudo cp /home/cameo/cameo_motion/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo cp /home/$USER/cameo_motion/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo chmod a+x /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo mkdir -p /opt/jupyterhub/etc/systemd
