@@ -43,8 +43,8 @@ with open(os.path.join(pwd, 'userlist')) as f:
 
 c.JupyterHub.admin_access = True
 
-c.JupyterHub.base_rul = '/u'
-c.JupyterHub.bind_url = 'http://127.0.0.1:3801/u'
+# c.JupyterHub.base_rul = '/'
+c.JupyterHub.bind_url = 'http://:8000/'
 
 # Whitlelist users and admins
 c.Authenticator.whitelist = whitelist
@@ -54,8 +54,8 @@ c.PAMAuthenticator.admin_groups = {'sudo'}
 
 c.LocalAuthenticator.create_system_users = True
 
-c.JupyterHub.ssl_key = '/var/ssl/private.key'
-c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
+# c.JupyterHub.ssl_key = '/var/ssl/private.key'
+# c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
 # data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
 # c.JupyterHub.data_files_path = '/opt/jupyterhub/share/jupyterhub'
 data_dir = "/srv/data/"
