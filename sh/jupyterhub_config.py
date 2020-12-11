@@ -3,7 +3,7 @@
 # https://github.com/jupyterhub/ldapauthenticator/issues/54
 from jupyter_client.localinterfaces import public_ips
 import os, sys, subprocess
-c = get_config()
+# c = get_config()
 # TODO jupyterhub_config.py 需要設定建立新使用者時, 自動加入group以及連結上述資料夾到home目錄中
 
 # from nativeauthenticator import NativeAuthenticator
@@ -28,29 +28,29 @@ c = get_config()
 # c.JupyterHub.upgrade_db = True
 # 
 
-pwd = os.path.dirname(__file__)
-whitelist = set()
-admin = set()
-with open(os.path.join(pwd, 'userlist')) as f:
-    for line in f:
-        if not line:
-            continue
-        parts = line.split()
-        name = parts[0]
-        whitelist.add(name)
-        if len(parts) > 1 and parts[1] == 'admin':
-            admin.add(name)
+# pwd = os.path.dirname(__file__)
+# whitelist = set()
+# admin = set()
+# with open(os.path.join(pwd, 'userlist')) as f:
+#     for line in f:
+#         if not line:
+#             continue
+#         parts = line.split()
+#         name = parts[0]
+#         whitelist.add(name)
+#         if len(parts) > 1 and parts[1] == 'admin':
+#             admin.add(name)
+# Whitlelist users and admins
+# c.Authenticator.whitelist = whitelist
+# c.Authenticator.admin_users = admin
 
 c.JupyterHub.admin_access = True
 
 # c.JupyterHub.base_rul = '/'
 c.JupyterHub.bind_url = 'http://:3800/'
 
-# Whitlelist users and admins
-c.Authenticator.whitelist = whitelist
-c.Authenticator.admin_users = admin
 c.PAMAuthenticator.admin_groups = {'sudo'}
-# c.Authenticator.admin_users = {'cameo','iek'}
+c.Authenticator.admin_users = {'cameo','iek'}
 
 c.LocalAuthenticator.create_system_users = True
 
@@ -58,8 +58,8 @@ c.LocalAuthenticator.create_system_users = True
 # c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
 # data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
 # c.JupyterHub.data_files_path = '/opt/jupyterhub/share/jupyterhub'
-data_dir = "/srv/data/"
-c.JupyterHub.data_files_path = data_dir
+# data_dir = "/srv/data/"
+# c.JupyterHub.data_files_path = data_dir
 c.Spawner.default_url = '/lab'
 
 
