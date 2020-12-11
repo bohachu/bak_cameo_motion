@@ -1,11 +1,15 @@
 #!/bin/bash
+# 起始執行目錄: 專案目錄/sh
+# 請先把sh變成可以執行: chmod a+x *.sh
+# 請先設定好nginx
 # after install, launch with: 
-# jupyterhub: jupyterhub -f /path/to/jupyterhub_config.py
-# 執行目錄: 專案目錄
-# jupyterhub設定檔: 專案目錄/sh/jupyter_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+# jupyterhub: sudo systemctl start jupyterhub.service or
+#     /opt/jupyterhub/bin/jupyterhub -f /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+# jupyterhub設定檔: 專案目錄/sh/jupyter_config.py -> /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+# 修改設定後重啟服務: ./update_jupyterhub_config_then_restart.sh
 # nginx設定檔: cp 專案目錄/sh/nginx_http.conf
 # 靜態網頁目錄: cp 專案目錄/src 
-cd /home/$USER/cameo_motion/sh
+# cd /home/$USER/$PRJ_DIR_NAME/sh
 if [[ ! -f .env ]]; then
     echo "Copying environment template..."
     cp .env-template .env
@@ -42,7 +46,7 @@ sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 sudo apt update && \
     sudo apt install python3 python3-dev --upgrade -y \
     nodejs npm curl wget sudo cron joe nano \
-    zip unzip file fonts-dejavu 
+    zip unzip file fonts-dejavu acl
     # software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev \
     # libxtst6 xvfb xdotool wmctrl cmake \
     #  tzdata graphviz graphviz-dev \
@@ -57,11 +61,11 @@ sudo apt install git-lfs mc nginx && \
 
 # # nginx 安裝啟動設定
 
-# cd /home/$USER/cameo_motion/sh
+# cd /home/$USER/$PRJ_DIR_NAME/sh
 # sudo systemctl stop nginx
 # sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
-# sudo cp /home/$USER/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf
-# sudo cp /home/$USER/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+# sudo cp /home/$USER/$PRJ_DIR_NAME/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf
+# sudo cp /home/$USER/$PRJ_DIR_NAME/sh/htpasswd /etc/nginx/htpasswd
 # sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 
 # # sudo /etc/init.d/nginx reload
@@ -69,11 +73,11 @@ sudo apt install git-lfs mc nginx && \
 
 # # 設定靜態網頁檔案
 # sudo mkdir -p /var/www/$SITE_DOMAIN/html/
-# sudo cp -R /home/$USER/cameo_motion/src/* /var/www/$SITE_DOMAIN/html/
+# sudo cp -R /home/$USER/$PRJ_DIR_NAME/src/* /var/www/$SITE_DOMAIN/html/
 
 # # www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
 # sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
-# # sudo chmod -R 755 /var/www/cameo.tw
+# # sudo chmod -R 755 /var/www/iek.cameo.tw
 # cd /var/www/$SITE_DOMAIN
 # sudo find . -type d -exec chmod 0755 {} \;
 # sudo find . -type f -exec chmod 0644 {} \;
@@ -81,9 +85,9 @@ sudo apt install git-lfs mc nginx && \
 
 # sudo mkdir -p /var/ssl
 # # ssl_certificate 
-# sudo cp /home/$USER/cameo_motion/secrets/certificate.crt /var/ssl/certificate.crt
+# sudo cp /home/$USER/$PRJ_DIR_NAME/secrets/certificate.crt /var/ssl/certificate.crt
 # # ssl_certificate_key 
-# sudo cp /home/$USER/cameo_motion/secrets/private.key /var/ssl/private.key
+# sudo cp /home/$USER/$PRJ_DIR_NAME/secrets/private.key /var/ssl/private.key
 # cd /home/$USER
 
 # sudo systemctl daemon-reload
@@ -93,7 +97,7 @@ sudo apt install git-lfs mc nginx && \
 
 sudo npm install -g configurable-http-proxy -y
 
-sudo apt install python3-venv
+sudo apt install python3-venv -y 
 sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel jupyterhub \
@@ -104,19 +108,19 @@ cd /opt/jupyterhub/etc/jupyterhub/
 # sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
 
 # userlist
-cd /home/$USER/cameo_motion/sh
+cd /home/$USER/$PRJ_DIR_NAME/sh
 if [[ ! -f userlist ]]; then
     echo "Copying environment template..."
     cp userlist-template userlist
 fi
-sudo cp /home/$USER/cameo_motion/sh/userlist /opt/jupyterhub/etc/jupyterhub/userlist
+sudo cp /home/$USER/$PRJ_DIR_NAME/sh/userlist /opt/jupyterhub/etc/jupyterhub/userlist
 
 
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
-sudo cp /home/$USER/cameo_motion/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+sudo cp /home/$USER/$PRJ_DIR_NAME/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo chmod a+x /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo mkdir -p /opt/jupyterhub/etc/systemd
-sudo cp /home/$USER/cameo_motion/sh/jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
+sudo cp /home/$USER/$PRJ_DIR_NAME/sh/jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 
@@ -196,12 +200,16 @@ sudo /opt/conda/envs/python/bin/jupyter lab build --minimize=False
 # 共享目錄設定
 sudo groupadd analysts
 sudo usermod -aG analysts $USER
+# sudo usermod -g analysts $USER
 sudo mkdir -p /srv/data/share_data_analysts
 sudo chown -R cameo:analysts /srv/data/share_data_analysts
 sudo chmod -R 770 /srv/data/share_data_analysts
 
+# 連結到主目錄
+
 
 # setfacl only works in native linux; not working for WSL 
+# sudo apt install -y acl
 # Granting permission for a group named "analysts" would look something like this:
 sudo setfacl -R -m d:g:analysts:rwx /srv/data/share_data_analysts
 # 非群組的應該都看不到
