@@ -62,6 +62,34 @@ class CameoMapTw extends HTMLElement {
     // console.log("002 ---------------");
     const ary_data = await this.load_ary_data();
     const dic_meta = await this.load_dic_meta();
+
+    //針對產業描述斷行
+    let length = ary_data[0].length;
+    for (let i = 0; i < length; i++) {
+      var t = "";
+      var j = 0;
+      while (j < ary_data[4][i].length) {
+        t = t + ary_data[4][i].substr(j, 15) + "\n";
+        j = j + 15;
+      }
+      ary_data[4][i] = t;
+    }
+
+    // console.log("final");
+    //console.log(ary_data[4]);
+
+    //針對描述斷行
+    var des_length = ary_data[0].length;
+    for (let i = 0; i < des_length; i++) {
+      t = "";
+      j = 0;
+      while (j < ary_data[3][i].length) {
+        t = t + ary_data[3][i].substr(j, 15) + "\n";
+        j = j + 15;
+      }
+      ary_data[3][i] = t;
+    }
+
     const ary_chart_data = this.parse_ary_chart_data(ary_data);
 
     // Themes begin
@@ -78,8 +106,8 @@ class CameoMapTw extends HTMLElement {
     chart.projection = new am4maps.projections.Miller();
 
     chart.homeGeoPoint = {
-      latitude: 0,
-      longitude: -80
+      latitude: -25,
+      longitude: -20
     };
 
     // watermark
@@ -93,8 +121,8 @@ class CameoMapTw extends HTMLElement {
     chart.legend = new am4maps.Legend();
     chart.legend.position = "left";
     chart.legend.align = "left";
-    chart.legend.background.fill = am4core.color("#000");
-    chart.legend.background.fillOpacity = 0.05;
+    chart.legend.background.fill = am4core.color("#e3f6f5");
+    //chart.legend.background.fillOpacity = 0.85;
     chart.legend.width = 180;
     chart.legend.fontSize = "12px";
 
@@ -217,7 +245,7 @@ class CameoMapTw extends HTMLElement {
     imageTemplate.propertyFields.longitude = "longitude";
     imageTemplate.propertyFields.latitude = "latitude";
     imageTemplate.nonScaling = true;
-    imageTemplate.tooltipText = "{description}\n\n主要產業：{industry}";
+    imageTemplate.tooltipText = "{description}\n\n主要產業：\n{industry}";
 
     imageSeries.tooltip.animationDuration = 0;
     imageSeries.tooltip.showInViewport = false;
@@ -226,7 +254,7 @@ class CameoMapTw extends HTMLElement {
     imageSeries.tooltip.getFillFromObject = false;
     imageSeries.tooltip.background.fillOpacity = 0.65;
     imageSeries.tooltip.background.fill = am4core.color("#000000");
-    imageSeries.tooltip.fontSize = "12px";
+    imageSeries.tooltip.fontSize = "13px";
 
     // Creating a pin bullet
     var pin = imageTemplate.createChild(am4plugins_bullets.PinBullet);
@@ -245,6 +273,7 @@ class CameoMapTw extends HTMLElement {
     var weight = dic_meta["產業聚落標籤字體"];
     var color = dic_meta["產業聚落公司家數文字顏色"];
     var size = dic_meta["產業聚落產值文字大小"];
+
     var text =
       "[" +
       weight +
