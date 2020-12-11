@@ -202,7 +202,7 @@ sudo groupadd analysts
 sudo usermod -aG analysts $USER
 # sudo usermod -g analysts $USER
 sudo mkdir -p /srv/data/share_data_analysts
-sudo chown -R cameo:analysts /srv/data/share_data_analysts
+sudo chown -R root:analysts /srv/data/share_data_analysts
 sudo chmod -R 770 /srv/data/share_data_analysts
 
 # 連結到主目錄
