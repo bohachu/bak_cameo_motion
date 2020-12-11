@@ -44,7 +44,7 @@ with open(os.path.join(pwd, 'userlist')) as f:
 c.JupyterHub.admin_access = True
 
 c.JupyterHub.base_rul = '/u'
-c.JupyterHub.bind_url = 'http://127.0.0.1:8000/u'
+c.JupyterHub.bind_url = 'http://127.0.0.1:3801/u'
 
 # Whitlelist users and admins
 c.Authenticator.whitelist = whitelist

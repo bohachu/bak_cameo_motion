@@ -16,10 +16,6 @@ source .env
 sudo timedatectl set-timezone Asia/Taipei
 
 cd /home/$USER/
-# postgresql ppa
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
-sudo apt install postgresql-12 postgresql-client-12  --upgrade -y
 
 # conda ppa
 curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | gpg --dearmor > conda.gpg
@@ -27,24 +23,29 @@ sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
 sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
 sudo apt update && sudo apt install conda --upgrade -y
 
+# # postgresql ppa
+# wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+# sudo echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+# sudo apt install postgresql-12 postgresql-client-12  --upgrade -y
+
 # vscode ppa
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt install apt-transport-https
-sudo apt update && sudo apt install code -y
+# curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+# sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+# sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+# sudo apt install apt-transport-https
+# sudo apt update && sudo apt install code -y
 
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 # sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 sudo apt update && \
     sudo apt install python3 python3-dev --upgrade -y \
     nodejs npm curl wget sudo cron joe nano \
-    zip unzip file fonts-dejavu \
+    zip unzip file fonts-dejavu 
     # software-properties-common apt-utils ffmpeg libssl1.1 libssl-dev \
     # libxtst6 xvfb xdotool wmctrl cmake \
     #  tzdata graphviz graphviz-dev \
     # libxml2-dev libxslt-dev libjpeg-dev zlib1g-dev libpng-dev  \
-    git-lfs mc nginx && \
+sudo apt install git-lfs mc nginx && \
     sudo export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib && \
     sudo apt clean -y && \
     sudo apt -y autoremove 
@@ -53,24 +54,20 @@ sudo apt update && \
 
 
 # nginx 安裝啟動設定
-# ref https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
-# sudo add-apt-repository ppa:nginx/stable -y
-# sudo apt update
-# sudo apt install nginx -y
-# cd ~/cameo_motion/sh
-sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
-sudo cp ~/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN
-sudo cp ~/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
-openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
+
+cd /home/$USER/cameo_motion/sh
 sudo systemctl stop nginx
+sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
+sudo cp /home/$USER/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf
+sudo cp /home/$USER/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 
 # sudo /etc/init.d/nginx reload
 # sudo systemctl stop nginx
-sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
 
 # 設定靜態網頁檔案
 sudo mkdir -p /var/www/$SITE_DOMAIN/html/
-sudo cp ../src/* /var/www/$SITE_DOMAIN/html/
+sudo cp -R /home/$USER/cameo_motion/src/* /var/www/$SITE_DOMAIN/html/
 
 # www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
 sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
@@ -78,14 +75,14 @@ sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
 cd /var/www/$SITE_DOMAIN
 sudo find . -type d -exec chmod 0755 {} \;
 sudo find . -type f -exec chmod 0644 {} \;
-sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf /etc/nginx/sites-enabled/$SITE_DOMAIN
 
-sudo mkdir -p /etc/nginx/ssl
+sudo mkdir -p /var/ssl
 # ssl_certificate 
-sudo cp /home/$USER/cameo_mnotion/secrets/certificate.crt /var/ssl/certificate.crt
+sudo cp /home/$USER/cameo_motion/secrets/certificate.crt /var/ssl/certificate.crt
 # ssl_certificate_key 
-sudo cp /home/$USER/cameo_mnotion/secrets/private.key /var/ssl/private.key
-cd ~
+sudo cp /home/$USER/cameo_motion/secrets/private.key /var/ssl/private.key
+cd /home/$USER
 
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
