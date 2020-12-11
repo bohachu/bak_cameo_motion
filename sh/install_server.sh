@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# after install, launch with: 
+# jupyterhub: jupyterhub -f /path/to/jupyterhub_config.py
 # 執行目錄: 專案目錄
 # jupyterhub設定檔: 專案目錄/sh/jupyter_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 # nginx設定檔: cp 專案目錄/sh/nginx_http.conf
@@ -37,6 +38,7 @@ sudo apt update && sudo apt install conda --upgrade -y
 
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 # sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 sudo apt update && \
     sudo apt install python3 python3-dev --upgrade -y \
     nodejs npm curl wget sudo cron joe nano \
@@ -53,53 +55,62 @@ sudo apt install git-lfs mc nginx && \
 # sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 
 
-# nginx 安裝啟動設定
+# # nginx 安裝啟動設定
 
-cd /home/$USER/cameo_motion/sh
-sudo systemctl stop nginx
-sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
-sudo cp /home/$USER/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf
-sudo cp /home/$USER/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
-sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
-
-# sudo /etc/init.d/nginx reload
+# cd /home/$USER/cameo_motion/sh
 # sudo systemctl stop nginx
+# sudo mkdir -p /etc/nginx/sites-available/$SITE_DOMAIN
+# sudo cp /home/$USER/cameo_motion/sh/nginx_http.conf /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf
+# sudo cp /home/$USER/cameo_motion/sh/htpasswd /etc/nginx/htpasswd
+# sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 
-# 設定靜態網頁檔案
-sudo mkdir -p /var/www/$SITE_DOMAIN/html/
-sudo cp -R /home/$USER/cameo_motion/src/* /var/www/$SITE_DOMAIN/html/
+# # sudo /etc/init.d/nginx reload
+# # sudo systemctl stop nginx
 
-# www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
-sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
-# sudo chmod -R 755 /var/www/cameo.tw
-cd /var/www/$SITE_DOMAIN
-sudo find . -type d -exec chmod 0755 {} \;
-sudo find . -type f -exec chmod 0644 {} \;
-sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf /etc/nginx/sites-enabled/$SITE_DOMAIN
+# # 設定靜態網頁檔案
+# sudo mkdir -p /var/www/$SITE_DOMAIN/html/
+# sudo cp -R /home/$USER/cameo_motion/src/* /var/www/$SITE_DOMAIN/html/
 
-sudo mkdir -p /var/ssl
-# ssl_certificate 
-sudo cp /home/$USER/cameo_motion/secrets/certificate.crt /var/ssl/certificate.crt
-# ssl_certificate_key 
-sudo cp /home/$USER/cameo_motion/secrets/private.key /var/ssl/private.key
-cd /home/$USER
+# # www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
+# sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
+# # sudo chmod -R 755 /var/www/cameo.tw
+# cd /var/www/$SITE_DOMAIN
+# sudo find . -type d -exec chmod 0755 {} \;
+# sudo find . -type f -exec chmod 0644 {} \;
+# sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf /etc/nginx/sites-enabled/$SITE_DOMAIN
 
-sudo systemctl daemon-reload
-sudo systemctl enable nginx
-sudo systemctl start nginx
+# sudo mkdir -p /var/ssl
+# # ssl_certificate 
+# sudo cp /home/$USER/cameo_motion/secrets/certificate.crt /var/ssl/certificate.crt
+# # ssl_certificate_key 
+# sudo cp /home/$USER/cameo_motion/secrets/private.key /var/ssl/private.key
+# cd /home/$USER
+
+# sudo systemctl daemon-reload
+# sudo systemctl enable nginx
+# sudo systemctl start nginx
 
 
 sudo npm install -g configurable-http-proxy -y
 
+sudo apt install python3-venv
 sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel jupyterhub \
     jupyterlab ipywidgets jupyterhub-nativeauthenticator --no-cache-dir
-sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
-# cd /opt/jupyterhub/etc/jupyterhub/
-sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
+cd /opt/jupyterhub/etc/jupyterhub/
+# sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
+
+# userlist
+cd /home/$USER/cameo_motion/sh
+if [[ ! -f userlist ]]; then
+    echo "Copying environment template..."
+    cp userlist-template userlist
+fi
+sudo cp /home/$USER/cameo_motion/sh/userlist /opt/jupyterhub/etc/jupyterhub/userlist
+
 
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
 sudo cp /home/$USER/cameo_motion/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
@@ -109,10 +120,8 @@ sudo cp /home/$USER/cameo_motion/sh/jupyterhub.service /opt/jupyterhub/etc/syste
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 
-# sudo apt update && sudo apt install conda -y
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
 sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
-
 
 sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
     sudo /opt/conda/bin/conda config --prepend channels conda-forge
@@ -151,7 +160,9 @@ sudo /opt/conda/bin/conda create --prefix \
     "ipyleaflet=0.13.3" \
     "psutil=5.7.3" \
     "google-cloud-storage" \
-    cv2 nose pandas scikit-learn -y 
+    "nose=1.3.7" \
+    "scikit-learn=0.23.2" -y 
+#cv2 not available
 
 sudo /opt/conda/envs/python/bin/python -m pip install --upgrade pip --no-cache-dir 
 sudo /opt/conda/envs/python/bin/pip3 install keplergl --no-cache-dir 
@@ -161,17 +172,19 @@ sudo /opt/conda/bin/conda build purge-all && \
 
 export NODE_OPTIONS=--max-old-space-size=4096 && \
     sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
-    sodo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
-    sodo /opt/conda/envs/python/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-    sudo /opt/conda/envs/python/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install jupyter-matplotlib --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install spreadsheet-editor --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build && \
-    sudo /opt/conda/envs/python/bin/jupyter lab build && \
+    sudo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
+    sudo /opt/conda/envs/python/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+    sudo /opt/conda/envs/python/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
+sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
+sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build 
+sudo /opt/conda/envs/python/bin/jupyter labextension install jupyter-matplotlib --no-build
+sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build 
+sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build 
+sudo /opt/conda/envs/python/bin/jupyter labextension install spreadsheet-editor --no-build
+sudo /opt/conda/envs/python/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build 
+sudo /opt/conda/envs/python/bin/jupyter lab build --minimize=False 
+# it has memory issue wheen consecutively execute in 4GB RAM condition, so seperate the execution or use --minimize=False
+
     unset NODE_OPTIONS 
     # jupyter labextension install jupyterlab-plotly@4.6.0 --no-build && \
     # jupyter labextension install plotlywidget@4.6.0 --no-build && \
@@ -196,35 +209,35 @@ sudo setfacl -R -m d:o::r /srv/data/share_data_analysts
 # 加入權限使預設新建立的檔案都是rwx權限:
 sudo setfacl -R -m d:mask:rwx /srv/data/share_data_analysts
 
-/usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
+# /usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
-## install julia
-cd ~
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz
-tar xvfz julia-1.5.3-linux-x86_64.tar.gz
-sudo chown -R root:users ~/julia-1.5.3/
-# sudo chmod a+x ~/julia-1.5.3/bin/
-# cd /usr/local/bin/
-sudo ln -s ~/julia-1.5.3/bin/julia /usr/local/bin/julia
+# ## install julia
+# cd ~
+# wget https://julialang-s3.julialang.org/bin/linux/x64/1.5/julia-1.5.3-linux-x86_64.tar.gz
+# tar xvfz julia-1.5.3-linux-x86_64.tar.gz
+# sudo chown -R root:users ~/julia-1.5.3/
+# # sudo chmod a+x ~/julia-1.5.3/bin/
+# # cd /usr/local/bin/
+# sudo ln -s ~/julia-1.5.3/bin/julia /usr/local/bin/julia
 
 source ~/.bashrc
 ## jupyterlab julia 
-/usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
+# /usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
-## install julia genie
-/usr/local/bin/julia -e 'import Pkg; Pkg.add("PackageCompiler");using PackageCompiler;Pkg.add("Genie");@time using Genie;@time PackageCompiler.create_sysimage(:Genie; replace_default=true)'
+# ## install julia genie
+# /usr/local/bin/julia -e 'import Pkg; Pkg.add("PackageCompiler");using PackageCompiler;Pkg.add("Genie");@time using Genie;@time PackageCompiler.create_sysimage(:Genie; replace_default=true)'
 
-## interact.jl
-/usr/local/bin/julia -e 'using Pkg;Pkg.add("Interact");Pkg.add("IJulia");Pkg.add("WebIO")'
-/usr/local/bin/julia -e 'using WebIO; using Interact; WebIO.install_jupyter_labextension();'
+# ## interact.jl
+# /usr/local/bin/julia -e 'using Pkg;Pkg.add("Interact");Pkg.add("IJulia");Pkg.add("WebIO")'
+# /usr/local/bin/julia -e 'using WebIO; using Interact; WebIO.install_jupyter_labextension();'
 
-## github
-git config --global user.email "$DEFAULT_GIT_USER_EMAIL"
-git config --global user.name "$DEFAULT_GIT_USER_NAME"
-git config --global credential.helper cache
-git config --global credential.helper store
+# ## github
+# git config --global user.email "$DEFAULT_GIT_USER_EMAIL"
+# git config --global user.name "$DEFAULT_GIT_USER_NAME"
+# git config --global credential.helper cache
+# git config --global credential.helper store
 
-## deno
-cd ~
-curl -fsSL https://deno.land/x/install/install.sh | sh
-# cd /usr/local/bin/
+# ## deno
+# cd ~
+# curl -fsSL https://deno.land/x/install/install.sh | sh
+# # cd /usr/local/bin/
