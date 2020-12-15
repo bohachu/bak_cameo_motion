@@ -2,8 +2,6 @@
 # Set ownership to the administrator and sharedfolder group
 # /srv/data/share_data_analysts
 echo "Cammand: ./sharefolder <username>"
-sudo usermod -aG analysts $USER
-
 echo "user account: $1";
 
 sudo usermod -aG analysts $1
