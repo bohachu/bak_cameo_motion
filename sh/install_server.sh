@@ -150,22 +150,21 @@ unset NODE_OPTIONS
     # jupyter labextension install plotlywidget@4.6.0 --no-build && \
 
 
+# 安裝使用者環境
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
 sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
-
-sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
-    sudo /opt/conda/bin/conda config --prepend channels conda-forge
-
-# Install a default conda environment for all users
 sudo mkdir -p /opt/conda/envs/
 sudo chmod -R a+w /opt/conda/ && \
     sudo chown -R root:users /opt/conda && \
     sudo chmod g+s /opt/conda
+# sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
+#     sudo /opt/conda/bin/conda config --prepend channels conda-forge
 
+# Install a default conda environment for all users
+
+# 建立conda env 同時安裝libraries
 # 將jupyterhub內的conda env 放在為jupyterhub安裝的虛擬環境中
-sudo /opt/conda/bin/conda create --prefix \
-    /opt/conda/envs/python \
-    -c conda-forge python=3.8 \
+sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 ipykernel \
     "jupyterhub=$JUPYTERHUB_VERSION" \
     "jupyterlab=$JUPYTERLAB_VERSION" \
     "notebook=$NOTEBOOK_VERSION" \
@@ -192,13 +191,16 @@ sudo /opt/conda/bin/conda create --prefix \
     "google-cloud-storage" \
     "nose=1.3.7" \
     "scikit-learn=0.23.2" -y 
-#cv2 not available
 
+#cv2 not available
 sudo /opt/conda/envs/python/bin/python -m pip install --upgrade pip --no-cache-dir 
 sudo /opt/conda/envs/python/bin/pip3 install keplergl --no-cache-dir 
 sudo /opt/conda/bin/conda build purge-all && \
     sudo /opt/conda/bin/conda clean --all -f -y && \
     sudo rm -fvR /opt/conda/pkgs/*
+
+# 增加jupyter運算核心
+sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python (default)"
 
 # sudo rm -rf /var/lib/apt/lists/*
 
@@ -209,15 +211,11 @@ sudo usermod -aG analysts $USER
 # sudo usermod -g analysts $USER
 sudo mkdir -p /srv/data/share_data_analysts
 sudo chown -R root:analysts /srv/data/share_data_analysts
-sudo chmod -R 770 /srv/data/share_data_analysts
+sudo chmod -R 777 /srv/data/share_data_analysts
 
 sudo mkdir -p /srv/data/www
 sudo chown -R root:analysts /srv/data/www
 sudo chmod -R 755 /srv/data/www
-
-# 連結到主目錄
-
-
 
 
 # setfacl only works in native linux; not working for WSL 
@@ -235,8 +233,11 @@ sudo setfacl -R -m d:o::r /srv/data/www
 # 加入權限使預設新建立的檔案都是rwx權限:
 sudo setfacl -R -m d:mask:rwx /srv/data/www
 
+
+# 連結到主目錄
 sudo ln -s /srv/data/share_data_analysts /home/$USER/share_data_analysts
 sudo ln -s /srv/data/www /home/$USER/www
+
 
 # /usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
