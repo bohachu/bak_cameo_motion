@@ -42,7 +42,7 @@ sudo apt update && sudo apt install conda --upgrade -y
 
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 # sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
-sudo add-apt-repository -y ppa:ubuntugis/ppa && \
+# sudo add-apt-repository -y ppa:ubuntugis/ppa && \
 sudo apt update && \
     sudo apt install python3 python3-dev --upgrade -y \
     nodejs npm curl wget sudo cron joe nano \
