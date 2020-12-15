@@ -46,16 +46,16 @@ import os, sys, subprocess
 
 c.JupyterHub.admin_access = True
 
-# c.JupyterHub.base_rul = '/'
-c.JupyterHub.bind_url = 'http://:3800/'
+# c.JupyterHub.base_rul = ''
+c.JupyterHub.bind_url = 'https://:3801/'
 
 c.PAMAuthenticator.admin_groups = {'sudo'}
-c.Authenticator.admin_users = {'cameo','iek'}
+c.Authenticator.admin_users = {'cameo','iek','cameo2','hanes','caro'}
 
 c.LocalAuthenticator.create_system_users = True
 
-# c.JupyterHub.ssl_key = '/var/ssl/private.key'
-# c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
+c.JupyterHub.ssl_key = '/var/ssl/private.key'
+c.JupyterHub.ssl_cert = '/var/ssl/certificate.crt'
 # data_dir = os.environ.get('DATA_VOLUME_CONTAINER', '/data')
 # c.JupyterHub.data_files_path = '/opt/jupyterhub/share/jupyterhub'
 # data_dir = "/srv/data/"
