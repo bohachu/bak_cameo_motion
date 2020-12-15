@@ -101,6 +101,7 @@ sudo apt install python3-venv -y
 sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip
 sudo /opt/jupyterhub/bin/python3 -m pip install wheel jupyterhub \
+    nbgitpuller voila voila-gridstack ipyleaflet \
     jupyterlab ipywidgets jupyterhub-nativeauthenticator --no-cache-dir
 
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
@@ -130,12 +131,12 @@ sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
 sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 sudo mkdir -p /opt/conda/envs/
+
+sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
+    sudo /opt/conda/bin/conda config --prepend channels conda-forge
 sudo chmod -R a+w /opt/conda/ && \
     sudo chown -R root:users /opt/conda && \
     sudo chmod g+s /opt/conda
-# sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
-#     sudo /opt/conda/bin/conda config --prepend channels conda-forge
-
 # Install a default conda environment for all users
 
 # 建立conda env 同時安裝libraries
@@ -176,7 +177,12 @@ sudo /opt/conda/bin/conda build purge-all && \
     sudo rm -fvR /opt/conda/pkgs/*
 
 # 增加jupyter運算核心
-sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python (default)"
+sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python 3.8 (default)"
+
+#[InstallIPythonKernelSpecApp] WARNING | Installing to /opt/jupyterhub/share/jupyter/kernels, 
+# which is not in ['/root/.local/share/jupyter/kernels', '/opt/conda/envs/python/share/jupyter/kernels', '/usr/local/share/jupyter/kernels', '/usr/share/jupyter/kernels', '/root/.ipython/kernels']. 
+# The kernelspec may not be found.
+# Installed kernelspec python in /opt/jupyterhub/share/jupyter/kernels/python
 
 export NODE_OPTIONS=--max-old-space-size=4096 && \
     # sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
