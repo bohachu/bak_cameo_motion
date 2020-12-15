@@ -125,30 +125,6 @@ sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/ju
 sudo chmod a+x /opt/jupyterhub/etc/systemd/jupyterhub.service
 
 
-export NODE_OPTIONS=--max-old-space-size=4096 && \
-    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
-sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
-sudo /opt/jupyterhub/bin/jupyter serverextension enable voila --sys-prefix && \
-sudo /opt/jupyterhub/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-sudo /opt/jupyterhub/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install jupyter-matplotlib --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_filetree --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install spreadsheet-editor --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build 
-sudo /opt/jupyterhub/bin/jupyter lab build --minimize=False 
-# it has memory issue wheen consecutively execute in 4GB RAM condition, so seperate the execution or use --minimize=False
-
-unset NODE_OPTIONS 
-    # jupyter labextension install jupyterlab-plotly@4.6.0 --no-build && \
-    # jupyter labextension install plotlywidget@4.6.0 --no-build && \
-
 
 # 安裝使用者環境
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
@@ -201,6 +177,30 @@ sudo /opt/conda/bin/conda build purge-all && \
 
 # 增加jupyter運算核心
 sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python (default)"
+
+export NODE_OPTIONS=--max-old-space-size=4096 && \
+    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
+    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
+    # sudo /opt/conda/envs/python/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+    # sudo /opt/conda/envs/python/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
+sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
+sudo /opt/jupyterhub/bin/jupyter serverextension enable voila --sys-prefix && \
+sudo /opt/jupyterhub/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
+sudo /opt/jupyterhub/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build 
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyter-matplotlib --no-build
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_filetree --no-build
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build 
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build 
+sudo /opt/jupyterhub/bin/jupyter labextension install spreadsheet-editor --no-build
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build 
+sudo /opt/jupyterhub/bin/jupyter lab build --minimize=False 
+# it has memory issue wheen consecutively execute in 4GB RAM condition, so seperate the execution or use --minimize=False
+
+unset NODE_OPTIONS 
+    # jupyter labextension install jupyterlab-plotly@4.6.0 --no-build && \
+    # jupyter labextension install plotlywidget@4.6.0 --no-build && \
 
 # sudo rm -rf /var/lib/apt/lists/*
 
