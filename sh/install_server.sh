@@ -252,12 +252,20 @@ sudo ln -s /srv/data/share_data_analysts /home/$USER/share_data_analysts
 sudo ln -s /srv/data/www /home/$USER/www
 
 # 設定增加使用者時的行為, 預設目錄和設定檔
-sudo rm /etc/default/useradd
-sudo cp /home/$USER/$PRJ_DIR_NAME/sh/useradd-default-template /etc/default/useradd
-sudo mkdir -p /etc/skel
+cd /home/$USER/$PRJ_DIR_NAME/sh
+if [ -f /etc/default/useradd ]; then    
+    sudo rm /etc/default/useradd
+fi 
+sudo cp useradd-default-template /etc/default/useradd
+
+if [ ! -d /etc/skel ]; then    
+    sudo mkdir -p /etc/skel
+fi 
+
 sudo ln -s /srv/data/share_data_analysts /etc/skel/share_data_analysts
 sudo ln -s /srv/data/www /etc/skel/www
-sudo cp /home/$USER/$PRJ_DIR_NAME/sh/etc_skel/* /etc/skel
+sudo cp ~/.bashrc /etc/skel
+sudo cp ~/.bash_logout /etc/skel
 
 # /usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 

@@ -10,8 +10,9 @@ else
     echo 'user not found; creating user:'
      # Use realmd to add the user with passwd = username
      # realm permit ${user}                   
-     sudo useradd -p $(openssl passwd -6 ${user}) -G analysts  -k -s /usr/bin/bash ${user} 
-     sudo groupadd ${user}
+     sudo useradd -m -p $(openssl passwd -6 ${user}) -G analysts ${user} 
+     # sudo useradd -m -p $(openssl passwd -6 tuseradd) -G analysts tuseradd
+     # sudo groupadd ${user}
      # sudo usermod -aG ${user} ${user}
      # sudo usermod -g ${user} ${user}
      
@@ -35,7 +36,7 @@ else
 
      # Symlink a shared folder into the user notebook directory
      # ln -s /home/sharedfolder ${userhome}/notebooks/sharedfolder
-     sudo ln -s /srv/data/share_data_analysts  /home/${user}/share_data_analysts  
+     # sudo ln -s /srv/data/share_data_analysts  /home/${user}/share_data_analysts  
 
 fi
 
