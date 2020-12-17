@@ -7,6 +7,7 @@ echo "user account: $1";
 sudo usermod -aG analysts $1
 
 sudo ln -s /srv/data/share_data_analysts /home/$1/share_data_analysts
+sudo ln -s /var/www/iek.cameo.tw/html /home/$1/www
 # sudo chown -R :analysts share_data_analysts
 # sudo chown $USER:analysts /home/$1/share_data_analysts
 sudo chmod 777 -R /home/$USER/share_data_analysts

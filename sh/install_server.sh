@@ -10,19 +10,23 @@
 # nginx設定檔: cp 專案目錄/sh/nginx_http.conf
 # 靜態網頁目錄: cp 專案目錄/src 
 # cd /home/$USER/$PRJ_DIR_NAME/sh
+# rm /home/$USER/$PRJ_DIR_NAME/sh/.env
+echo "準備設定檔"
 if [[ ! -f .env ]]; then
     echo "Copying environment template..."
-    cp .env-template .env
+    # cp .env-template .env
+    cp /home/$USER/$PRJ_DIR_NAME/sh/.env-template /home/$USER/$PRJ_DIR_NAME/sh/.env
 fi
 
 source .env
 
-# 設定時區為Taipei時區
+echo "設定時區為Taipei時區"
 sudo timedatectl set-timezone Asia/Taipei
 
 cd /home/$USER/
 
 # conda ppa
+echo "Add conda ppa and install conda."
 curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | gpg --dearmor > conda.gpg
 sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
 sudo echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
@@ -45,6 +49,7 @@ sudo apt update && sudo apt install conda --upgrade -y && \
 # sudo /opt/jupyterhub/bin/python3 -m pip install keplergl opencv-python
 # sudo ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
 # sudo add-apt-repository -y ppa:ubuntugis/ppa && \
+echo "Install system libraries."
 sudo apt update && \
     sudo apt install --upgrade -y \
     python3 python3-dev  python3-venv \
@@ -65,22 +70,21 @@ sudo apt install git-lfs mc nginx && \
 
 # sudo add-apt-repository -y ppa:ubuntugis/ppa
 
-
-
 sudo apt install nodejs npm -y && \
     sudo apt clean -y && \
     sudo apt -y autoremove 
-    
+
+echo "Install Python3, Jupyterhub, Jupyterlab libraries."
 sudo python3 -m venv /opt/jupyterhub/
 sudo /opt/jupyterhub/bin/python3 -m pip install --upgrade pip --no-cache-dir 
 sudo /opt/jupyterhub/bin/python3 -m pip install \
     wheel jupyterhub jupyterlab ipywidgets jupyterhub-nativeauthenticator \
     nbgitpuller voila voila-gridstack ipyleaflet \
     nbgitpuller google-cloud-storage pandas scikit-learn widgetsnbextension \
-    pandas matplotlib ipympl numba numexpr xlrd psycopg2 ipyleaflet \
+    pandas matplotlib ipympl numba numexpr xlrd psycopg2 ipyleaflet jupyterlab_iframe \
     --no-cache-dir
 
-# 
+# pip install 
 # "matplotlib==3.3.2" \
 #     "scipy==1.5.3" \
 #     "numba==0.52" \
@@ -100,10 +104,12 @@ cd /opt/jupyterhub/etc/jupyterhub/
 
 # Create the configuration for JupyterHub
 # sudo /opt/jupyterhub/bin/jupyterhub --generate-config
+echo "Prepare jupyterhub_confug.py"
 sudo cp /home/$USER/$PRJ_DIR_NAME/sh/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo chmod a+x /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 
 # userlist
+echo "Prepare userlist"
 cd /home/$USER/$PRJ_DIR_NAME/sh
 if [[ ! -f userlist ]]; then
     echo "Copying environment template..."
@@ -113,6 +119,7 @@ sudo cp /home/$USER/$PRJ_DIR_NAME/sh/userlist /opt/jupyterhub/etc/jupyterhub/use
 
 
 # Setup Systemd service
+echo "Setup Jupyterhub systemd service"
 sudo mkdir -p /opt/jupyterhub/etc/systemd
 sudo cp /home/$USER/$PRJ_DIR_NAME/sh/jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
@@ -125,6 +132,7 @@ sudo systemctl start jupyterhub.service
 # Part II: Conda Environments
 # 安裝使用者環境
 # 會將conda安裝在 /opt/conda/; 指令會在 /opt/conda/bin/conda
+echo "Setup user environment in Jupyterlab."
 sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 sudo mkdir -p /opt/conda/envs/
 
@@ -134,7 +142,7 @@ sudo /opt/conda/bin/conda install -c conda-forge -y 'conda-build' && \
 
 # 建立conda env 同時安裝libraries
 # 將jupyterhub內的conda env 放在為jupyterhub安裝的虛擬環境中
-sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.8 ipykernel 
+sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.7 ipykernel 
 # 增加jupyter運算核心
 
 sudo /opt/conda/envs/python/bin/python3 -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python 3 (default)"
@@ -145,6 +153,7 @@ sudo /opt/conda/envs/python/bin/python3 -m ipykernel install --prefix=/opt/jupyt
 # Installed kernelspec python in /opt/jupyterhub/share/jupyter/kernels/python
 
 # 安裝到使用者的env...但是很像沒有作用
+# sudo /opt/conda/bin/conda install -p /opt/jupyterhub/ \
 sudo /opt/conda/bin/conda install -p /opt/conda/envs/python \
     -c conda-forge \
     "nodejs>=12.4" \
@@ -188,6 +197,7 @@ sudo /opt/conda/bin/conda build purge-all && \
     sudo /opt/conda/bin/conda clean --all -f -y && \
     sudo rm -fvR /opt/conda/pkgs/*
 
+echo "安裝和啟用jupyterlab/jupyter notebook 外掛."
 export NODE_OPTIONS=--max-old-space-size=4096 && \
     # sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
     # sudo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
@@ -207,6 +217,8 @@ sudo /opt/jupyterhub/bin/jupyter labextension install spreadsheet-editor --no-bu
 sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build 
 sudo /opt/jupyterhub/bin/jupyter jupyter nbextension enable --py --sys-prefix ipyleaflet
 sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet --no-build 
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_iframe  --no-build 
+sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab_iframe
 sudo /opt/jupyterhub/bin/jupyter lab build --minimize=False 
 # it has memory issue wheen consecutively execute in 4GB RAM condition, so seperate the execution or use --minimize=False
 
@@ -217,18 +229,21 @@ unset NODE_OPTIONS
 # sudo rm -rf /var/lib/apt/lists/*
 
 
-# 共享目錄設定
+echo "共享目錄設定"
 sudo groupadd analysts
 sudo usermod -aG analysts $USER
 # sudo usermod -g analysts $USER
-sudo mkdir -p /srv/data/share_data_analysts
+if [[ ! -d /srv/data/share_data_analysts ]]; then
+    sudo mkdir -p /srv/data/share_data_analysts
+if
 sudo chown -R root:analysts /srv/data/share_data_analysts
 sudo chmod -R 777 /srv/data/share_data_analysts
 
-sudo mkdir -p /srv/data/www
-sudo chown -R root:analysts /srv/data/www
-sudo chmod -R 755 /srv/data/www
-
+if [[ ! -d $HTML_DIR ]]; then
+    sudo mkdir -p $HTML_DIR
+if
+sudo chown -R root:analysts $HTML_DIR
+sudo chmod -R 755 $HTML_DIR
 
 
 # setfacl only works in native linux; not working for WSL 
@@ -240,18 +255,17 @@ sudo setfacl -R -m d:o::r /srv/data/share_data_analysts
 # 加入權限使預設新建立的檔案都是rwx權限:
 sudo setfacl -R -m d:mask:rwx /srv/data/share_data_analysts
 
-sudo setfacl -R -m d:g:analysts:rwx /srv/data/www
+sudo setfacl -R -m d:g:analysts:rwx $HTML_DIR
 # 非群組的應該都看不到
-sudo setfacl -R -m d:o::r /srv/data/www
+sudo setfacl -R -m d:o::r $HTML_DIR
 # 加入權限使預設新建立的檔案都是rwx權限:
-sudo setfacl -R -m d:mask:rwx /srv/data/www
-
+sudo setfacl -R -m d:mask:rwx $HTML_DIR
 
 # 連結到主目錄
-sudo ln -s /srv/data/share_data_analysts /home/$USER/share_data_analysts
-sudo ln -s /srv/data/www /home/$USER/www
+sudo ln -s /srv/data/share_data_analysts /etc/skel/share_data_analysts
+sudo ln -s $HTML_DIR /etc/skel/www
 
-# 設定增加使用者時的行為, 預設目錄和設定檔
+echo "設定增加使用者時的行為, 預設目錄和設定檔"
 cd /home/$USER/$PRJ_DIR_NAME/sh
 if [ -f /etc/default/useradd ]; then    
     sudo rm /etc/default/useradd
@@ -261,11 +275,12 @@ sudo cp useradd-default-template /etc/default/useradd
 if [ ! -d /etc/skel ]; then    
     sudo mkdir -p /etc/skel
 fi 
+cd /home/$USER/$PRJ_DIR_NAME/sh 
 
-sudo ln -s /srv/data/share_data_analysts /etc/skel/share_data_analysts
-sudo ln -s /srv/data/www /etc/skel/www
 sudo cp ~/.bashrc /etc/skel
 sudo cp ~/.bash_logout /etc/skel
+
+sudo cp etc_skel/*.ipynb /etc/skel
 
 # /usr/local/bin/julia -e 'import Pkg; Pkg.add("IJulia"); Pkg.build("IJulia"); using IJulia; notebook(detached=true);'
 
@@ -300,6 +315,8 @@ source ~/.bashrc
 # curl -fsSL https://deno.land/x/install/install.sh | sh
 # # cd /usr/local/bin/
 
+echo "將檔案copy到網頁目錄中"
+sudo cp /home/$USER/$PRJ_DIR_NAME/dist/* /var/www/$SITE_DOMAIN/html
 
 # # nginx 安裝啟動設定
 
@@ -319,10 +336,11 @@ source ~/.bashrc
 
 # # www需要讓特定使用者(如admin group)可以寫入 但是analysts不能寫入
 # sudo chown -R $USER:$USER /var/www/$SITE_DOMAIN/html
-# # sudo chmod -R 755 /var/www/iek.cameo.tw
+# sudo chmod -R 755 /var/www/$SITE_DOMAIN/html
 # cd /var/www/$SITE_DOMAIN
 # sudo find . -type d -exec chmod 0755 {} \;
 # sudo find . -type f -exec chmod 0644 {} \;
+# sudo rm /etc/nginx/sites-enabled/default
 # sudo ln -s /etc/nginx/sites-available/$SITE_DOMAIN/nginx_http.conf /etc/nginx/sites-enabled/$SITE_DOMAIN
 
 # sudo mkdir -p /var/ssl
@@ -335,3 +353,9 @@ source ~/.bashrc
 # sudo systemctl daemon-reload
 # sudo systemctl enable nginx
 # sudo systemctl start nginx
+
+
+
+echo "設定完成!"
+
+source ~/.bashrc

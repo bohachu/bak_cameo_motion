@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# 啟動jupyterhub服務; 需要重開機才會生效
-sudo systemctl daemon-reload
-sudo systemctl enable jupyterhub.service
-sudo systemctl start jupyterhub.service
 
 # 設定postgresql
 
@@ -37,3 +33,6 @@ sed -ri -e 's/(host all all 0.0.0.0\/0 )(trust)/\1md5/' "$PGDATA"/pg_hba.conf
 # Stop the daemon.  The root Dockerfile will restart the server for us.
 # gosu postgres pg_ctl stop -w
 sudo systemctl restart jupyterhub.service
+
+#===============
+
