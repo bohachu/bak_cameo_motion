@@ -199,30 +199,25 @@ sudo /opt/conda/bin/conda build purge-all && \
 
 echo "安裝和啟用jupyterlab/jupyter notebook 外掛."
 export NODE_OPTIONS=--max-old-space-size=4096 && \
-    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter serverextension enable voila --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-    # sudo /opt/conda/envs/python/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
 sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab --sys-prefix && \
 sudo /opt/jupyterhub/bin/jupyter serverextension enable voila --sys-prefix && \
 sudo /opt/jupyterhub/bin/jupyter nbextension install --py widgetsnbextension --sys-prefix && \
-sudo /opt/jupyterhub/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install jupyter-matplotlib --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_filetree --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install spreadsheet-editor --no-build
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build 
-sudo /opt/jupyterhub/bin/jupyter jupyter nbextension enable --py --sys-prefix ipyleaflet
-sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet --no-build 
-sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_iframe  --no-build 
-sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab_iframe
-sudo /opt/jupyterhub/bin/jupyter lab build --minimize=False 
-# it has memory issue wheen consecutively execute in 4GB RAM condition, so seperate the execution or use --minimize=False
-
+sudo /opt/jupyterhub/bin/jupyter nbextension enable widgetsnbextension --py --sys-prefix && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager keplergl-jupyter --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyter-matplotlib --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_filetree --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-sidecar --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyterlab/geojson-extension --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install spreadsheet-editor --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-voila/jupyterlab-preview --no-build && \
+sudo /opt/jupyterhub/bin/jupyter nbextension enable --py --sys-prefix ipyleaflet && \
+sudo /opt/jupyterhub/bin/jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet --no-build && \
+sudo /opt/jupyterhub/bin/jupyter labextension install jupyterlab_iframe  --no-build && \
+sudo /opt/jupyterhub/bin/jupyter serverextension enable --py jupyterlab_iframe && \
+sudo /opt/jupyterhub/bin/jupyter lab build --minimize=False && \
 unset NODE_OPTIONS 
+
     # jupyter labextension install jupyterlab-plotly@4.6.0 --no-build && \
     # jupyter labextension install plotlywidget@4.6.0 --no-build && \
 
